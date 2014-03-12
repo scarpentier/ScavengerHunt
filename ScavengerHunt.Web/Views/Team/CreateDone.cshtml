@@ -1,0 +1,11 @@
+﻿@model ScavengerHunt.Web.Models.Team
+
+@{
+    ViewBag.Title = "Thanks!";
+}
+
+<h2>Welcome, @Html.DisplayFor(model => model.Name)!</h2>
+
+Please share the following token with your teammates: @Html.DisplayFor(model => model.Password)
+
+

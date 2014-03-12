@@ -1,0 +1,46 @@
+﻿@model ScavengerHunt.Web.Models.Team
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Team</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        
+        <dt>@Html.DisplayNameFor(model => model.Score)</dt>
+        <dd>@Html.DisplayFor(model => model.Score)</dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Token)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Token)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Members)
+        </dt>
+        <dd>
+            <ul>
+                @foreach (var member in Model.Members)
+                {
+                    <li>@Html.DisplayFor(modelItem => member.UserName)</li>
+                }
+            </ul>
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
