@@ -31,12 +31,10 @@
             @Html.DisplayNameFor(model => model.Members)
         </dt>
         <dd>
-            <ul>
-                @foreach (var member in Model.Members)
-                {
-                    <li>@Html.DisplayFor(modelItem => member.UserName)</li>
-                }
-            </ul>
+            @foreach (var member in Model.Members)
+            {
+                @Html.DisplayFor(modelItem => member.UserName)<br/>
+            }
         </dd>
     </dl>
 </div>

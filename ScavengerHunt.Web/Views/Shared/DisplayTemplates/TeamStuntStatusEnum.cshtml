@@ -1,0 +1,29 @@
+﻿@using ScavengerHunt.Web.Models
+﻿@model TeamStuntStatusEnum
+
+@if (EnumHelper.IsValidForEnumHelper(ViewData.ModelMetadata))
+{
+    // Display Enum using same names (from [Display] attributes) as in editors
+    string displayName = null;
+    foreach (SelectListItem item in EnumHelper.GetSelectList(ViewData.ModelMetadata, (Enum)Model))
+    {
+        if (item.Selected)
+        {
+            displayName = item.Text ?? item.Value;
+            
+            // Check for color
+            TeamStuntStatusEnum selectedEnum;
+            string css = string.Empty;
+            Enum.TryParse(item.Value, out selectedEnum);
+            
+            switch (selectedEnum)
+            {
+                case TeamStuntStatusEnum.WorkInProgress:
+                    css = "warning";
+                    break;
+            }
+            
+            @Html.DisplayTextFor(model => displayName)
+        }
+    }
+}

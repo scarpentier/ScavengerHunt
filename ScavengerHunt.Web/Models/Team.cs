@@ -20,7 +20,7 @@ namespace ScavengerHunt.Web.Models
         {
             get
             {
-                return this.TeamStunts == null ? 0 : this.TeamStunts.Sum(x => x.Score ?? 0);
+                return this.TeamStunts == null ? 0 : this.TeamStunts.Sum(x => x.Score);
             }
         }
     }

@@ -14,6 +14,8 @@ namespace ScavengerHunt.Web.Models
         public StuntTypeEnum Type { get; set; }
 
         public virtual ICollection<TeamStunt> TeamStunts { get; set; } 
+
+        // TODO: Support pour attacher des fichiers aux stunts
     }
 
     public enum StuntTypeEnum
@@ -21,6 +23,7 @@ namespace ScavengerHunt.Web.Models
         Flag,
         Text,
         RichText,
-        Url
+        Url,
+        Live
     }
 }

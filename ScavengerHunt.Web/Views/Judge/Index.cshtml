@@ -1,0 +1,114 @@
+﻿@using ScavengerHunt.Web.Models
+@model IEnumerable<ScavengerHunt.Web.Models.TeamStunt>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Judgement Queue</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Team.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Stunt.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Score)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NotesTeam)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NotesJudges)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model.Where(x=>x.Status == TeamStuntStatusEnum.Pending).OrderBy(x=>x.DateUpdated)) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Team.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Stunt.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Score) / @Html.DisplayFor(modelItem => item.Stunt.MaxScore)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NotesTeam)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NotesJudges)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id })
+        </td>
+    </tr>
+}
+</table>
+
+@if (Model.Any(x => x.Status == TeamStuntStatusEnum.Done))
+{
+    <h2>Already Judged</h2>
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Team.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Stunt.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Score)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NotesTeam)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NotesJudges)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model.Where(x => x.Status == TeamStuntStatusEnum.Done).OrderByDescending(x => x.DateUpdated))
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Team.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Stunt.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Score) / @Html.DisplayFor(modelItem => item.Stunt.MaxScore)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NotesTeam)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NotesJudges)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+                </td>
+            </tr>
+        }
+    </table>
+}

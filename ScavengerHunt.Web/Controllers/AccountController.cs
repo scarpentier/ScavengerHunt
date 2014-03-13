@@ -12,7 +12,6 @@ using ScavengerHunt.Web.Models;
 
 namespace ScavengerHunt.Web.Controllers
 {
-    [Authorize]
     public class AccountController : Controller
     {
         public AccountController()

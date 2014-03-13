@@ -23,6 +23,13 @@ namespace ScavengerHunt.Web.Models
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<ApplicationUser>()
+                .HasOptional(a => a.Team)
+                .WithMany(m => m.Members)
+                .WillCascadeOnDelete(true);
+            
+            // Rename Identity tables
             modelBuilder.Entity<IdentityUser>().ToTable("IdentityUsers").Property(p => p.Id);
             modelBuilder.Entity<IdentityUser>().ToTable("Users").Property(p => p.Id).HasColumnName("UserId");
             modelBuilder.Entity<ApplicationUser>().ToTable("Users").Property(p => p.Id).HasColumnName("UserId");

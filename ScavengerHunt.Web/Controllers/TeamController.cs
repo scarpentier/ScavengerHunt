@@ -41,6 +41,8 @@ namespace ScavengerHunt.Web.Controllers
         // GET: /Team/Create
         public ActionResult Create()
         {
+            if (!User.Identity.IsAuthenticated) return RedirectToAction("Login", "Account");
+
             return View();
         }
 
@@ -53,9 +55,25 @@ namespace ScavengerHunt.Web.Controllers
         {
             if (ModelState.IsValid)
             {
+                // Add current user as leader and member
+                string currentUserId = User.Identity.GetUserId();
+                var currentUser = db.Users.Find(currentUserId);
+                team.ContactUser = currentUser;
+                team.Members = new List<ApplicationUser> { currentUser };
+
+                // Copy stunts
+                team.TeamStunts = new List<TeamStunt>();
+                foreach (var stunt in db.Stunts)
+                {
+                    team.TeamStunts.Add(new TeamStunt() { Stunt = stunt, Status = TeamStuntStatusEnum.NotStarted});
+                }
+                
+                // Generate password token
                 team.Token = Guid.NewGuid().ToString();
+
                 db.Teams.Add(team);
                 db.SaveChanges();
+
                 return RedirectToAction("CreateDone", new { id = team.Id });
             }
 
@@ -79,6 +97,8 @@ namespace ScavengerHunt.Web.Controllers
         // GET: /Team/Join
         public ActionResult Join()
         {
+            if (!User.Identity.IsAuthenticated) return RedirectToAction("Login", "Account");
+
             return View();
         }
 
@@ -89,16 +109,24 @@ namespace ScavengerHunt.Web.Controllers
         {
             // Get User
             string currentUserId = User.Identity.GetUserId();
-            var user = db.Users.FirstOrDefault(x => x.Id == currentUserId);
+            var user = db.Users.Find(currentUserId);
+
+            // TODO: Qu'est-ce qui arrive quand ce user est déjà membre d'une équipe?
 
             // Get Team
-            var team = db.Teams.FirstOrDefault(t => t.Token == token);
+            var team = db.Teams.First(t => t.Token == token);
 
             // Add user to team and save changes
             team.Members.Add(user);
             db.SaveChanges();
 
-            return View();
+            return this.Details(team.Id);
+        }
+
+        public ActionResult Leave()
+        {
+            // TODO: Implement
+            throw new NotImplementedException();
         }
 
         // GET: /Team/Edit/5
