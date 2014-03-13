@@ -22,7 +22,21 @@
                 <p>
                 @foreach (AuthenticationDescription p in loginProviders)
                 {
-                    <button type="submit" class="btn btn-default" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="Log in using your @p.Caption account">@p.AuthenticationType</button>
+                    switch (p.AuthenticationType)
+                    {
+                        case "Google":
+                            <input type="image" src="../content/oauth-google.png" style="width: 180px" name="provider" value="@p.AuthenticationType" title="Log in using your @p.Caption account" />
+                            break;
+                        case "Facebook":
+                            <input type="image" src="../content/oauth-facebook.png" style="width: 180px" name="provider" value="@p.AuthenticationType" title="Log in using your @p.Caption account" />
+                            break;
+                        case "Twitter":
+                            <input type="image" src="../content/oauth-twitter.png" style="width: 180px" name="provider" value="@p.AuthenticationType" title="Log in using your @p.Caption account" />
+                            break;
+                        default:
+                            <button type="submit" class="btn btn-default" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="Log in using your @p.Caption account">@p.AuthenticationType</button>
+                            break;
+                    }
                 }
                 </p>
             </div>
