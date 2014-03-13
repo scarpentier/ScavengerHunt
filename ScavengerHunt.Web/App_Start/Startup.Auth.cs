@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNet.Identity;
+﻿using System.Configuration;
+
+using Microsoft.AspNet.Identity;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Owin;
@@ -19,18 +21,18 @@ namespace ScavengerHunt.Web
             // Use a cookie to temporarily store information about a user logging in with a third party login provider
             app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
 
-            // Uncomment the following lines to enable logging in with third party login providers
-            //app.UseMicrosoftAccountAuthentication(
-            //    clientId: "",
-            //    clientSecret: "");
+            // 3rd party providers
+            var microsoftSecret = ConfigurationManager.AppSettings["MicrosoftSecret"];
+            if (microsoftSecret != null)
+                app.UseMicrosoftAccountAuthentication("000000004011751A", microsoftSecret);
 
-            //app.UseTwitterAuthentication(
-            //   consumerKey: "",
-            //   consumerSecret: "");
+            var twitterSecret = ConfigurationManager.AppSettings["TwitterSecret"];
+            if (twitterSecret != null)
+                app.UseTwitterAuthentication("e86J3077crgzh8Cqmq5TQ", twitterSecret);
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            var facebookSecret = ConfigurationManager.AppSettings["FacebookSecret"];
+            if (facebookSecret != null)
+                app.UseFacebookAuthentication("1399907303609567", facebookSecret);
 
             app.UseGoogleAuthentication();
         }
