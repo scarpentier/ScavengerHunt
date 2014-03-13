@@ -19,20 +19,30 @@ namespace ScavengerHunt.Web.Models
         /// <summary>
         /// Internal notes for the team
         /// </summary>
-        [Display(Name = "Notes", Description = "Internal notes for use by your team")]
+        [Display(Name = "Team notes", Description = "Internal notes for use by your team")]
         public string NotesTeam { get; set; }
 
         /// <summary>
         /// Internal notes for the judges
         /// </summary>
-        [Display(Name = "Judges's notes", Description = "Internal notes only visible for the judges")]
+        [Display(Name = "Judge notes", Description = "Internal notes only visible for the judges")]
         public string NotesJudges { get; set; }
+
+        // TODO: Comment system internal and shared between team / judges
 
         // TODO: Add support for stunt owner
 
         public TeamStuntStatusEnum Status { get; set; }
         public virtual Team Team { get; set; }
         public virtual Stunt Stunt { get; set; }
+
+        public virtual bool Done
+        {
+            get
+            {
+                return Status == TeamStuntStatusEnum.Done || Score > 0;
+            }
+        }
 
         public TeamStunt()
         {

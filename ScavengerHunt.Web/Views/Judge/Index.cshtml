@@ -24,9 +24,6 @@
         <th>
             @Html.DisplayNameFor(model => model.NotesJudges)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Status)
-        </th>
         <th></th>
     </tr>
 
@@ -48,16 +45,13 @@
             @Html.DisplayFor(modelItem => item.NotesJudges)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Status)
-        </td>
-        <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id })
         </td>
     </tr>
 }
 </table>
 
-@if (Model.Any(x => x.Status == TeamStuntStatusEnum.Done))
+@if (Model.Any(x => x.Done))
 {
     <h2>Already Judged</h2>
 
@@ -84,7 +78,7 @@
             <th></th>
         </tr>
 
-        @foreach (var item in Model.Where(x => x.Status == TeamStuntStatusEnum.Done).OrderByDescending(x => x.DateUpdated))
+        @foreach (var item in Model.Where(x => x.Done).OrderByDescending(x => x.DateUpdated))
         {
             <tr>
                 <td>

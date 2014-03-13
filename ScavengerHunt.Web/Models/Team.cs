@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -16,11 +17,20 @@ namespace ScavengerHunt.Web.Models
 
         public virtual ICollection<TeamStunt> TeamStunts { get; set; }
 
-        public int Score
+        public virtual int Score
         {
             get
             {
                 return this.TeamStunts == null ? 0 : this.TeamStunts.Sum(x => x.Score);
+            }
+        }
+
+        [Display(Name = "Stunts")]
+        public virtual int StuntCount
+        {
+            get
+            {
+                return this.TeamStunts.Count(x => x.Status == TeamStuntStatusEnum.Done);
             }
         }
     }

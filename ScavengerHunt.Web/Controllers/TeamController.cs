@@ -23,6 +23,11 @@ namespace ScavengerHunt.Web.Controllers
             return View(db.Teams.ToList());
         }
 
+        public ActionResult IndexPartial()
+        {
+            return PartialView(db.Teams.ToList());
+        }
+
         // GET: /Team/Details/5
         public ActionResult Details(int? id)
         {

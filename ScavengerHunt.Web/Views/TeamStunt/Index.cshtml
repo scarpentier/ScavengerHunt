@@ -5,7 +5,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Not Done</h2>
+<h2>Stunts</h2>
 
 <table class="table">
     <tr>
@@ -53,7 +53,7 @@
     }
 </table>
 
-@if (Model.Any(x => x.Status == TeamStuntStatusEnum.Done))
+@if (Model.Any(x => x.Done))
 {
     <h2>Done</h2>
 
@@ -74,10 +74,13 @@
             <th>
                 @Html.DisplayNameFor(model => model.NotesTeam)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NotesJudges)
+            </th>
             <th></th>
         </tr>
 
-        @foreach (var item in Model.Where(x => x.Status == TeamStuntStatusEnum.Done))
+        @foreach (var item in Model.Where(x => x.Done))
         {
             <tr>
                 <td>
@@ -96,6 +99,9 @@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.NotesTeam)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NotesJudges)
                 </td>
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { id = item.Id })

@@ -56,34 +56,31 @@
         @Html.HiddenFor(model => model.Id)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Score, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Score)
-                @Html.ValidationMessageFor(model => model.Score)
-            </div>
-        </div>
-
-        <div class="form-group">
             @Html.LabelFor(model => model.DateUpdated, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.DateUpdated)
-                @Html.ValidationMessageFor(model => model.DateUpdated)
+                @Html.DisplayFor(model => model.DateUpdated)
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Submission, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Submission)
-                @Html.ValidationMessageFor(model => model.Submission)
+                @Html.DisplayFor(model => model.Submission)
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.NotesTeam, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.NotesTeam)
-                @Html.ValidationMessageFor(model => model.NotesTeam)
+                @Html.DisplayFor(model => model.NotesTeam)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Score, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Score)
+                @Html.ValidationMessageFor(model => model.Score)
             </div>
         </div>
 

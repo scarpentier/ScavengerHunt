@@ -30,6 +30,11 @@ namespace ScavengerHunt.Web.Controllers
             return View(db.TeamStunts.ToList());
         }
 
+        public ActionResult ActivityPartial()
+        {
+            return PartialView(db.TeamStunts.ToList());
+        }
+
         // GET: /TeamStunt/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -54,8 +59,15 @@ namespace ScavengerHunt.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                teamstunt.DateUpdated = DateTime.Now;
-                db.Entry(teamstunt).State = EntityState.Modified;
+                // Get previous stunt object
+                var teamStunt = db.TeamStunts.Find(teamstunt.Id);
+
+                teamStunt.NotesTeam = teamstunt.NotesTeam;
+                teamStunt.Submission = teamstunt.Submission;
+                teamStunt.Status = teamstunt.Status;
+                teamStunt.DateUpdated = DateTime.Now;
+
+                db.Entry(teamStunt).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

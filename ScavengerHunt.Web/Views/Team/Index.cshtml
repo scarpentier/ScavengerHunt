@@ -1,4 +1,5 @@
-﻿@model IEnumerable<ScavengerHunt.Web.Models.Team>
+﻿@using ScavengerHunt.Web.Models
+@model IEnumerable<ScavengerHunt.Web.Models.Team>
 
 @{
     ViewBag.Title = "Index";
@@ -18,6 +19,9 @@
             @Html.DisplayNameFor(model => model.Score)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.StuntCount)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Members)
         </th>
         <th></th>
@@ -29,6 +33,7 @@
             @Html.DisplayFor(modelItem => item.Name)
         </td>
         <td>@Html.DisplayFor(modelItem => item.Score)</td>
+        <td>@Html.DisplayFor(modelItem => item.StuntCount)</td>
         <td>@Html.DisplayFor(modelItem => item.Members.Count)</td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
