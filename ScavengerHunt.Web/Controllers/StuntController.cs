@@ -10,6 +10,7 @@ using ScavengerHunt.Web.Models;
 
 namespace ScavengerHunt.Web.Controllers
 {
+    [Authorize(Roles="Admin")]
     public class StuntController : Controller
     {
         private ScavengerHuntContext db = new ScavengerHuntContext();
@@ -52,6 +53,9 @@ namespace ScavengerHunt.Web.Controllers
             {
                 db.Stunts.Add(stunt);
                 db.SaveChanges();
+
+                // TODO: Il faut aussi l'ajouter/assigner aux équipes déjà inscrites
+
                 return RedirectToAction("Index");
             }
 

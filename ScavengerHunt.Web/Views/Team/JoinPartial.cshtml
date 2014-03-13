@@ -1,0 +1,20 @@
+﻿@model ScavengerHunt.Web.Models.Team
+
+@using (Html.BeginForm("Join", "Team"))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form" role="form">
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Token)
+            @Html.TextBoxFor(model => model.Token, new { @class = "form-control", @style="max-width: 320px;" })
+            @Html.ValidationMessageFor(model => model.Token)
+        </div>
+
+        <input type="submit" value="Join" class="btn btn-primary" />
+    </div>
+}
+
+

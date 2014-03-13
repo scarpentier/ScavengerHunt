@@ -21,9 +21,21 @@
                 case TeamStuntStatusEnum.WorkInProgress:
                     css = "warning";
                     break;
+                case TeamStuntStatusEnum.Abandon:
+                    css = "danger";
+                    break;
+                case TeamStuntStatusEnum.Done:
+                    css = "info";
+                    break;
+                case TeamStuntStatusEnum.Pending:
+                    css = "success";
+                    break;
+                case TeamStuntStatusEnum.NotStarted:
+                    css = "muted";
+                    break;
             }
-            
-            @Html.DisplayTextFor(model => displayName)
+    <span class="text-@css">
+            @Html.DisplayTextFor(model => displayName)</span>
         }
     }
 }

@@ -10,6 +10,7 @@ using ScavengerHunt.Web.Models;
 
 namespace ScavengerHunt.Web.Controllers
 {
+    [Authorize(Roles = "Judge,Admin")]
     public class JudgeController : Controller
     {
         private ScavengerHuntContext db = new ScavengerHuntContext();

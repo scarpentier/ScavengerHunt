@@ -1,0 +1,18 @@
+﻿@model ScavengerHunt.Web.Models.Team
+
+@using (Html.BeginForm("Create", "Team"))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form" role="form">
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, new { @class = "" })
+            @Html.TextBoxFor(model => model.Name, new { @class = "form-control", @placeholder="", @style="max-width:300px;" })
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+
+        <input type="submit" value="Create" class="btn btn-primary" />
+    </div>
+}

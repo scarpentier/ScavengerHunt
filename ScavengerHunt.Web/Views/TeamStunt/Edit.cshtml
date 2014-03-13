@@ -5,14 +5,15 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
+<h2>@Model.Stunt.Title</h2>
+@Model.Stunt.Description
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>TeamStunt</h4>
+        <h4></h4>
         <hr />
         @Html.ValidationSummary(true)
         @Html.HiddenFor(model => model.Id)
@@ -20,7 +21,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Status, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Status)
+                @Html.EditorFor(model => model.Status, new { @style = "max-width: 320px;" })
                 @Html.ValidationMessageFor(model => model.Status)
             </div>
         </div>
@@ -28,7 +29,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.NotesTeam, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.NotesTeam)
+                @Html.TextAreaFor(model => model.NotesTeam, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.NotesTeam)
             </div>
         </div>
@@ -36,7 +37,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Submission, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Submission)
+                @Html.TextBoxFor(model => model.Submission, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Submission)
             </div>
         </div>

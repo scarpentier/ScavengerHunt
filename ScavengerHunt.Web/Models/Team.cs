@@ -30,7 +30,7 @@ namespace ScavengerHunt.Web.Models
         {
             get
             {
-                return this.TeamStunts.Count(x => x.Status == TeamStuntStatusEnum.Done);
+                return this.TeamStunts == null ? 0 : this.TeamStunts.Count(x => x.Status == TeamStuntStatusEnum.Done);
             }
         }
     }

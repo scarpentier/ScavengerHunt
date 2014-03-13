@@ -20,10 +20,17 @@ namespace ScavengerHunt.Web.Controllers
         // GET: /TeamStunt/
         public ActionResult Index()
         {
-            // TODO: Make sure the user is logged in
+            if (!User.Identity.IsAuthenticated) return RedirectToAction("Login", "Account");
 
             // Get current user
             string currentUserId = User.Identity.GetUserId();
+            var user = db.Users.Find(currentUserId);
+
+            if (user.Team == null)
+            {
+                ModelState.AddModelError("", "You must be part of a team first.");
+                return RedirectToAction("Start", "Team");
+            }
 
             // TODO: Make sure the user is part of a team
 

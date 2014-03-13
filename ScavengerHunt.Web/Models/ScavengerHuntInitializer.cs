@@ -8,15 +8,31 @@ using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace ScavengerHunt.Web.Models
 {
-    public class ScavengerHuntInitializer : System.Data.Entity.DropCreateDatabaseIfModelChanges<ScavengerHuntContext>
+    public class ScavengerHuntInitializer : System.Data.Entity.DropCreateDatabaseAlways<ScavengerHuntContext>
     {
         protected override void Seed(ScavengerHuntContext context)
         {
+            // Create roles
+            var RoleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
+            RoleManager.Create(new IdentityRole("Admin"));
+            RoleManager.Create(new IdentityRole("Judge"));
+
+            // Create users
+            var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
+            var userAdmin = new ApplicationUser() { UserName = "admin" };
+            UserManager.Create(userAdmin, "admin123");
+            UserManager.AddToRole(userAdmin.Id, "Admin");
+            var userJudge = new ApplicationUser() { UserName = "judge" };
+            UserManager.Create(userJudge, "judge123");
+            UserManager.AddToRole(userJudge.Id, "Judge");
+
+            // Create mock data
             var teams = new List<Team>
                             {
                                 new Team() { Name = "Yves Corbeil" },
                                 new Team() { Name = "Sloth" },
-                                new Team() { Name = "CDP" }
+                                new Team() { Name = "CDP" },
+                                new Team() { Name = "Les Casseurs Flotteurs" }
                             };
             teams.ForEach(t => context.Teams.Add(t));
             context.SaveChanges();
