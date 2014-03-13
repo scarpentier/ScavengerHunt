@@ -22,17 +22,20 @@ namespace ScavengerHunt.Web
             app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
 
             // 3rd party providers
-            var microsoftSecret = ConfigurationManager.AppSettings["MicrosoftSecret"];
-            if (microsoftSecret != null)
-                app.UseMicrosoftAccountAuthentication("000000004011751A", microsoftSecret);
+            var microsoftAppId = ConfigurationManager.AppSettings["MicrosoftAppId"];
+            var microsoftAppSecret = ConfigurationManager.AppSettings["MicrosoftAppSecret"];
+            if (microsoftAppId != null && microsoftAppSecret != null)
+                app.UseMicrosoftAccountAuthentication(microsoftAppId, microsoftAppSecret);
 
-            var twitterSecret = ConfigurationManager.AppSettings["TwitterSecret"];
-            if (twitterSecret != null)
-                app.UseTwitterAuthentication("e86J3077crgzh8Cqmq5TQ", twitterSecret);
+            var twitterAppId = ConfigurationManager.AppSettings["TwitterAppId"];
+            var twitterAppSecret = ConfigurationManager.AppSettings["TwitterAppSecret"];
+            if (twitterAppId != null && twitterAppSecret != null)
+                app.UseTwitterAuthentication(twitterAppId, twitterAppSecret);
 
-            var facebookSecret = ConfigurationManager.AppSettings["FacebookSecret"];
-            if (facebookSecret != null)
-                app.UseFacebookAuthentication("1399907303609567", facebookSecret);
+            var facebookAppId = ConfigurationManager.AppSettings["FacebookAppId"];
+            var facebookAppSecret = ConfigurationManager.AppSettings["FacebookAppSecret"];
+            if (facebookAppId != null && facebookAppSecret != null)
+                app.UseFacebookAuthentication(facebookAppId, facebookAppSecret);
 
             app.UseGoogleAuthentication();
         }
