@@ -32,7 +32,8 @@ namespace ScavengerHunt.Web.Models
         Flag,
         Text,
         RichText,
-        Url,
+        Photo,
+        Video,
         Live
     }
 }

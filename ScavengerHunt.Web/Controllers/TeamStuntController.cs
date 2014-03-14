@@ -48,11 +48,18 @@ namespace ScavengerHunt.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             TeamStunt teamstunt = db.TeamStunts.Find(id);
-            if (teamstunt == null)
-            {
-                return HttpNotFound();
-            }
+            if (teamstunt == null) return HttpNotFound();
+
+            // Make sure the current user is registered, part of a team and have access to this stunt
+            var userid = User.Identity.GetUserId();
+            var user = db.Users.Find(userid);
+
+            if (user == null) return RedirectToAction("Login", "Account");
+            if (user.Team == null) return RedirectToAction("Start", "Team");
+            if (user.Team.TeamStunts.All(x => x.Id != id)) return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
+
             return View(teamstunt);
         }
 
