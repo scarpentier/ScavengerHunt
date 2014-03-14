@@ -81,13 +81,25 @@ namespace ScavengerHunt.Web.Controllers
                 teamStunt.DateUpdated = DateTime.Now;
 
                 // Special logic if it's a flag
-                teamStunt = CorrectFlag(teamStunt);
+                if (teamStunt.Stunt.Type == StuntTypeEnum.Flag && !string.IsNullOrEmpty(teamStunt.Stunt.JudgeNotes) && !string.IsNullOrEmpty(teamStunt.Submission))
+                {
+                    if (teamstunt.Submission == teamStunt.Stunt.JudgeNotes)
+                    {
+                        teamStunt.Score = teamStunt.Stunt.MaxScore;
+                        teamStunt.Status = TeamStuntStatusEnum.Done;
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("Submission", "Wrong flag");
+                        return View(teamStunt.Globalize(Language));
+                    }
+                }
 
                 db.Entry(teamStunt).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(teamstunt);
+            return View(teamstunt.Globalize(Language));
         }
 
         protected override void Dispose(bool disposing)
@@ -97,30 +109,6 @@ namespace ScavengerHunt.Web.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
-        }
-
-        private static TeamStunt CorrectFlag(TeamStunt teamStunt)
-        {
-            // Is the stunt of type flag?
-            if (teamStunt.Stunt.Type != StuntTypeEnum.Flag) return teamStunt;
-
-            // Is an answer provided for the flag?
-            if (string.IsNullOrEmpty(teamStunt.Stunt.JudgeNotes)) return teamStunt;
-
-            // Is it the right answer?
-            if (teamStunt.Submission == teamStunt.Stunt.JudgeNotes)
-            {
-                teamStunt.Score = teamStunt.Stunt.MaxScore;
-                teamStunt.Status = TeamStuntStatusEnum.Done;
-                teamStunt.JudgeFeedback = "Nice flag!"; // TODO: Randomize those
-            }
-            else
-            {
-                teamStunt.Status = TeamStuntStatusEnum.WorkInProgress;
-                teamStunt.JudgeFeedback = "Wrong flag";
-            }
-
-            return teamStunt;
         }
     }
 }

@@ -20,6 +20,10 @@ namespace ScavengerHunt.Web.Models
         public virtual ApplicationUser ContactUser { get; set; }
         public virtual ICollection<TeamStunt> TeamStunts { get; set; }
 
+        // TODO: Team URL
+
+        // TODO: Team Logo
+
         public virtual int Score
         {
             get

@@ -201,7 +201,12 @@ namespace ScavengerHunt.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(team).State = EntityState.Modified;
+                var t = db.Teams.Find(team.Id);
+
+                t.Name = team.Name;
+                t.BonusPoints = team.BonusPoints;
+                
+                db.Entry(t).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("IndexAdmin");
             }
