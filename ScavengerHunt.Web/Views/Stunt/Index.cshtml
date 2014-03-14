@@ -1,14 +1,17 @@
 ﻿@model IEnumerable<ScavengerHunt.Web.Models.Stunt>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Stunt List";
 }
 
-<h2>Index</h2>
+<h2>@ViewBag.Title</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<div class="bg-warning">
+    <h4>You are not part of a team yet!</h4>
+    What are you waiting for? Join the fun!
+    <a style="margin-left: 20px;" class="btn btn-primary" href="/Team/Start">Create or Join a team! &raquo;</a>
+</div>
+<br>
 <table class="table">
     <tr>
         <th>
@@ -23,29 +26,24 @@
         <th>
             @Html.DisplayNameFor(model => model.Type)
         </th>
-        <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MaxScore)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Type)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaxScore)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+        </tr>
+    }
 
 </table>

@@ -20,7 +20,7 @@ namespace ScavengerHunt.Web.Controllers
         // GET: /TeamStunt/
         public ActionResult Index()
         {
-            if (!User.Identity.IsAuthenticated) return RedirectToAction("Login", "Account");
+            if (!User.Identity.IsAuthenticated) return RedirectToAction("Index", "Stunt");
 
             // Get current user
             string currentUserId = User.Identity.GetUserId();

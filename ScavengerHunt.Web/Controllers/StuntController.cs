@@ -10,18 +10,24 @@ using ScavengerHunt.Web.Models;
 
 namespace ScavengerHunt.Web.Controllers
 {
-    [Authorize(Roles="Admin")]
     public class StuntController : Controller
     {
         private ScavengerHuntContext db = new ScavengerHuntContext();
 
         // GET: /Stunt/
+        [Authorize(Roles = "Admin")]
+        public ActionResult IndexAdmin()
+        {
+            return View(db.Stunts.ToList());
+        }
+
         public ActionResult Index()
         {
             return View(db.Stunts.ToList());
         }
 
         // GET: /Stunt/Details/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -37,6 +43,7 @@ namespace ScavengerHunt.Web.Controllers
         }
 
         // GET: /Stunt/Create
+        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             return View();
@@ -47,6 +54,7 @@ namespace ScavengerHunt.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult Create([Bind(Include="Id,Title,Description,MaxScore,Type")] Stunt stunt)
         {
             if (ModelState.IsValid)
@@ -63,6 +71,7 @@ namespace ScavengerHunt.Web.Controllers
         }
 
         // GET: /Stunt/Edit/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -82,6 +91,7 @@ namespace ScavengerHunt.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit([Bind(Include="Id,Title,Description,MaxScore,Type")] Stunt stunt)
         {
             if (ModelState.IsValid)
@@ -94,6 +104,7 @@ namespace ScavengerHunt.Web.Controllers
         }
 
         // GET: /Stunt/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -111,6 +122,7 @@ namespace ScavengerHunt.Web.Controllers
         // POST: /Stunt/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult DeleteConfirmed(int id)
         {
             Stunt stunt = db.Stunts.Find(id);

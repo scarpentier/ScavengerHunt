@@ -271,11 +271,11 @@
     <Content Include="Views\Stunt\Delete.cshtml" />
     <Content Include="Views\Stunt\Details.cshtml" />
     <Content Include="Views\Stunt\Edit.cshtml" />
-    <Content Include="Views\Stunt\Index.cshtml" />
+    <Content Include="Views\Stunt\IndexAdmin.cshtml" />
     <Content Include="Views\Team\Delete.cshtml" />
     <Content Include="Views\Team\Details.cshtml" />
     <Content Include="Views\Team\Edit.cshtml" />
-    <Content Include="Views\Team\Index.cshtml" />
+    <Content Include="Views\Team\IndexAdmin.cshtml" />
     <Content Include="Views\Team\JoinPartial.cshtml" />
     <Content Include="Views\Team\CreateDone.cshtml" />
     <Content Include="Views\TeamStunt\Edit.cshtml" />
@@ -289,6 +289,10 @@
     <Content Include="Views\Team\ShowToken.cshtml" />
     <Content Include="Views\Team\CreatePartial.cshtml" />
     <Content Include="Views\Team\Start.cshtml" />
+    <Content Include="Views\Home\Doc.cshtml" />
+    <Content Include="Views\Stunt\Index.cshtml" />
+    <Content Include="Views\Team\Index.cshtml" />
+    <Content Include="Views\Team\YourTeam.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

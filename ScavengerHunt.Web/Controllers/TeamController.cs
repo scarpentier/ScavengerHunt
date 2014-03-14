@@ -19,9 +19,26 @@ namespace ScavengerHunt.Web.Controllers
 
         // GET: /Team/
         [Authorize(Roles="Admin")]
-        public ActionResult Index()
+        public ActionResult IndexAdmin()
         {
             return View(db.Teams.ToList());
+        }
+
+        public ActionResult Index()
+        {
+            Team team = null;
+
+            // Get current user
+            var userid = User.Identity.GetUserId();
+            var user = db.Users.Find(userid); // Might be null
+
+            // Make sure user is authenticated and has a team
+            if (user != null && user.Team != null)
+            {
+                team = user.Team;
+            }
+
+            return View(team);
         }
 
         public ActionResult IndexPartial()

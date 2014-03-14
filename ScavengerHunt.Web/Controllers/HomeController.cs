@@ -26,5 +26,10 @@ namespace ScavengerHunt.Web.Controllers
 
             return View();
         }
+
+        public ActionResult Doc()
+        {
+            return View();
+        }
     }
 }

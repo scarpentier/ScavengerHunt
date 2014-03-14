@@ -33,3 +33,7 @@ input[type="checkbox"].input-validation-error {
 .validation-summary-valid {
     display: none;
 }
+
+.bg-success, .bg-warning {
+    padding: 15px;
+}
