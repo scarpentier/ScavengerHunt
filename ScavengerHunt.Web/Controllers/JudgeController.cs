@@ -42,7 +42,7 @@ namespace ScavengerHunt.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="Id,Score,NotesJudges,Status")] TeamStunt teamstunt)
+        public ActionResult Edit([Bind(Include="Id,Score,JudgeNotes,JudgeFeedback,Status")] TeamStunt teamstunt)
         {
             if (ModelState.IsValid)
             {
@@ -52,7 +52,8 @@ namespace ScavengerHunt.Web.Controllers
                 teamStunt.DateUpdated = DateTime.Now;
                 teamStunt.Score = teamstunt.Score;
                 teamStunt.Status = teamstunt.Status;
-                teamStunt.NotesJudges = teamstunt.NotesJudges;
+                teamStunt.JudgeFeedback = teamstunt.JudgeFeedback;
+                teamStunt.JudgeNotes = teamStunt.JudgeNotes;
 
                 db.Entry(teamStunt).State = EntityState.Modified;
                 db.SaveChanges();

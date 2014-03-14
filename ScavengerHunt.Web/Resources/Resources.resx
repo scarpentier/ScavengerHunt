@@ -123,4 +123,13 @@
   <data name="StuntList" xml:space="preserve">
     <value>Stunt List</value>
   </data>
+  <data name="BonusPoints" xml:space="preserve">
+    <value>Bonus Points</value>
+  </data>
+  <data name="Stunts" xml:space="preserve">
+    <value>Stunts</value>
+  </data>
+  <data name="Team_notes" xml:space="preserve">
+    <value>Team notes</value>
+  </data>
 </root>

@@ -22,7 +22,7 @@
             @Html.DisplayNameFor(model => model.Status)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.NotesTeam)
+            @Html.DisplayNameFor(model => model.TeamNotes)
         </th>
         <th></th>
     </tr>
@@ -44,7 +44,7 @@
                 @Html.DisplayFor(modelItem => item.Status)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.NotesTeam, "Notes")
+                @Html.DisplayFor(modelItem => item.TeamNotes, "Notes")
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.Id })
@@ -72,10 +72,10 @@
                 @Html.DisplayNameFor(model => model.Status)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.NotesTeam)
+                @Html.DisplayNameFor(model => model.TeamNotes)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.NotesJudges)
+                @Html.DisplayNameFor(model => model.JudgeFeedback)
             </th>
             <th></th>
         </tr>
@@ -98,10 +98,10 @@
                     @Html.DisplayFor(modelItem => item.Status)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.NotesTeam)
+                    @Html.DisplayFor(modelItem => item.TeamNotes, "Notes")
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.NotesJudges)
+                    @Html.DisplayFor(modelItem => item.JudgeFeedback, "Notes")
                 </td>
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { id = item.Id })

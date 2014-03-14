@@ -21,7 +21,7 @@ namespace ScavengerHunt.Web.Controllers
         [Authorize(Roles="Admin")]
         public ActionResult IndexAdmin()
         {
-            return View(db.Teams.ToList());
+            return View(db.Teams.ToList().OrderByDescending(x => x.Score));
         }
 
         public ActionResult Index()
@@ -43,7 +43,7 @@ namespace ScavengerHunt.Web.Controllers
 
         public ActionResult IndexPartial()
         {
-            return PartialView(db.Teams.ToList());
+            return PartialView(db.Teams.ToList().OrderByDescending(x => x.Score));
         }
 
         public ActionResult ShowToken(int? id)
@@ -99,7 +99,14 @@ namespace ScavengerHunt.Web.Controllers
         public ActionResult Create([Bind(Include="Id,Name")] Team team)
         {
             if (ModelState.IsValid)
-            {
+            {              
+                // Make sure the team is not already there
+                if (db.Teams.FirstOrDefault(x => x.Name == team.Name) != null)
+                {
+                    ModelState.AddModelError("Name", "Team name already exists");
+                    return View("Start", team);
+                }
+
                 // Add current user as leader and member
                 string currentUserId = User.Identity.GetUserId();
                 var currentUser = db.Users.Find(currentUserId);
@@ -119,24 +126,18 @@ namespace ScavengerHunt.Web.Controllers
                 db.Teams.Add(team);
                 db.SaveChanges();
 
-                return RedirectToAction("CreateDone", new { id = team.Id });
+                return RedirectToAction("CreateDone");
             }
 
-            return View(team);
+            return PartialView("CreatePartial", team);
         }
 
-        public ActionResult CreateDone(int? id)
+        public ActionResult CreateDone()
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Team team = db.Teams.Find(id);
-            if (team == null)
-            {
-                return HttpNotFound();
-            }
-            return View(team);
+            // TODO: 3 things can go wrong here but we don't really care
+            var userid = User.Identity.GetUserId();
+            var user = db.Users.Find(userid);
+            return View(user.Team);
         }
 
         // GET: /Team/Join
@@ -165,7 +166,7 @@ namespace ScavengerHunt.Web.Controllers
             team.Members.Add(user);
             db.SaveChanges();
 
-            return this.Details(team.Id);
+            return RedirectToAction("Index", "TeamStunt");
         }
 
         public ActionResult Leave()
@@ -196,13 +197,13 @@ namespace ScavengerHunt.Web.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
-        public ActionResult Edit([Bind(Include="Id,Name")] Team team)
+        public ActionResult Edit([Bind(Include="Id,Name,BonusPoints")] Team team)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(team).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("IndexAdmin");
             }
             return View(team);
         }
@@ -232,7 +233,7 @@ namespace ScavengerHunt.Web.Controllers
             Team team = db.Teams.Find(id);
             db.Teams.Remove(team);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("IndexAdmin");
         }
 
         protected override void Dispose(bool disposing)

@@ -13,6 +13,8 @@ namespace ScavengerHunt.Web.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public string Token { get; set; }
+
+        [Display(ResourceType = typeof(Resources.Resources), Name = "BonusPoints")]
         public int BonusPoints { get; set; }
         public virtual ICollection<ApplicationUser> Members { get; set; }
         public virtual ApplicationUser ContactUser { get; set; }
@@ -26,7 +28,7 @@ namespace ScavengerHunt.Web.Models
             }
         }
 
-        [Display(Name = "Stunts")]
+        [Display(ResourceType = typeof(Resources.Resources), Name = "Stunts")]
         public virtual int StuntCount
         {
             get

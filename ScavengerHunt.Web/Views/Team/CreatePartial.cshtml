@@ -10,7 +10,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Name, new { @class = "" })
             @Html.TextBoxFor(model => model.Name, new { @class = "form-control", @placeholder="", @style="max-width:300px;" })
-            @Html.ValidationMessageFor(model => model.Name)
+            @Html.ValidationMessageFor(m => m.Name)
         </div>
 
         <input type="submit" value="Create" class="btn btn-primary" />

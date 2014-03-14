@@ -61,6 +61,15 @@ namespace ScavengerHunt.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Bonus Points.
+        /// </summary>
+        public static string BonusPoints {
+            get {
+                return ResourceManager.GetString("BonusPoints", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Scavenger Hunt.
         /// </summary>
         public static string ScavengerHunt {
@@ -75,6 +84,24 @@ namespace ScavengerHunt.Web.Resources {
         public static string StuntList {
             get {
                 return ResourceManager.GetString("StuntList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stunts.
+        /// </summary>
+        public static string Stunts {
+            get {
+                return ResourceManager.GetString("Stunts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Team notes.
+        /// </summary>
+        public static string Team_notes {
+            get {
+                return ResourceManager.GetString("Team_notes", resourceCulture);
             }
         }
     }

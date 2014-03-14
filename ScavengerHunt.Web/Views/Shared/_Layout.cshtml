@@ -26,6 +26,7 @@
                     <li>@Html.ActionLink("Teams", "Index", "Team")</li>
                     <li>@Html.ActionLink("Stunts", "Index", "TeamStunt")</li>
                     <li>@Html.ActionLink("Documentation", "Doc", "Home")</li>
+                    <li>@Html.ActionLink("Statistics", "Stats", "Home")</li>
                     
                     @if (User.IsInRole("Judge") || User.IsInRole("Admin"))
                     {

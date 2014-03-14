@@ -11,6 +11,7 @@ namespace ScavengerHunt.Web.Models
         public int MaxScore { get; set; }
         public StuntTypeEnum Type { get; set; }
         public bool Enabled { get; set; }
+        public string JudgeNotes { get; set; }
 
         public virtual ICollection<StuntTranslation> Translations { get; set; }
 
@@ -38,6 +39,7 @@ namespace ScavengerHunt.Web.Models
         Photo,
         Video,
         Live,
-        Url
+        Url,
+        File
     }
 }

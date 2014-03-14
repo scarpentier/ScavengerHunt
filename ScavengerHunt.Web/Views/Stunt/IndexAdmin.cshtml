@@ -23,6 +23,9 @@
         <th>
             @Html.DisplayNameFor(model => model.Type)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JudgeNotes)
+        </th>
         <th></th>
     </tr>
 
@@ -41,6 +44,9 @@
             @Html.DisplayFor(modelItem => item.Type)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.JudgeNotes, "Notes")
+        </td>
+        <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
             @Html.ActionLink("Details", "Details", new { id=item.Id }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.Id })
@@ -49,3 +55,10 @@
 }
 
 </table>
+
+@section scripts
+{
+    <script type="text/javascript">
+        $("[data-toggle=tooltip").tooltip();
+    </script>
+}

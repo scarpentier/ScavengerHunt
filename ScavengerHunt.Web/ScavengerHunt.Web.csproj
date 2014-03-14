@@ -306,6 +306,8 @@
     <Content Include="Views\Stunt\Index.cshtml" />
     <Content Include="Views\Team\Index.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Notes.cshtml" />
+    <Content Include="Views\Home\Stats.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\StuntTranslation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

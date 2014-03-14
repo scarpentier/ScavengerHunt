@@ -64,7 +64,7 @@ namespace ScavengerHunt.Web.Controllers
 
                 // TODO: Il faut aussi l'ajouter/assigner aux équipes déjà inscrites
 
-                return RedirectToAction("Index");
+                return RedirectToAction("IndexAdmin");
             }
 
             return View(stunt);
@@ -92,13 +92,13 @@ namespace ScavengerHunt.Web.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
-        public ActionResult Edit([Bind(Include="Id,Title,Description,MaxScore,Type")] Stunt stunt)
+        public ActionResult Edit([Bind(Include="Id,MaxScore,Type,JudgeNotes,Translations")] Stunt stunt)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(stunt).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("IndexAdmin");
             }
             return View(stunt);
         }
@@ -128,7 +128,7 @@ namespace ScavengerHunt.Web.Controllers
             Stunt stunt = db.Stunts.Find(id);
             db.Stunts.Remove(stunt);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("IndexAdmin");
         }
 
         protected override void Dispose(bool disposing)

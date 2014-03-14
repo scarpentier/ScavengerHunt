@@ -16,22 +16,11 @@
         <hr />
         @Html.ValidationSummary(true)
         @Html.HiddenFor(model => model.Id)
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Title, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.TextBoxFor(model => model.Title, new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Title)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Description, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.TextBoxFor(model => model.Description, new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Description)
-            </div>
-        </div>
+        
+        @foreach (var translation in Model.Translations)
+        {
+            @Html.EditorFor(model => translation, "StuntTranslation")
+        }
 
         <div class="form-group">
             @Html.LabelFor(model => model.MaxScore, new { @class = "control-label col-md-2" })
@@ -46,6 +35,14 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Type)
                 @Html.ValidationMessageFor(model => model.Type)
+            </div>
+        </div>
+        
+        <div class="form-group">
+            @Html.LabelFor(model => model.JudgeNotes, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.JudgeNotes, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.JudgeNotes)
             </div>
         </div>
 

@@ -9,7 +9,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace ScavengerHunt.Web.Models
 {
-    public class ScavengerHuntInitializer : System.Data.Entity.DropCreateDatabaseIfModelChanges<ScavengerHuntContext>
+    public class ScavengerHuntInitializer : System.Data.Entity.DropCreateDatabaseAlways<ScavengerHuntContext>
     {
         protected override void Seed(ScavengerHuntContext context)
         {
@@ -40,7 +40,7 @@ namespace ScavengerHunt.Web.Models
 
             var stunts = new List<Stunt>
                              {
-                                 new Stunt() { MaxScore = 15, Type = StuntTypeEnum.Flag, Translations = new Collection<StuntTranslation>()
+                                 new Stunt() { MaxScore = 15, Type = StuntTypeEnum.Flag, JudgeNotes = "Potato", Translations = new Collection<StuntTranslation>()
                                                                                                             {
                                                                                                                 new StuntTranslation() { Language = "fr", Title = "Trouvez le secret caché dans le fichier" },
                                                                                                                 new StuntTranslation() { Title = "Find the hidden secret in the file" }

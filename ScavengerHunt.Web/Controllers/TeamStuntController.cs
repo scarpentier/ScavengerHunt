@@ -68,17 +68,20 @@ namespace ScavengerHunt.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="Id,NotesTeam,Submission,Status")] TeamStunt teamstunt)
+        public ActionResult Edit([Bind(Include="Id,TeamNotes,Submission,Status")] TeamStunt teamstunt)
         {
             if (ModelState.IsValid)
             {
                 // Get previous stunt object
                 var teamStunt = db.TeamStunts.Find(teamstunt.Id);
 
-                teamStunt.NotesTeam = teamstunt.NotesTeam;
+                teamStunt.TeamNotes = teamstunt.TeamNotes;
                 teamStunt.Submission = teamstunt.Submission;
                 teamStunt.Status = teamstunt.Status;
                 teamStunt.DateUpdated = DateTime.Now;
+
+                // Special logic if it's a flag
+                teamStunt = CorrectFlag(teamStunt);
 
                 db.Entry(teamStunt).State = EntityState.Modified;
                 db.SaveChanges();
@@ -94,6 +97,30 @@ namespace ScavengerHunt.Web.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        private static TeamStunt CorrectFlag(TeamStunt teamStunt)
+        {
+            // Is the stunt of type flag?
+            if (teamStunt.Stunt.Type != StuntTypeEnum.Flag) return teamStunt;
+
+            // Is an answer provided for the flag?
+            if (string.IsNullOrEmpty(teamStunt.Stunt.JudgeNotes)) return teamStunt;
+
+            // Is it the right answer?
+            if (teamStunt.Submission == teamStunt.Stunt.JudgeNotes)
+            {
+                teamStunt.Score = teamStunt.Stunt.MaxScore;
+                teamStunt.Status = TeamStuntStatusEnum.Done;
+                teamStunt.JudgeFeedback = "Nice flag!"; // TODO: Randomize those
+            }
+            else
+            {
+                teamStunt.Status = TeamStuntStatusEnum.WorkInProgress;
+                teamStunt.JudgeFeedback = "Wrong flag";
+            }
+
+            return teamStunt;
         }
     }
 }
