@@ -120,4 +120,7 @@
   <data name="ScavengerHunt" xml:space="preserve">
     <value>Scavenger Hunt</value>
   </data>
+  <data name="StuntList" xml:space="preserve">
+    <value>Stunt List</value>
+  </data>
 </root>

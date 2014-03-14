@@ -68,5 +68,14 @@ namespace ScavengerHunt.Web.Resources {
                 return ResourceManager.GetString("ScavengerHunt", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stunt List.
+        /// </summary>
+        public static string StuntList {
+            get {
+                return ResourceManager.GetString("StuntList", resourceCulture);
+            }
+        }
     }
 }

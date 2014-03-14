@@ -13,7 +13,7 @@ using ScavengerHunt.Web.Models;
 
 namespace ScavengerHunt.Web.Controllers
 {
-    public class TeamController : Controller
+    public class TeamController : BaseController
     {
         private ScavengerHuntContext db = new ScavengerHuntContext();
 

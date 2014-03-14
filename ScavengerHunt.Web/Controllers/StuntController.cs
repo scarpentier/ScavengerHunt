@@ -10,7 +10,7 @@ using ScavengerHunt.Web.Models;
 
 namespace ScavengerHunt.Web.Controllers
 {
-    public class StuntController : Controller
+    public class StuntController : BaseController
     {
         private ScavengerHuntContext db = new ScavengerHuntContext();
 
@@ -18,12 +18,12 @@ namespace ScavengerHunt.Web.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult IndexAdmin()
         {
-            return View(db.Stunts.ToList());
+            return View(db.Stunts.ToList().Globalize(Language));
         }
 
         public ActionResult Index()
         {
-            return View(db.Stunts.ToList());
+            return View(db.Stunts.ToList().Globalize(Language));
         }
 
         // GET: /Stunt/Details/5
@@ -39,7 +39,7 @@ namespace ScavengerHunt.Web.Controllers
             {
                 return HttpNotFound();
             }
-            return View(stunt);
+            return View(stunt.Globalize(Language));
         }
 
         // GET: /Stunt/Create

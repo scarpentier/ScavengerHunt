@@ -12,7 +12,7 @@ using ScavengerHunt.Web.Models;
 
 namespace ScavengerHunt.Web.Controllers
 {
-    public class AccountController : Controller
+    public class AccountController : BaseController
     {
         public AccountController()
             : this(new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ScavengerHuntContext())))

@@ -8,13 +8,16 @@ namespace ScavengerHunt.Web.Models
     public class Stunt
     {
         public int Id { get; set; }
-        public string Title { get; set; }
-        public string Description { get; set; }
         public int MaxScore { get; set; }
         public StuntTypeEnum Type { get; set; }
         public bool Enabled { get; set; }
 
+        public virtual ICollection<StuntTranslation> Translations { get; set; }
+
         public virtual ICollection<TeamStunt> TeamStunts { get; set; }
+
+        public virtual string Title { get; set; }
+        public virtual string Description { get; set; }
 
         public Stunt()
         {
@@ -34,6 +37,7 @@ namespace ScavengerHunt.Web.Models
         RichText,
         Photo,
         Video,
-        Live
+        Live,
+        Url
     }
 }

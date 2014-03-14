@@ -189,6 +189,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JudgeController.cs" />
     <Compile Include="Controllers\StuntController.cs" />
@@ -197,11 +198,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="GlobalizationHelper.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\ScavengerHuntContext.cs" />
     <Compile Include="Models\ScavengerHuntInitializer.cs" />
     <Compile Include="Models\Stunt.cs" />
+    <Compile Include="Models\StuntTranslation.cs" />
     <Compile Include="Models\Team.cs" />
     <Compile Include="Models\TeamStunt.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -302,11 +305,10 @@
     <Content Include="Views\Home\Doc.cshtml" />
     <Content Include="Views\Stunt\Index.cshtml" />
     <Content Include="Views\Team\Index.cshtml" />
-    <Content Include="Views\Team\YourTeam.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Notes.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

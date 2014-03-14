@@ -11,14 +11,14 @@ using ScavengerHunt.Web.Models;
 namespace ScavengerHunt.Web.Controllers
 {
     [Authorize(Roles = "Judge,Admin")]
-    public class JudgeController : Controller
+    public class JudgeController : BaseController
     {
         private ScavengerHuntContext db = new ScavengerHuntContext();
 
         // GET: /Judge/
         public ActionResult Index()
         {
-            return View(db.TeamStunts.ToList());
+            return View(db.TeamStunts.ToList().Globalize(Language));
         }
 
 
@@ -34,7 +34,7 @@ namespace ScavengerHunt.Web.Controllers
             {
                 return HttpNotFound();
             }
-            return View(teamstunt);
+            return View(teamstunt.Globalize(Language));
         }
 
         // POST: /Judge/Edit/5

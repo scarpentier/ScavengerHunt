@@ -11,9 +11,11 @@ using Microsoft.AspNet.Identity;
 
 using ScavengerHunt.Web.Models;
 
+using WebGrease.Css.Extensions;
+
 namespace ScavengerHunt.Web.Controllers
 {
-    public class TeamStuntController : Controller
+    public class TeamStuntController : BaseController
     {
         private ScavengerHuntContext db = new ScavengerHuntContext();
 
@@ -31,14 +33,12 @@ namespace ScavengerHunt.Web.Controllers
                 return RedirectToAction("Index", "Stunt");
             }
 
-            // TODO: Make sure the user is part of a team
-
-            return View(db.TeamStunts.ToList());
+            return View(db.TeamStunts.ToList().Globalize(Language));
         }
 
         public ActionResult ActivityPartial()
         {
-            return PartialView(db.TeamStunts.ToList());
+            return PartialView(db.TeamStunts.ToList().Globalize(Language));
         }
 
         // GET: /TeamStunt/Edit/5
@@ -60,7 +60,7 @@ namespace ScavengerHunt.Web.Controllers
             if (user.Team == null) return RedirectToAction("Start", "Team");
             if (user.Team.TeamStunts.All(x => x.Id != id)) return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
 
-            return View(teamstunt);
+            return View(teamstunt.Globalize(Language));
         }
 
         // POST: /TeamStunt/Edit/5
