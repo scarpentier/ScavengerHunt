@@ -11,6 +11,8 @@ using Microsoft.AspNet.Identity;
 
 using ScavengerHunt.Web.Models;
 
+using WebGrease.Css.Extensions;
+
 namespace ScavengerHunt.Web.Controllers
 {
     public class TeamController : BaseController
@@ -236,6 +238,11 @@ namespace ScavengerHunt.Web.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Team team = db.Teams.Find(id);
+
+            // Kick everyone from that team
+            // TODO: Do with CASCADE NULL instead
+            team.Members.ForEach(x => x.Team = null);
+
             db.Teams.Remove(team);
             db.SaveChanges();
             return RedirectToAction("IndexAdmin");

@@ -40,32 +40,32 @@ namespace ScavengerHunt.Web.Models
 
             var stunts = new List<Stunt>
                              {
-                                 new Stunt() { MaxScore = 15, Type = StuntTypeEnum.Flag, JudgeNotes = "Potato", Translations = new Collection<StuntTranslation>()
+                                 new Stunt() { Keyword = "Zelda", MaxScore = 15, Type = StuntTypeEnum.Flag, JudgeNotes = "Potato", Translations = new Collection<StuntTranslation>()
                                                                                                             {
                                                                                                                 new StuntTranslation() { Language = "fr", Title = "Trouvez le secret caché dans le fichier" },
                                                                                                                 new StuntTranslation() { Title = "Find the hidden secret in the file" }
                                                                                                             }},
-                                 new Stunt() { MaxScore = 20, Type = StuntTypeEnum.Live, Translations = new Collection<StuntTranslation>()
+                                 new Stunt() { Keyword = "Ducktape", MaxScore = 20, Type = StuntTypeEnum.Live, Translations = new Collection<StuntTranslation>()
                                                                                                             {
                                                                                                                 new StuntTranslation() { Language = "fr", Title = "Ducktape", Description = "Ducktapez quelqu'un à sa chaise" },
                                                                                                                 new StuntTranslation() { Language = "en", Title = "Ducktape", Description = "Ducktape someone to its chair" }
                                                                                                             }},
-                                 new Stunt() { MaxScore = 10, Type = StuntTypeEnum.Photo, Translations = new Collection<StuntTranslation>()
+                                 new Stunt() { Keyword = "LQJR", MaxScore = 10, Type = StuntTypeEnum.Photo, Translations = new Collection<StuntTranslation>()
                                                                                                              {
                                                                                                                  new StuntTranslation() { Language = "fr", Title = "LQJR n'est pas mort", Description = "Envoyez une photo de Veers" },
                                                                                                                  new StuntTranslation() { Language = "en", Title = "LQJR is not dead", Description = "Send us a picture of you with Veers" }
                                                                                                              }},
-                                 new Stunt() { MaxScore = 10, Type = StuntTypeEnum.Url, Translations = new Collection<StuntTranslation>()
+                                 new Stunt() { Keyword = "Jambon", MaxScore = 10, Type = StuntTypeEnum.Url, Translations = new Collection<StuntTranslation>()
                                                                                                            {
                                                                                                                new StuntTranslation() { Language = "fr", Title = "Aimer le jambon", Description = "Mettez une image de votre équipe sur jambon.ca affichant fièrement le jambon." },
                                                                                                                new StuntTranslation() { Language = "en", Title = "Love ham", Description = "Send a picture of your team on jambon.ca"}
                                                                                                            }},
-                                 new Stunt() { MaxScore = 5, Type = StuntTypeEnum.Photo, Translations = new Collection<StuntTranslation>()
+                                 new Stunt() { Keyword = "Xzcute", MaxScore = 5, Type = StuntTypeEnum.Photo, Translations = new Collection<StuntTranslation>()
                                                                                                             {
                                                                                                                 new StuntTranslation() { Language = "fr", Title = "Risquer sa vie", Description = "Photo avec le légendaire Xzcute" },
                                                                                                                 new StuntTranslation() { Language = "en", Title = "Risk your life", Description = "Picture with legendary Xzcute" }
                                                                                                             }},
-                                 new Stunt() { MaxScore = 10, Type = StuntTypeEnum.Video, Translations = new Collection<StuntTranslation>()
+                                 new Stunt() { Keyword = "Zombies", MaxScore = 10, Type = StuntTypeEnum.Video, Translations = new Collection<StuntTranslation>()
                                                                                                              {
                                                                                                                  new StuntTranslation() { Language = "fr", Title = "Zombies", Description = "Faites un reportage sur les Gamers Zombies" },
                                                                                                                  new StuntTranslation() { Language = "en", Title = "Zombies", Description = "Do a news report on Zombie Gamers" }

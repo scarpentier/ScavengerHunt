@@ -193,6 +193,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JudgeController.cs" />
     <Compile Include="Controllers\StuntController.cs" />
+    <Compile Include="Controllers\StuntTranslationController.cs" />
     <Compile Include="Controllers\TeamController.cs" />
     <Compile Include="Controllers\TeamStuntController.cs" />
     <Compile Include="Global.asax.cs">
@@ -282,7 +283,6 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Stunt\Create.cshtml" />
     <Content Include="Views\Stunt\Delete.cshtml" />
-    <Content Include="Views\Stunt\Details.cshtml" />
     <Content Include="Views\Stunt\Edit.cshtml" />
     <Content Include="Views\Stunt\IndexAdmin.cshtml" />
     <Content Include="Views\Team\Delete.cshtml" />
@@ -308,6 +308,10 @@
     <Content Include="Views\Shared\DisplayTemplates\Notes.cshtml" />
     <Content Include="Views\Home\Stats.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\StuntTranslation.cshtml" />
+    <Content Include="Views\StuntTranslation\Create.cshtml" />
+    <Content Include="Views\StuntTranslation\Delete.cshtml" />
+    <Content Include="Views\StuntTranslation\Edit.cshtml" />
+    <Content Include="Views\StuntTranslation\IndexPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

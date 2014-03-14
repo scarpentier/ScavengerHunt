@@ -9,6 +9,7 @@ namespace ScavengerHunt.Web.Models
     {
         public int Id { get; set; }
         public int MaxScore { get; set; }
+        public string Keyword { get; set; }
         public StuntTypeEnum Type { get; set; }
         public bool Enabled { get; set; }
         public string JudgeNotes { get; set; }

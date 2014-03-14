@@ -13,10 +13,16 @@ namespace ScavengerHunt.Web
     {
         public static Stunt Globalize(this Stunt stunt, string language)
         {
+            // Are there any translation available?
+            if (!stunt.Translations.Any()) return stunt;
+
             var translation = stunt.Translations.SingleOrDefault(x => language.StartsWith(x.Language));
 
             // Fallback to English
-            if (translation == null) translation = stunt.Translations.First(x => x.Language == "en");
+            if (translation == null) translation = stunt.Translations.FirstOrDefault(x => x.Language == "en");
+
+            // If translation is still null here, it's beacause English is not part of the provided languages
+            if (translation == null) return stunt;
 
             stunt.Title = translation.Title;
             stunt.Description = translation.Description;

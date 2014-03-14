@@ -1,4 +1,5 @@
-﻿@model ScavengerHunt.Web.Models.Stunt
+﻿@using ScavengerHunt.Web.Models
+@model ScavengerHunt.Web.Models.Stunt
 
 @{
     ViewBag.Title = "Edit";
@@ -17,10 +18,13 @@
         @Html.ValidationSummary(true)
         @Html.HiddenFor(model => model.Id)
         
-        @foreach (var translation in Model.Translations)
-        {
-            @Html.EditorFor(model => translation, "StuntTranslation")
-        }
+        <div class="form-group">
+            @Html.LabelFor(model => model.Keyword, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Keyword, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Keyword)
+            </div>
+        </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.MaxScore, new { @class = "control-label col-md-2" })
@@ -54,8 +58,12 @@
     </div>
 }
 
+<h4>Translations</h4>
+@Html.Action("IndexPartial", "StuntTranslation", new { id = Model.Id })
+
+
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "IndexAdmin")
 </div>
 
 @section Scripts {

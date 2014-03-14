@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
+
 using ScavengerHunt.Web.Models;
 
 namespace ScavengerHunt.Web.Controllers
@@ -55,16 +58,27 @@ namespace ScavengerHunt.Web.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
-        public ActionResult Create([Bind(Include="Id,Title,Description,MaxScore,Type")] Stunt stunt)
+        public ActionResult Create([Bind(Include="Id,Keyword,MaxScore,Type")] Stunt stunt)
         {
             if (ModelState.IsValid)
             {
+                // Créer une traduction par défaut et rediriger
+                var st = new StuntTranslation();
+                stunt.Translations = new Collection<StuntTranslation>() { st };
+
                 db.Stunts.Add(stunt);
                 db.SaveChanges();
 
-                // TODO: Il faut aussi l'ajouter/assigner aux équipes déjà inscrites
+                // Il faut aussi l'ajouter/assigner aux équipes déjà inscrites
+                foreach (var team in db.Teams)
+                {
+                    var ts = new TeamStunt() { Stunt = stunt, Team = team };
+                    db.TeamStunts.Add(ts);
+                }
 
-                return RedirectToAction("IndexAdmin");
+                db.SaveChanges();
+
+                return RedirectToAction("Edit", "StuntTranslation", new { id = st.Id });
             }
 
             return View(stunt);
@@ -92,7 +106,7 @@ namespace ScavengerHunt.Web.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
-        public ActionResult Edit([Bind(Include="Id,MaxScore,Type,JudgeNotes,Translations")] Stunt stunt)
+        public ActionResult Edit([Bind(Include="Id,Keyword,MaxScore,Type,JudgeNotes")] Stunt stunt)
         {
             if (ModelState.IsValid)
             {
@@ -116,7 +130,7 @@ namespace ScavengerHunt.Web.Controllers
             {
                 return HttpNotFound();
             }
-            return View(stunt);
+            return View(stunt.Globalize(Language));
         }
 
         // POST: /Stunt/Delete/5

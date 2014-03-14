@@ -33,7 +33,7 @@ namespace ScavengerHunt.Web.Controllers
                 return RedirectToAction("Index", "Stunt");
             }
 
-            return View(db.TeamStunts.ToList().Globalize(Language));
+            return View(db.TeamStunts.ToList().Where(x => x.Team == user.Team).ToList().Globalize(Language));
         }
 
         public ActionResult ActivityPartial()
