@@ -31,10 +31,10 @@
                     css = "success";
                     break;
                 case TeamStuntStatusEnum.NotStarted:
-                    css = "muted";
+                    css = "default";
                     break;
             }
-    <span class="text-@css">
+    <span class="label label-@css">
             @Html.DisplayTextFor(model => displayName)</span>
         }
     }

@@ -44,7 +44,7 @@
                 @Html.DisplayFor(modelItem => item.Status)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.NotesTeam)
+                @Html.DisplayFor(modelItem => item.NotesTeam, "Notes")
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.Id })
@@ -109,4 +109,11 @@
             </tr>
         }
     </table>
+}
+
+@section scripts
+{
+    <script type="text/javascript">       
+        $("[data-toggle=tooltip").tooltip();
+    </script>
 }

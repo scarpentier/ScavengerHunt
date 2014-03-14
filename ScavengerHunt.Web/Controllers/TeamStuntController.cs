@@ -28,8 +28,7 @@ namespace ScavengerHunt.Web.Controllers
 
             if (user.Team == null)
             {
-                ModelState.AddModelError("", "You must be part of a team first.");
-                return RedirectToAction("Start", "Team");
+                return RedirectToAction("Index", "Stunt");
             }
 
             // TODO: Make sure the user is part of a team
