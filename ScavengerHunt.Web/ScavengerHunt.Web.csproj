@@ -312,6 +312,9 @@
     <Content Include="Views\StuntTranslation\Delete.cshtml" />
     <Content Include="Views\StuntTranslation\Edit.cshtml" />
     <Content Include="Views\StuntTranslation\IndexPartial.cshtml" />
+    <Content Include="Views\Stunt\Data.cshtml" />
+    <Content Include="Views\Stunt\DataExportPartial.cshtml" />
+    <Content Include="Views\Stunt\DataImportPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

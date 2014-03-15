@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
-using System.Web.Routing;
+
+using Newtonsoft.Json;
 
 using ScavengerHunt.Web.Models;
 
@@ -142,6 +140,58 @@ namespace ScavengerHunt.Web.Controllers
             Stunt stunt = db.Stunts.Find(id);
             db.Stunts.Remove(stunt);
             db.SaveChanges();
+            return RedirectToAction("IndexAdmin");
+        }
+
+        [Authorize(Roles = "Admin")]
+        public ActionResult Data()
+        {
+            return View();
+        }
+
+        public ActionResult DataExportPartial()
+        {
+            return PartialView();
+        }
+
+        [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
+        [HttpPost]
+        public ActionResult DataExport()
+        {
+            var stunts = db.Stunts.ToList();
+
+            ViewBag.ExportData = JsonConvert.SerializeObject(stunts);
+
+            return View("Data");
+        }
+
+        public ActionResult DataImportPartial()
+        {
+            return PartialView();
+        }
+
+        [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
+        [HttpPost]
+        public ActionResult DataImport(string data)
+        {
+            var d = JsonConvert.DeserializeObject<List<Stunt>>(data);
+
+            db.Stunts.AddRange(d);
+            db.SaveChanges();
+
+            // Create TeamStunts for the teams
+            foreach (var stunt in d)
+            {
+                foreach (var team in db.Teams)
+                {
+                    var ts = new TeamStunt() { Stunt = stunt, Team = team };
+                    db.TeamStunts.Add(ts);
+                }
+            }
+            db.SaveChanges();
+
             return RedirectToAction("IndexAdmin");
         }
 

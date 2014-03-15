@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
+using Newtonsoft.Json;
+
 namespace ScavengerHunt.Web.Models
 {
     public class Stunt
     {
+        [JsonIgnore]
         public int Id { get; set; }
         public int MaxScore { get; set; }
         public string Keyword { get; set; }
@@ -16,9 +19,13 @@ namespace ScavengerHunt.Web.Models
 
         public virtual ICollection<StuntTranslation> Translations { get; set; }
 
+        [JsonIgnore]
         public virtual ICollection<TeamStunt> TeamStunts { get; set; }
 
+        [JsonIgnore]
         public virtual string Title { get; set; }
+
+        [JsonIgnore]
         public virtual string Description { get; set; }
 
         public Stunt()
