@@ -315,6 +315,11 @@
     <Content Include="Views\Stunt\Data.cshtml" />
     <Content Include="Views\Stunt\DataExportPartial.cshtml" />
     <Content Include="Views\Stunt\DataImportPartial.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\SelectRoleEditorViewModel.cshtml" />
+    <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\Account\Delete.cshtml" />
+    <Content Include="Views\Account\UserRoles.cshtml" />
+    <Content Include="Views\Account\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
