@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ComponentModel.DataAnnotations;
 using System.Web;
 
 using Newtonsoft.Json;
@@ -11,9 +12,14 @@ namespace ScavengerHunt.Web.Models
     {
         [JsonIgnore]
         public int Id { get; set; }
+        
+        [Display("Maximum score")]
         public int MaxScore { get; set; }
+
+        [Display("Keyword")]
         public string Keyword { get; set; }
         public StuntTypeEnum Type { get; set; }
+
         public bool Enabled { get; set; }
         public string JudgeNotes { get; set; }
 

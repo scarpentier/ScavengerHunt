@@ -2,7 +2,7 @@
 
 @if (EnumHelper.IsValidForEnumHelper(ViewData.ModelMetadata))
 {
-    @Html.EnumDropDownListFor(model => model, htmlAttributes: new { @class = "form-control" })
+    @Html.EnumDropDownListFor(model => model, htmlAttributes: new { @class = "form-control", @style = "width: 200px;" })
 }
 else
 {

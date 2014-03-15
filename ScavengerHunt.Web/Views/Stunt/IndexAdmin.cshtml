@@ -21,6 +21,9 @@
             @Html.DisplayNameFor(model => model.Description)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.Enabled)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.MaxScore)
         </th>
         <th>
@@ -42,6 +45,9 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.CheckBoxFor(modelItem => item.Enabled)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.MaxScore)
