@@ -13,10 +13,8 @@ namespace ScavengerHunt.Web.Models
         [JsonIgnore]
         public int Id { get; set; }
         
-        [Display("Maximum score")]
         public int MaxScore { get; set; }
 
-        [Display("Keyword")]
         public string Keyword { get; set; }
         public StuntTypeEnum Type { get; set; }
 

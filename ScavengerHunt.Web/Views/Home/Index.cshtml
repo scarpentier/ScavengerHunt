@@ -6,27 +6,27 @@
 
 <div class="jumbotron">
     <h1>Serious @Resources.ScavengerHunt</h1>
-    <p class="lead">Serious Scavenger Hunt is a free, open source web applicaiton for building, running and managing great scavenger hunts.</p>
-    <p><a href="https://github.com/scarpentier/ScavengerHunt" class="btn btn-primary btn-large">Source code &raquo;</a></p>
+    <p class="lead">@Resources.HomeJumbotronLead</p>
+    <p><a href="https://github.com/scarpentier/ScavengerHunt" class="btn btn-primary btn-large">@Resources.SourceCode &raquo;</a></p>
 </div>
 
 <div class="row">
     <div class="col-md-4">
-        <h2>Join an existing team</h2>
-        <p>If your team is already created and you have your token</p>
-        <p><a class="btn btn-default" href="/Team/Start">Join &raquo;</a></p>
+        <h2>@Resources.JoinExistingTeam</h2>
+        <p>@Resources.JoinExistingTeamExplanation</p>
+        <p><a class="btn btn-default" href="/Team/Start">@Resources.Join &raquo;</a></p>
     </div>
     <div class="col-md-4">
-        <h2>Register a new team</h2>
+        <h2>@Resources.RegisterNewTeam</h2>
         <p>
-            You must register a team first.
+            @Resources.RegisterNewTeamExplanation
         </p>
-        <p><a class="btn btn-default" href="/Team/Start">Create &raquo;</a></p>
+        <p><a class="btn btn-default" href="/Team/Start">@Resources.Create &raquo;</a></p>
     </div>
     <div class="col-md-4">
-        <h2>Start your journey!</h2>
-        <p>You are already part of a team and are ready to rock!</p>
-        <p><a class="btn btn-default" href="/TeamStunt/">Start &raquo;</a></p>
+        <h2>@Resources.StartJourney</h2>
+        <p>@Resources.StartJourneyExplanation</p>
+        <p><a class="btn btn-default" href="/TeamStunt/">@Resources.Start &raquo;</a></p>
     </div>
 </div>
 
@@ -34,11 +34,11 @@
 
 <div class="row">
     <div class="col-md-8">
-        <h2>Current Rankings</h2>
+        <h2>@Resources.CurrentRankings</h2>
         @Html.Action("IndexPartial", "Team")
     </div>
     <div class="col-md-4">
-        <h2>Stunt Activity</h2>
+        <h2>@Resources.StuntActivity</h2>
         @Html.Action("ActivityPartial", "TeamStunt")
     </div>
 </div>

@@ -1,4 +1,5 @@
 ﻿@using System.Web.Mvc.Html;
+@using ScavengerHunt.Web.Resources
 @model ScavengerHunt.Web.Models.TeamStunt
 
 @{
@@ -44,14 +45,14 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-success" />
+                <input type="submit" value="@Resources.Save" class="btn btn-success" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink(Resources.BackToList, "Index")
 </div>
 
 @section Scripts {

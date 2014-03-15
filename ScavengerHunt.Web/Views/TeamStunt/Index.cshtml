@@ -1,14 +1,18 @@
 ﻿@using ScavengerHunt.Web.Models
+@using ScavengerHunt.Web.Resources
 @model IEnumerable<ScavengerHunt.Web.Models.TeamStunt>
 
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Stunts</h2>
+<h2>@Resources.Stunts</h2>
 
 <table class="table">
     <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Stunt.Keyword)
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.Stunt.Title)
         </th>
@@ -31,6 +35,9 @@
     {
         <tr>
             <td>
+                <kbd>@Html.DisplayFor(modelItem => item.Stunt.Keyword)</kbd>
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.Stunt.Title)<br/><span class="text-muted">
                 @Html.DisplayFor(modelItem => item.Stunt.Description)</span>
             </td>
@@ -47,7 +54,7 @@
                 @Html.DisplayFor(modelItem => item.TeamNotes, "Notes")
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+                @Html.ActionLink(Resources.Edit, "Edit", new { id = item.Id })
             </td>
         </tr>
     }
@@ -55,7 +62,7 @@
 
 @if (Model.Any(x => x.Done))
 {
-    <h2>Done</h2>
+    <h2>@Resources.Done</h2>
 
     <table class="table">
         <tr>
@@ -104,7 +111,7 @@
                     @Html.DisplayFor(modelItem => item.JudgeFeedback, "Notes")
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+                    @Html.ActionLink(Resources.Edit, "Edit", new { id = item.Id })
                 </td>
             </tr>
         }

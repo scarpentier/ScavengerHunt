@@ -132,4 +132,76 @@
   <data name="Team_notes" xml:space="preserve">
     <value>Team notes</value>
   </data>
+  <data name="BackToList" xml:space="preserve">
+    <value>Back to List</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="CreateOrJoinTeam" xml:space="preserve">
+    <value>Create or Join a team!</value>
+  </data>
+  <data name="CurrentRankings" xml:space="preserve">
+    <value>Current Rankings</value>
+  </data>
+  <data name="Done" xml:space="preserve">
+    <value>Done</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="HomeJumbotronLead" xml:space="preserve">
+    <value>Serious Scavenger Hunt is a free, open source web applicaiton for building, running and managing great scavenger hunts.</value>
+  </data>
+  <data name="Join" xml:space="preserve">
+    <value>Join</value>
+  </data>
+  <data name="JoinExistingTeam" xml:space="preserve">
+    <value>Join an existing team</value>
+  </data>
+  <data name="JoinExistingTeamExplanation" xml:space="preserve">
+    <value>If your team is already created and you have your token</value>
+  </data>
+  <data name="Members" xml:space="preserve">
+    <value>Members</value>
+  </data>
+  <data name="NotPartOfATeam" xml:space="preserve">
+    <value>You are not part of a team yet!</value>
+  </data>
+  <data name="NotPartOfATeamDescription" xml:space="preserve">
+    <value>What are you waiting for? Join the fun!</value>
+  </data>
+  <data name="RegisterNewTeam" xml:space="preserve">
+    <value>Register a new team</value>
+  </data>
+  <data name="RegisterNewTeamExplanation" xml:space="preserve">
+    <value>You must register a team first</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="SourceCode" xml:space="preserve">
+    <value>Source code</value>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="StartJourney" xml:space="preserve">
+    <value>Start your journey!</value>
+  </data>
+  <data name="StartJourneyExplanation" xml:space="preserve">
+    <value>You are already part of a team and are ready to rock!</value>
+  </data>
+  <data name="Stunt" xml:space="preserve">
+    <value>Stunt</value>
+  </data>
+  <data name="StuntActivity" xml:space="preserve">
+    <value>Stunt Activity</value>
+  </data>
+  <data name="TeamStatus" xml:space="preserve">
+    <value>Your {0} members have amassed a total of {1} points in {2} stunts.</value>
+  </data>
+  <data name="YourTokenIs" xml:space="preserve">
+    <value>Your secret token is</value>
+  </data>
 </root>

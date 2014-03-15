@@ -1,5 +1,6 @@
 ﻿@using Microsoft.AspNet.Identity
 @using ScavengerHunt.Web.Models
+@using ScavengerHunt.Web.Resources
 @model Team
 
 @{
@@ -11,26 +12,28 @@
     <h2>@Model.Name</h2>
     <div class="row">
         <div class="col-md-4">
-            <b>Members</b><br/>
+            <b>@Resources.Members</b><br/>
             @foreach (var member in Model.Members)
             {
                 @member.UserName<br/>
             }
         </div>
         <div class="col-md-8">
-            <p>Your @Model.Members.Count members have amassed a total of @Model.Score points in @Model.StuntCount stunts.</p>
-            <p>Your secret token is <code>@Model.Token</code></p>
+            <p>
+            @String.Format(Resources.TeamStatus, Model.Members.Count, Model.Score, Model.StuntCount)
+             Your @Model.Members.Count members have amassed a total of @Model.Score points in @Model.StuntCount stunts.</p>
+            <p>@Resources.YourTokenIs <code>@Model.Token</code></p>
         </div>
     </div>
 <hr/>
 }
-<h2>Team Rankings</h2>
+<h2>@Resources.CurrentRankings</h2>
 @if (Model == null)
 {
     <div class="bg-warning">
-    <h4>You are not part of a team yet!</h4>
-    What are you waiting for? Join the fun!
-    <a style="margin-left: 20px;" class="btn btn-primary" href="/Team/Start">Create or Join a team! &raquo;</a>
+    <h4>@Resources.NotPartOfATeam</h4>
+    @Resources.NotPartOfATeamDescription
+    <a style="margin-left: 20px;" class="btn btn-primary" href="/Team/Start">@Resources.CreateOrJoinTeam &raquo;</a>
 </div>
 <br>
 }
