@@ -22,11 +22,8 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("Teams", "Index", "Team")</li>
                     <li>@Html.ActionLink("Stunts", "Index", "TeamStunt")</li>
-                    <li>@Html.ActionLink("Documentation", "Doc", "Home")</li>
-                    <li>@Html.ActionLink("Statistics", "Stats", "Home")</li>
                     
                     @if (User.IsInRole("Judge") || User.IsInRole("Admin"))
                     {
@@ -53,7 +50,13 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - Serious Scavenger Hunt</p>
+            
+            <div style="float: left; padding-right: 20px;">
+                <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>
+            </div>
+            <div style="font-size: x-small" class="text-muted">
+                This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/scarpentier/ScavengerHunt" rel="dct:source">https://github.com/scarpentier/ScavengerHunt</a>.
+            </div>
         </footer>
     </div>
     @RenderSection("scripts", required: false)
