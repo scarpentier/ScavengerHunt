@@ -1,0 +1,12 @@
+﻿@model ScavengerHunt.Web.Models.Stunt
+
+@if (ViewBag.settings.ShowKeyword)
+{
+    <kbd>@Html.DisplayFor(modelItem => Model.Keyword)</kbd>
+}
+@if (ViewBag.settings.ShowTitle)
+{
+    @Html.DisplayFor(modelItem => Model.Title)
+}
+<br />
+<span class="text-muted" style="font-size: smaller">@Html.Markdown(Model.Description)</span>

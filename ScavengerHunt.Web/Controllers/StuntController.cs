@@ -17,7 +17,7 @@ namespace ScavengerHunt.Web.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult IndexAdmin()
         {
-            return View(db.Stunts.ToList().Globalize(Language));
+            return View(db.Stunts.OrderBy(x => x.Keyword).ToList().Globalize(Language));
         }
 
         public ActionResult Index()

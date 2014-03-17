@@ -89,6 +89,7 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Score)
                 @Html.ValidationMessageFor(model => model.Score)
+                <input type="button" class="btn" value="Max" onclick="setMaxScore()" />
             </div>
         </div>
         
@@ -132,6 +133,10 @@
     @Scripts.Render("~/bundles/jqueryval")
 <script type="text/javascript">
     $("[data-toggle=tooltip").tooltip();
+
+    var setMaxScore = function() {
+        $("#Score").val(@Model.Stunt.MaxScore);
+    };
 </script>
 
 }

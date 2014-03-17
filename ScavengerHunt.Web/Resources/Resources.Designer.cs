@@ -169,6 +169,33 @@ namespace ScavengerHunt.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Judge Feedback.
+        /// </summary>
+        public static string JudgeFeedback {
+            get {
+                return ResourceManager.GetString("JudgeFeedback", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Judge Notes.
+        /// </summary>
+        public static string JudgeNotes {
+            get {
+                return ResourceManager.GetString("JudgeNotes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Maximum Score.
+        /// </summary>
+        public static string MaximumScore {
+            get {
+                return ResourceManager.GetString("MaximumScore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Members.
         /// </summary>
         public static string Members {
@@ -318,6 +345,15 @@ namespace ScavengerHunt.Web.Resources {
         public static string Team_notes {
             get {
                 return ResourceManager.GetString("Team_notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Team notes.
+        /// </summary>
+        public static string TeamNotes {
+            get {
+                return ResourceManager.GetString("TeamNotes", resourceCulture);
             }
         }
         

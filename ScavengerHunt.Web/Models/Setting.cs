@@ -19,12 +19,14 @@ namespace ScavengerHunt.Web.Models
     {
         public bool ShowKeyword { get; private set; }
         public bool AllowStuntRetry { get; private set; }
+        public bool ShowTitle { get; private set; }
 
         public static StrongSettings GetSettings(List<Setting> settings)
         {
             var ss = new StrongSettings()
                          {
                              ShowKeyword = bool.Parse(settings.Find(x => x.Key == "ShowKeyword").Value),
+                             ShowTitle = bool.Parse(settings.Find(x => x.Key == "ShowTitle").Value),
                              AllowStuntRetry = bool.Parse(settings.Find(x => x.Key == "AllowStuntRetry").Value)
                          };
 

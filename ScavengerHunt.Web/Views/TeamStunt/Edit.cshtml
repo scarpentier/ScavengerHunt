@@ -39,6 +39,7 @@
             @Html.LabelFor(model => model.Submission, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.TextBoxFor(model => model.Submission, new { @class = "form-control" })
+                <span class="text-muted"><span class="glyphicon glyphicon-info-sign"></span> The judges are expecting a @Html.DisplayFor(model => model.Stunt.Type)</span>
                 @Html.ValidationMessageFor(model => model.Submission)
             </div>
         </div>
@@ -57,4 +58,8 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+<script type="text/javascript">
+    $("[data-toggle=tooltip").tooltip();
+</script>
+
 }

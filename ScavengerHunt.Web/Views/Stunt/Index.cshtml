@@ -19,9 +19,6 @@
             @Html.DisplayNameFor(model => model.Title)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.MaxScore)
         </th>
         <th>
@@ -33,10 +30,7 @@
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td class="text-muted" style="font-size: smaller">
-                @Html.Markdown(item.Description)
+                @Html.DisplayFor(modelItem => item, "StuntTitle")
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.MaxScore)

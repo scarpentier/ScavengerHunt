@@ -19,16 +19,16 @@ namespace ScavengerHunt.Web.Models
         /// <summary>
         /// Internal notes for the team
         /// </summary>
-        [Display(Name = "Team notes", Description = "Internal notes for use by your team")]
+        [Display(ResourceType = typeof(Resources.Resources), Name = "TeamNotes")]
         public string TeamNotes { get; set; }
 
         /// <summary>
         /// Internal notes for the judges
         /// </summary>
-        [Display(Name = "Judge feedback")]
+        [Display(ResourceType = typeof(Resources.Resources), Name = "JudgeFeedback")]
         public string JudgeFeedback { get; set; }
 
-        [Display(Name = "Judge notes")]
+        [Display(ResourceType = typeof(Resources.Resources), Name = "JudgeNotes")]
         public string JudgeNotes { get; set; }
 
         // TODO: Comment system internal and shared between team / judges

@@ -35,7 +35,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Description, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextAreaFor(model => model.Description, new { @class = "form-control" })
+                @Html.TextAreaFor(model => model.Description, new { @class = "form-control", @style = "height: 200px" })
                 <span class="text-muted"><span class="glyphicon glyphicon-info-sign"></span> Supports <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">Markdown</a>. Please use sparingly.</span>
                 @Html.ValidationMessageFor(model => model.Description)
             </div>

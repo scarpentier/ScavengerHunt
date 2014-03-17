@@ -32,12 +32,7 @@
     {
         <tr>
             <td>
-                @if (ViewBag.settings.ShowKeyword)
-                {
-                    <kbd>@Html.DisplayFor(modelItem => item.Stunt.Keyword)</kbd>
-                }
-                @Html.DisplayFor(modelItem => item.Stunt.Title)<br />
-                <span class="text-muted" style="font-size: smaller">@Html.Markdown(item.Stunt.Description)</span>
+                @Html.DisplayFor(modelItem => item.Stunt, "StuntTitle")
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Stunt.Type)
@@ -86,9 +81,7 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Stunt.Title)<br /><span class="text-muted" style="font-size: smaller">
-                        @Html.DisplayFor(modelItem => item.Stunt.Description)
-                    </span>
+                    @Html.DisplayFor(modelItem => item.Stunt, "StuntTitle")
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Stunt.Type)

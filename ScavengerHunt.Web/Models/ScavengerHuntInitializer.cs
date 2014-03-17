@@ -18,7 +18,7 @@ namespace ScavengerHunt.Web.Models
                                     {
                                         new Setting() {
                                             Key = "ShowKeyword",
-                                            Value = "false",
+                                            Value = "true",
                                             Description = "Determines wether to show the Stunt Keyword to the users"
                                         },
                                         new Setting() {

@@ -213,4 +213,16 @@
   <data name="Notes" xml:space="preserve">
     <value>Notes</value>
   </data>
+  <data name="MaximumScore" xml:space="preserve">
+    <value>Maximum Score</value>
+  </data>
+  <data name="JudgeNotes" xml:space="preserve">
+    <value>Judge Notes</value>
+  </data>
+  <data name="TeamNotes" xml:space="preserve">
+    <value>Team notes</value>
+  </data>
+  <data name="JudgeFeedback" xml:space="preserve">
+    <value>Judge Feedback</value>
+  </data>
 </root>

@@ -30,10 +30,7 @@
             @Html.DisplayFor(modelItem => item.Team.Name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Stunt.Title)<br/>
-            <span class="text-muted" style="font-size: small">
-                @Html.Markdown(item.Stunt.Description)
-            </span>
+            @Html.DisplayFor(modelItem => item.Stunt, "StuntTitle")
         </td>
         <td>
             @Html.DisplayFor(modelItem => item, "Score")
@@ -80,8 +77,7 @@
                     @Html.DisplayFor(modelItem => item.Team.Name)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Stunt.Title)<br/>
-                    <span class="text-muted" style="font-size: small">@Html.Markdown(item.Stunt.Description)</span>
+                    @Html.DisplayFor(modelItem => item.Stunt, "StuntTitle")
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item, "Score")

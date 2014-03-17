@@ -13,12 +13,15 @@ namespace ScavengerHunt.Web.Models
         [JsonIgnore]
         public int Id { get; set; }
         
+        [Display(ResourceType = typeof(Resources.Resources), Name = "MaximumScore")]
         public int MaxScore { get; set; }
 
         public string Keyword { get; set; }
         public StuntTypeEnum Type { get; set; }
 
         public bool Published { get; set; }
+        
+        [Display(ResourceType = typeof(Resources.Resources), Name = "JudgeNotes")]
         public string JudgeNotes { get; set; }
 
         public virtual ICollection<StuntTranslation> Translations { get; set; }
