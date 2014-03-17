@@ -10,12 +10,6 @@
 
 <table class="table">
     <tr>
-        @if (ViewBag.settings.ShowKeyword)
-        {
-            <th>
-                @Html.DisplayNameFor(model => model.Stunt.Keyword)
-            </th>
-        }
         <th>
             @Html.DisplayNameFor(model => model.Stunt.Title)
         </th>
@@ -37,16 +31,14 @@
     @foreach (var item in Model.Where(x => x.Status != TeamStuntStatusEnum.Done))
     {
         <tr>
-            @if (ViewBag.settings.ShowKeyword)
-            {
-                <td>
-                    <kbd>@Html.DisplayFor(modelItem => item.Stunt.Keyword)</kbd>
-                </td>
-            }
             <td>
-                <kbd>@Html.DisplayFor(modelItem => item.Stunt.Keyword)</kbd> @Html.DisplayFor(modelItem => item.Stunt.Title)<br /><span class="text-muted" style="font-size: smaller">
-                    @Html.DisplayFor(modelItem => item.Stunt.Description)
-                </span>
+                @if (ViewBag.settings.ShowKeyword)
+                {
+                    <kbd>@Html.DisplayFor(modelItem => item.Stunt.Keyword)</kbd>
+                }
+                @Html.DisplayFor(modelItem => item.Stunt.Title)<br /><span class="text-muted" style="font-size: smaller">
+                                                                                                                                      @Html.Markdown(item.Stunt.Description)
+                                                                                                                                  </span>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Stunt.Type)

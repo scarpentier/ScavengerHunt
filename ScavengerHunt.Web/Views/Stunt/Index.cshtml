@@ -35,8 +35,8 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Title)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
+            <td class="text-muted" style="font-size: smaller">
+                @Html.Markdown(item.Description)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.MaxScore)
@@ -48,3 +48,11 @@
     }
 
 </table>
+
+@section scripts
+{
+    <script type="text/javascript">
+        $("[data-toggle=tooltip").tooltip();
+        $("[data-toggle=popover").popover();
+    </script>
+}
