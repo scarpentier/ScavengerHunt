@@ -35,3 +35,9 @@ AppSettings | TwitterAppId | No | ID of your Twitter app
 AppSettings | TwitterAppSecret | No | Secret key of your Twitter app
 AppSettings | MicrosoftAppId | No | ID of your Microsoft app
 AppSettings | MicrosoftAppSecret | No | Secret key of your Microsoft app 
+
+## Acknowledgements
+* [MarkdownSharp](https://code.google.com/p/markdownsharp/), as featured on Stack Overflow
+* [John Atten](http://typecastexception.com/) for his very helpful post on about [Extending Identity Accounts and Implementing Role-Based Authentication in ASP.NET MVC 5](http://www.codeproject.com/Articles/682113/Extending-Identity-Accounts-and-Implementing-Rol) that saved me quite a few hours of work
+* [Danny Tuppeny](http://blog.dantup.com/) for his [HtmlHelper extension method for Markdown](http://blog.dantup.com/2011/03/an-asp-net-mvc-htmlhelper-extension-method-for-markdown-using-markdownsharp/)
+* [Glyphicons](http://glyphicons.com/), default icons used in Bootstrap
