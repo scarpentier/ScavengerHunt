@@ -51,7 +51,7 @@ namespace ScavengerHunt.Web.Controllers
                 teamStunt.Score = teamstunt.Score;
                 teamStunt.Status = teamstunt.Status;
                 teamStunt.JudgeFeedback = teamstunt.JudgeFeedback;
-                teamStunt.JudgeNotes = teamStunt.JudgeNotes;
+                teamStunt.JudgeNotes = teamstunt.JudgeNotes;
 
                 db.Entry(teamStunt).State = EntityState.Modified;
                 db.SaveChanges();

@@ -7,7 +7,7 @@
 }
 
 <h2>@Model.Stunt.Title</h2>
-@Model.Stunt.Description
+@Html.Markdown(Model.Stunt.Description)
 
 @using (Html.BeginForm())
 {

@@ -6,8 +6,12 @@
     {
         <a href="#" data-toggle=tooltip title data-original-title="@Model">@ViewBag.Text</a>
     }
-    if (ViewBag.Icon != null)
+    else if (ViewBag.Icon != null)
     {
         <a href="#" data-toggle=tooltip title data-original-title="@Model"><span class="glyphicon @ViewBag.Icon"></span></a>
+    }
+    else
+    {
+        <a href="#" data-toggle=tooltip title data-original-title="@Model">Notes</a>
     }
 }

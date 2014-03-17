@@ -1,0 +1,8 @@
+﻿@model ScavengerHunt.Web.Models.TeamStunt
+
+@Model.Score / @Model.Stunt.MaxScore
+
+@if (Model.Score > Model.Stunt.MaxScore)
+{
+    <br /><span class="label label-danger">Overkill!</span>
+}

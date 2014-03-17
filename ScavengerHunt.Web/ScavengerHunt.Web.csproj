@@ -328,6 +328,7 @@
     <Content Include="Views\Shared\DisplayTemplates\Popover.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\StuntTypeEnum.cshtml" />
     <Content Include="Views\Team\StatusPartial.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Score.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

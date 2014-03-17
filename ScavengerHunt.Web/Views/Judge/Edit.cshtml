@@ -28,7 +28,15 @@
             </dt>
 
             <dd>
-                @Html.DisplayFor(model => model.Stunt.Description)
+                @Html.Markdown(Model.Stunt.Description)
+            </dd>
+            
+            <dt>
+                @Html.DisplayNameFor(model => model.Stunt.JudgeNotes)
+            </dt>
+
+            <dd>
+                @Html.Markdown(Model.Stunt.JudgeNotes)
             </dd>
 
             <dt>
@@ -122,4 +130,8 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+<script type="text/javascript">
+    $("[data-toggle=tooltip").tooltip();
+</script>
+
 }

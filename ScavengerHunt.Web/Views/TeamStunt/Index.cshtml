@@ -23,7 +23,7 @@
             @Html.DisplayNameFor(model => model.Status)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.TeamNotes)
+            @Resources.Notes
         </th>
         <th></th>
     </tr>
@@ -36,15 +36,14 @@
                 {
                     <kbd>@Html.DisplayFor(modelItem => item.Stunt.Keyword)</kbd>
                 }
-                @Html.DisplayFor(modelItem => item.Stunt.Title)<br /><span class="text-muted" style="font-size: smaller">
-                                                                                                                                      @Html.Markdown(item.Stunt.Description)
-                                                                                                                                  </span>
+                @Html.DisplayFor(modelItem => item.Stunt.Title)<br />
+                <span class="text-muted" style="font-size: smaller">@Html.Markdown(item.Stunt.Description)</span>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Stunt.Type)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Score) / @Html.DisplayFor(modelItem => item.Stunt.MaxScore)
+                @Html.DisplayFor(modelItem => item, "Score")
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Status)
@@ -95,14 +94,14 @@
                     @Html.DisplayFor(modelItem => item.Stunt.Type)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Score) / @Html.DisplayFor(modelItem => item.Stunt.MaxScore)
+                    @Html.DisplayFor(modelItem => item, "Score")
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Status)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.TeamNotes, "Tooltip", new { Text = "Team" })<br/>
-                    @Html.DisplayFor(modelItem => item.JudgeFeedback, "Tooltip", new { Text = "Judge feedback"})
+                    @Html.DisplayFor(modelItem => item.JudgeFeedback, "Tooltip", new { Text = "Judge"})
                 </td>
                 <td>
                     @Html.ActionLink(Resources.Edit, "Edit", new { id = item.Id })

@@ -10,7 +10,7 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Team.Name)
+            Team Name
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Stunt.Title)
@@ -19,10 +19,7 @@
             @Html.DisplayNameFor(model => model.Score)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.TeamNotes)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.JudgeFeedback)
+            @Resources.Notes
         </th>
         <th></th>
     </tr>
@@ -33,16 +30,18 @@
             @Html.DisplayFor(modelItem => item.Team.Name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Stunt.Title)
+            @Html.DisplayFor(modelItem => item.Stunt.Title)<br/>
+            <span class="text-muted" style="font-size: small">
+                @Html.Markdown(item.Stunt.Description)
+            </span>
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Score) / @Html.DisplayFor(modelItem => item.Stunt.MaxScore)
+            @Html.DisplayFor(modelItem => item, "Score")
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.TeamNotes, "Notes")
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.JudgeFeedback, "Notes")
+            @Html.DisplayFor(modelItem => item.TeamNotes, "Tooltip", new { Text = "Team" })
+            @Html.DisplayFor(modelItem => item.JudgeFeedback, "Tooltip", new { Text = "Feedback" })
+            @Html.DisplayFor(modelItem => item.JudgeNotes, "Tooltip", new { Text = "Notes" })
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id })
@@ -67,11 +66,7 @@
                 @Html.DisplayNameFor(model => model.Score)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TeamNotes)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.JudgeFeedback)
-            </th>
+                @Resources.Notes
             <th>
                 @Html.DisplayNameFor(model => model.Status)
             </th>
@@ -85,16 +80,16 @@
                     @Html.DisplayFor(modelItem => item.Team.Name)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Stunt.Title)
+                    @Html.DisplayFor(modelItem => item.Stunt.Title)<br/>
+                    <span class="text-muted" style="font-size: small">@Html.Markdown(item.Stunt.Description)</span>
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Score) / @Html.DisplayFor(modelItem => item.Stunt.MaxScore)
+                    @Html.DisplayFor(modelItem => item, "Score")
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.TeamNotes, "Notes")
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.JudgeFeedback, "Notes")
+                    @Html.DisplayFor(modelItem => item.TeamNotes, "Tooltip", new { Text = "Team" })
+                    @Html.DisplayFor(modelItem => item.JudgeFeedback, "Tooltip", new { Text = "Feedback" })
+                    @Html.DisplayFor(modelItem => item.JudgeNotes, "Tooltip", new { Text = "Notes" })
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Status)

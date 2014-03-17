@@ -9,7 +9,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace ScavengerHunt.Web.Models
 {
-    public class ScavengerHuntInitializer : System.Data.Entity.DropCreateDatabaseAlways<ScavengerHuntContext>
+    public class ScavengerHuntInitializer : System.Data.Entity.DropCreateDatabaseIfModelChanges<ScavengerHuntContext>
     {
         protected override void Seed(ScavengerHuntContext context)
         {

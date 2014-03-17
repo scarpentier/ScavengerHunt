@@ -210,4 +210,7 @@
   <data name="YourBonusPoints" xml:space="preserve">
     <value>You also have {0} bonus points</value>
   </data>
+  <data name="Notes" xml:space="preserve">
+    <value>Notes</value>
+  </data>
 </root>
