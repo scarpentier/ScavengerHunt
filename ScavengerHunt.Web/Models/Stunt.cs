@@ -18,7 +18,7 @@ namespace ScavengerHunt.Web.Models
         public string Keyword { get; set; }
         public StuntTypeEnum Type { get; set; }
 
-        public bool Enabled { get; set; }
+        public bool Published { get; set; }
         public string JudgeNotes { get; set; }
 
         public virtual ICollection<StuntTranslation> Translations { get; set; }
@@ -34,7 +34,7 @@ namespace ScavengerHunt.Web.Models
 
         public Stunt()
         {
-            Enabled = true;
+            this.Published = true;
         }
 
         // TODO: Support pour attacher des fichiers aux stunts

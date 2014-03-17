@@ -6,13 +6,19 @@ using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 
+using Microsoft.Ajax.Utilities;
+
 using ScavengerHunt.Web.Models;
 
 namespace ScavengerHunt.Web.Controllers
 {
     public class BaseController : Controller
     {
-        protected string Language { get; set; }
+        protected ScavengerHuntContext db = new ScavengerHuntContext();
+
+        protected string Language { get; private set; }
+
+        protected StrongSettings Settings { get; private set; }
 
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
@@ -23,6 +29,9 @@ namespace ScavengerHunt.Web.Controllers
 
             Thread.CurrentThread.CurrentCulture = new CultureInfo(Language);
             Thread.CurrentThread.CurrentUICulture = new CultureInfo(Language);
+
+            Settings = StrongSettings.GetSettings(db.Settings.ToList());
+            ViewBag.settings = Settings;
         }
     }
 }

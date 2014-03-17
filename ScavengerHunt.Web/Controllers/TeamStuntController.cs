@@ -17,8 +17,6 @@ namespace ScavengerHunt.Web.Controllers
 {
     public class TeamStuntController : BaseController
     {
-        private ScavengerHuntContext db = new ScavengerHuntContext();
-
         // GET: /TeamStunt/
         public ActionResult Index()
         {
@@ -33,7 +31,15 @@ namespace ScavengerHunt.Web.Controllers
                 return RedirectToAction("Index", "Stunt");
             }
 
-            return View(db.TeamStunts.ToList().Where(x => x.Team == user.Team).ToList().Globalize(Language));
+            // Filter and sort stunts
+            var stunts =
+                db.TeamStunts.Where(x => x.Team.Id == user.Team.Id && x.Stunt.Published)
+                    .OrderByDescending(x => x.Status == TeamStuntStatusEnum.Pending)
+                    .ThenByDescending(x => x.Status == TeamStuntStatusEnum.WorkInProgress)
+                    .ThenByDescending(x => x.Status == TeamStuntStatusEnum.NotStarted)
+                    .ThenByDescending(x => x.Status == TeamStuntStatusEnum.Abandon);
+
+            return View(stunts.ToList().Globalize(Language));
         }
 
         public ActionResult ActivityPartial()
@@ -90,6 +96,14 @@ namespace ScavengerHunt.Web.Controllers
                     }
                     else
                     {
+                        // Store the amount of failed tries
+                        int tries;
+                        int.TryParse(teamStunt.JudgeNotes, out tries);
+
+                        teamStunt.JudgeNotes = (++tries).ToString();
+                        db.Entry(teamStunt);
+                        db.SaveChanges();
+                        
                         ModelState.AddModelError("Submission", "Wrong flag");
                         return View(teamStunt.Globalize(Language));
                     }

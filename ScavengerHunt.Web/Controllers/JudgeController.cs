@@ -13,8 +13,6 @@ namespace ScavengerHunt.Web.Controllers
     [Authorize(Roles = "Judge,Admin")]
     public class JudgeController : BaseController
     {
-        private ScavengerHuntContext db = new ScavengerHuntContext();
-
         // GET: /Judge/
         public ActionResult Index()
         {

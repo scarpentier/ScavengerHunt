@@ -21,7 +21,7 @@
             @Html.DisplayNameFor(model => model.Description)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Enabled)
+            @Html.DisplayNameFor(model => model.Published)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.MaxScore)
@@ -47,7 +47,7 @@
             @Html.DisplayFor(modelItem => item.Description)
         </td>
         <td>
-            @Html.CheckBoxFor(modelItem => item.Enabled)
+            @Html.CheckBoxFor(modelItem => item.Published)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.MaxScore)
@@ -56,7 +56,7 @@
             @Html.DisplayFor(modelItem => item.Type)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.JudgeNotes, "Notes")
+            @Html.DisplayFor(modelItem => item.JudgeNotes, "Tooltip", new { Icon = "glyphicon-file" })
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |

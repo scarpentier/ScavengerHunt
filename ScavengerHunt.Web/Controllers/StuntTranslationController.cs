@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Linq;
+﻿using System.Data.Entity;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
-using System.Web.Routing;
 
 using ScavengerHunt.Web.Models;
 
@@ -15,8 +9,6 @@ namespace ScavengerHunt.Web.Controllers
     [Authorize(Roles = "Admin")]
     public class StuntTranslationController : BaseController
     {
-        private ScavengerHuntContext db = new ScavengerHuntContext();
-
         public ActionResult IndexPartial(int? id)
         {
             if (id == null)

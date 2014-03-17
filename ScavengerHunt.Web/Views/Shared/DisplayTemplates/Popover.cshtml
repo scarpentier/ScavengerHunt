@@ -1,0 +1,13 @@
+﻿﻿@model string
+
+@if (!string.IsNullOrEmpty(Model))
+{
+    if (ViewBag.Text != null)
+    {
+        <a href="#" data-toggle="popover" data-title="@ViewBag.Title" data-content="@Model">@ViewBag.Text</a>
+    }
+    if (ViewBag.Icon != null)
+    {
+        <a href="#" data-toggle="popover" data-title="@ViewBag.Title" data-content="@Model"><span class="glyphicon @ViewBag.Icon"></span></a>
+    }
+}

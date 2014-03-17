@@ -17,8 +17,6 @@ namespace ScavengerHunt.Web.Controllers
 {
     public class TeamController : BaseController
     {
-        private ScavengerHuntContext db = new ScavengerHuntContext();
-
         // GET: /Team/
         [Authorize(Roles="Admin")]
         public ActionResult IndexAdmin()
@@ -162,7 +160,12 @@ namespace ScavengerHunt.Web.Controllers
             // TODO: Qu'est-ce qui arrive quand ce user est déjà membre d'une équipe?
 
             // Get Team
-            var team = db.Teams.First(t => t.Token == token);
+            var team = db.Teams.FirstOrDefault(t => t.Token == token);
+            if (team == null)
+            {
+                ModelState.AddModelError("Token", "This token does not exist");
+                return View("Start");
+            }
 
             // Add user to team and save changes
             team.Members.Add(user);

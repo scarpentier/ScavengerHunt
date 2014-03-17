@@ -13,6 +13,28 @@ namespace ScavengerHunt.Web.Models
     {
         protected override void Seed(ScavengerHuntContext context)
         {
+            // Base configuration
+            var configuration = new List<Setting>
+                                    {
+                                        new Setting() {
+                                            Key = "ShowKeyword",
+                                            Value = "false",
+                                            Description = "Determines wether to show the Stunt Keyword to the users"
+                                        },
+                                        new Setting() {
+                                            Key = "ShowTitle",
+                                            Value = "true",
+                                            Description = "Determines wether to show the Stunt Title to the users"
+                                        },
+                                        new Setting() {
+                                            Key = "AllowStuntRetry",
+                                            Value = "true",
+                                            Description = "Allows teams to retry a stunt already done to increase points if they are unhappy with the judging"
+                                        }
+                                    };
+
+            context.Settings.AddRange(configuration);
+
             // Create roles
             var RoleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
             RoleManager.Create(new IdentityRole("Admin"));
@@ -40,6 +62,10 @@ namespace ScavengerHunt.Web.Models
 
             var stunts = new List<Stunt>
                              {
+                                 new Stunt() { Keyword = "Flag", MaxScore = 10, Type = StuntTypeEnum.Flag, JudgeNotes = "flag1234", Translations = new Collection<StuntTranslation>()
+                                                                                                            {
+                                                                                                                new StuntTranslation() { Language = "en", Title = "Support for flags!", Description = "Flags is a special kind of stunt that's judged automatically. Just set the answer in the Judge Notes! This one is \"flag1324\"" }
+                                                                                                            }},
                                  new Stunt() { Keyword = "Zelda", MaxScore = 15, Type = StuntTypeEnum.Flag, JudgeNotes = "Potato", Translations = new Collection<StuntTranslation>()
                                                                                                             {
                                                                                                                 new StuntTranslation() { Language = "fr", Title = "Trouvez le secret caché dans le fichier" },

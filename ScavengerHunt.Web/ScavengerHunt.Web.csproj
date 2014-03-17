@@ -204,6 +204,7 @@
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\ScavengerHuntContext.cs" />
     <Compile Include="Models\ScavengerHuntInitializer.cs" />
+    <Compile Include="Models\Setting.cs" />
     <Compile Include="Models\Stunt.cs" />
     <Compile Include="Models\StuntTranslation.cs" />
     <Compile Include="Models\Team.cs" />
@@ -305,7 +306,7 @@
     <Content Include="Views\Home\Doc.cshtml" />
     <Content Include="Views\Stunt\Index.cshtml" />
     <Content Include="Views\Team\Index.cshtml" />
-    <Content Include="Views\Shared\DisplayTemplates\Notes.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Tooltip.cshtml" />
     <Content Include="Views\Home\Stats.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\StuntTranslation.cshtml" />
     <Content Include="Views\StuntTranslation\Create.cshtml" />
@@ -320,6 +321,9 @@
     <Content Include="Views\Account\Delete.cshtml" />
     <Content Include="Views\Account\UserRoles.cshtml" />
     <Content Include="Views\Account\Edit.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Popover.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\StuntTypeEnum.cshtml" />
+    <Content Include="Views\Team\StatusPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -204,4 +204,10 @@
   <data name="YourTokenIs" xml:space="preserve">
     <value>Your secret token is</value>
   </data>
+  <data name="Judged" xml:space="preserve">
+    <value>Judged</value>
+  </data>
+  <data name="YourBonusPoints" xml:space="preserve">
+    <value>You also have {0} bonus points</value>
+  </data>
 </root>

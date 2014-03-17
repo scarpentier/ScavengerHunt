@@ -15,12 +15,12 @@ You must be part of a team to participate in this scavenger hunt. Either join an
     <div class="col-md-6">
         <h4>Join an existing team</h4>
         <p class="text-muted">If your team is already created, your team leader shoud have given you the token. It looks like this <code>5d3988c7-f14d-4aef-8c9d-c01467c801e2</code></p>
-        @Html.Action("JoinPartial")
+        @Html.Partial("JoinPartial")
     </div>
     <div class="col-md-6">
         <h4>Create a new team</h4>
         <p class="text-muted">Create a new team if your team is not already created. Send the <b>token</b> to your team members so they can join your team!</p>
-        @Html.Action("CreatePartial")
+        @Html.Partial("CreatePartial")
     </div>
 </div>
 

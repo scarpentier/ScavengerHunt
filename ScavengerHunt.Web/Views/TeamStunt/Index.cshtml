@@ -10,9 +10,12 @@
 
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Stunt.Keyword)
-        </th>
+        @if (ViewBag.settings.ShowKeyword)
+        {
+            <th>
+                @Html.DisplayNameFor(model => model.Stunt.Keyword)
+            </th>
+        }
         <th>
             @Html.DisplayNameFor(model => model.Stunt.Title)
         </th>
@@ -34,12 +37,16 @@
     @foreach (var item in Model.Where(x => x.Status != TeamStuntStatusEnum.Done))
     {
         <tr>
+            @if (ViewBag.settings.ShowKeyword)
+            {
+                <td>
+                    <kbd>@Html.DisplayFor(modelItem => item.Stunt.Keyword)</kbd>
+                </td>
+            }
             <td>
-                <kbd>@Html.DisplayFor(modelItem => item.Stunt.Keyword)</kbd>
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Stunt.Title)<br/><span class="text-muted">
-                @Html.DisplayFor(modelItem => item.Stunt.Description)</span>
+                <kbd>@Html.DisplayFor(modelItem => item.Stunt.Keyword)</kbd> @Html.DisplayFor(modelItem => item.Stunt.Title)<br /><span class="text-muted" style="font-size: smaller">
+                    @Html.DisplayFor(modelItem => item.Stunt.Description)
+                </span>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Stunt.Type)
@@ -51,7 +58,7 @@
                 @Html.DisplayFor(modelItem => item.Status)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.TeamNotes, "Notes")
+                @Html.DisplayFor(modelItem => item.TeamNotes, "Tooltip", new { Icon = "glyphicon-file"})
             </td>
             <td>
                 @Html.ActionLink(Resources.Edit, "Edit", new { id = item.Id })
@@ -62,7 +69,7 @@
 
 @if (Model.Any(x => x.Done))
 {
-    <h2>@Resources.Done</h2>
+    <h2>@Resources.Judged</h2>
 
     <table class="table">
         <tr>
@@ -79,10 +86,7 @@
                 @Html.DisplayNameFor(model => model.Status)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TeamNotes)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.JudgeFeedback)
+                Notes
             </th>
             <th></th>
         </tr>
@@ -91,9 +95,9 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Stunt.Title)<br /><span class="text-muted">
-                                                                             @Html.DisplayFor(modelItem => item.Stunt.Description)
-                                                                         </span>
+                    @Html.DisplayFor(modelItem => item.Stunt.Title)<br /><span class="text-muted" style="font-size: smaller">
+                        @Html.DisplayFor(modelItem => item.Stunt.Description)
+                    </span>
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Stunt.Type)
@@ -105,10 +109,8 @@
                     @Html.DisplayFor(modelItem => item.Status)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.TeamNotes, "Notes")
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.JudgeFeedback, "Notes")
+                    @Html.DisplayFor(modelItem => item.TeamNotes, "Tooltip", new { Text = "Team" })<br/>
+                    @Html.DisplayFor(modelItem => item.JudgeFeedback, "Tooltip", new { Text = "Judge feedback"})
                 </td>
                 <td>
                     @Html.ActionLink(Resources.Edit, "Edit", new { id = item.Id })
@@ -122,5 +124,6 @@
 {
     <script type="text/javascript">       
         $("[data-toggle=tooltip").tooltip();
+        $("[data-toggle=popover").popover();
     </script>
 }

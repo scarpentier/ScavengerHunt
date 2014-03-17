@@ -1,0 +1,49 @@
+﻿@using ScavengerHunt.Web.Models
+﻿@model StuntTypeEnum
+
+@if (EnumHelper.IsValidForEnumHelper(ViewData.ModelMetadata))
+{
+    // Display Enum using same names (from [Display] attributes) as in editors
+    string displayName = null;
+    foreach (SelectListItem item in EnumHelper.GetSelectList(ViewData.ModelMetadata, (Enum)Model))
+    {
+        if (item.Selected)
+        {
+            displayName = item.Text ?? item.Value;
+
+            // Check for color
+            StuntTypeEnum selectedEnum;
+            string icon = string.Empty;
+            Enum.TryParse(item.Value, out selectedEnum);
+
+            switch (selectedEnum)
+            {
+                case StuntTypeEnum.Flag:
+                    icon = "flag";
+                    break;
+                case StuntTypeEnum.File:
+                    icon = "file";
+                    break;
+                case StuntTypeEnum.Photo:
+                    icon = "picture";
+                    break;
+                case StuntTypeEnum.Video:
+                    icon = "film";
+                    break;
+                case StuntTypeEnum.RichText:
+                case StuntTypeEnum.Text:
+                    icon = "font";
+                    break;
+                case StuntTypeEnum.Url:
+                    icon = "link";
+                    break;
+                case StuntTypeEnum.Live:
+                    icon = "user";
+                    break;
+            }
+            <a href="#" data-toggle=tooltip title data-original-title="@displayName">
+                <span class="glyphicon glyphicon-@icon"></span>
+            </a>
+        }
+    }
+}

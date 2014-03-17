@@ -21,6 +21,7 @@ namespace ScavengerHunt.Web.Models
         public DbSet<Team> Teams { get; set; }
         public DbSet<TeamStunt> TeamStunts { get; set; }
         public DbSet<StuntTranslation> StuntTranslations { get; set; }
+        public DbSet<Setting> Settings { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

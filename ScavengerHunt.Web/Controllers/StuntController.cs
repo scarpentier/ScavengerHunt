@@ -13,8 +13,6 @@ namespace ScavengerHunt.Web.Controllers
 {
     public class StuntController : BaseController
     {
-        private ScavengerHuntContext db = new ScavengerHuntContext();
-
         // GET: /Stunt/
         [Authorize(Roles = "Admin")]
         public ActionResult IndexAdmin()
@@ -24,7 +22,7 @@ namespace ScavengerHunt.Web.Controllers
 
         public ActionResult Index()
         {
-            return View(db.Stunts.ToList().Globalize(Language));
+            return View(db.Stunts.Where(x => x.Published).ToList().Globalize(Language));
         }
 
         // GET: /Stunt/Details/5
@@ -56,7 +54,7 @@ namespace ScavengerHunt.Web.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
-        public ActionResult Create([Bind(Include="Id,Keyword,MaxScore,Type")] Stunt stunt)
+        public ActionResult Create([Bind(Include="Id,Keyword,MaxScore,Type,JudgeNotes,Published")] Stunt stunt)
         {
             if (ModelState.IsValid)
             {
@@ -104,7 +102,7 @@ namespace ScavengerHunt.Web.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
-        public ActionResult Edit([Bind(Include="Id,Keyword,MaxScore,Type,JudgeNotes")] Stunt stunt)
+        public ActionResult Edit([Bind(Include="Id,Keyword,MaxScore,Type,JudgeNotes,Published")] Stunt stunt)
         {
             if (ModelState.IsValid)
             {

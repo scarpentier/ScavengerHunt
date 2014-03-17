@@ -160,6 +160,15 @@ namespace ScavengerHunt.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Judged.
+        /// </summary>
+        public static string Judged {
+            get {
+                return ResourceManager.GetString("Judged", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Members.
         /// </summary>
         public static string Members {
@@ -309,6 +318,15 @@ namespace ScavengerHunt.Web.Resources {
         public static string TeamStatus {
             get {
                 return ResourceManager.GetString("TeamStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You also have {0} bonus points.
+        /// </summary>
+        public static string YourBonusPoints {
+            get {
+                return ResourceManager.GetString("YourBonusPoints", resourceCulture);
             }
         }
         
