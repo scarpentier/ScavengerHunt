@@ -141,6 +141,16 @@ namespace ScavengerHunt.Web.Controllers
             return RedirectToAction("IndexAdmin");
         }
 
+        [HttpPost, ActionName("DeleteAll")]
+        [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
+        public ActionResult DeleteAll()
+        {
+            db.Stunts.RemoveRange(db.Stunts);
+            db.SaveChanges();
+            return View("Data");
+        }
+
         [Authorize(Roles = "Admin")]
         public ActionResult Data()
         {
