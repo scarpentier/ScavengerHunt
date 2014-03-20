@@ -195,6 +195,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JudgeController.cs" />
+    <Compile Include="Controllers\SettingsController.cs" />
     <Compile Include="Controllers\StuntController.cs" />
     <Compile Include="Controllers\StuntTranslationController.cs" />
     <Compile Include="Controllers\TeamController.cs" />
@@ -334,6 +335,10 @@
     <Content Include="Views\Team\DataExportPartial.cshtml" />
     <Content Include="Views\Team\DataImportPartial.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\TeamName.cshtml" />
+    <Content Include="Views\Settings\Create.cshtml" />
+    <Content Include="Views\Settings\Delete.cshtml" />
+    <Content Include="Views\Settings\Edit.cshtml" />
+    <Content Include="Views\Settings\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

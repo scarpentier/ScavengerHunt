@@ -30,14 +30,14 @@ namespace ScavengerHunt.Web.Models
         {
             var ss = new StrongSettings()
                          {
-                             ShowKeyword = bool.Parse(settings.Find(x => x.Key == "ShowKeyword").Value),
-                             ShowTitle = bool.Parse(settings.Find(x => x.Key == "ShowTitle").Value),
-                             AllowStuntRetry = bool.Parse(settings.Find(x => x.Key == "AllowStuntRetry").Value),
-                             EnableUserRegistration = bool.Parse(settings.Find(x => x.Key == "EnableUserRegistration").Value),
-                             EnableTeamRegistration = bool.Parse(settings.Find(x => x.Key == "EnableTeamRegistration").Value),
-                             EnableTeamJoining = bool.Parse(settings.Find(x => x.Key == "EnabledTeamJoining").Value),
-                             GuestStuntsVisible = bool.Parse(settings.Find(x => x.Key == "GuestStuntsVisible").Value),
-                             GuestTeamsVisible = bool.Parse(settings.Find(x => x.Key == "GuestTeamsVisible").Value)
+                             ShowKeyword = bool.Parse(settings.Find(x => x.Key == "ShowKeyword").Value ?? bool.TrueString),
+                             ShowTitle = bool.Parse(settings.Find(x => x.Key == "ShowTitle").Value ?? bool.TrueString),
+                             AllowStuntRetry = bool.Parse(settings.Find(x => x.Key == "AllowStuntRetry").Value ?? bool.TrueString),
+                             EnableUserRegistration = bool.Parse(settings.Find(x => x.Key == "EnableUserRegistration").Value ?? bool.TrueString),
+                             EnableTeamRegistration = bool.Parse(settings.Find(x => x.Key == "EnableTeamRegistration").Value ?? bool.TrueString),
+                             EnableTeamJoining = bool.Parse(settings.Find(x => x.Key == "EnabledTeamJoining").Value ?? bool.TrueString),
+                             GuestStuntsVisible = bool.Parse(settings.Find(x => x.Key == "GuestStuntsVisible").Value ?? bool.TrueString),
+                             GuestTeamsVisible = bool.Parse(settings.Find(x => x.Key == "GuestTeamsVisible").Value ?? bool.TrueString)
                          };
 
             return ss;
