@@ -1,6 +1,6 @@
 ﻿@using System.Web.Mvc.Html;
-@using ScavengerHunt.Web.Resources
-@model ScavengerHunt.Web.Models.TeamStunt
+@using ScavengerHunt.Web.Models
+@model TeamStunt
 
 @{
     ViewBag.Title = "Edit";
@@ -39,7 +39,27 @@
             @Html.LabelFor(model => model.Submission, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.TextBoxFor(model => model.Submission, new { @class = "form-control" })
-                <span class="text-muted"><span class="glyphicon glyphicon-info-sign"></span> The judges are expecting a @Html.DisplayFor(model => model.Stunt.Type)</span>
+                <div class="text-muted">
+                    <span class="glyphicon glyphicon-info-sign"></span> The judges are expecting a @Html.DisplayFor(model => model.Stunt.Type)
+                    @switch (Model.Stunt.Type)
+                    {
+                        case StuntTypeEnum.Picture:
+                            <span>May we recommend <a href="https://imgur.com/">imgur</a>?</span>
+                            break;
+                        case StuntTypeEnum.Video:
+                            <span>May we recommend <a href="https://youtube.com/">Youtube</a>?</span>
+                            break;
+                        case StuntTypeEnum.Live:
+                            <span>Come see the judges!</span>
+                            break;
+                        case StuntTypeEnum.File:
+                            <span>May we recommend <a href="https://www.dropbox.com/">Dropbox</a>?</span>
+                            break;
+                        case StuntTypeEnum.Flag:
+                            <span>It will be automatically corrected upon submission.</span>
+                            break;
+                    }
+                </div>
                 @Html.ValidationMessageFor(model => model.Submission)
             </div>
         </div>
