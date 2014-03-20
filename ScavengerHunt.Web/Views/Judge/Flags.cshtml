@@ -9,10 +9,11 @@
 
 <table class="table table-hover">
     <tr>
+        <th></th>
         <th>
             Team Name
         </th>
-        <th>
+        <th style="width: 50%;">
             @Html.DisplayNameFor(model => model.Stunt.Title)
         </th>
 
@@ -32,39 +33,43 @@
     </tr>
 
     @foreach (var item in Model.OrderBy(x => x.DateUpdated))
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Team.Name)
-            </td>
-            <td>
-                <kbd>@Html.DisplayFor(modelItem => item.Stunt.Keyword)</kbd>
-                @Html.DisplayFor(modelItem => item.Stunt, "StuntTitle", new { ForceCollapse = true })
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Submission)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Stunt.JudgeNotes)
-            </td>
-            <td>
-                @if (item.Score == item.Stunt.MaxScore)
-                {
-                    <span class="glyphicon glyphicon-ok" style="color: darkgreen;"></span>
-                }
-                else
-                {
-                    <span class="glyphicon glyphicon-remove" style="color: darkred;"></span>
-                }
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.JudgeNotes)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id })
-            </td>
-        </tr>
-    }
+{
+    var panelId = string.Format("desc-panel-{0}", item.Id);
+    <tr data-toggle="collapse" data-target="#@panelId">
+        <th>
+            <span class="glyphicon glyphicon-chevron-down"></span>
+        </th>
+        <td>
+            @Html.DisplayFor(modelItem => item.Team.Name)
+        </td>
+        <td>
+            <kbd>@Html.DisplayFor(modelItem => item.Stunt.Keyword)</kbd>
+            @Html.DisplayFor(modelItem => item.Stunt, "StuntTitle", new { CollapsePanelId = panelId })
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Submission)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Stunt.JudgeNotes)
+        </td>
+        <td>
+            @if (item.Score == item.Stunt.MaxScore)
+            {
+                <span class="glyphicon glyphicon-ok" style="color: darkgreen;"></span>
+            }
+            else
+            {
+                <span class="glyphicon glyphicon-remove" style="color: darkred;"></span>
+            }
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.JudgeNotes)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+        </td>
+    </tr>
+}
 </table>
 
 @section scripts
