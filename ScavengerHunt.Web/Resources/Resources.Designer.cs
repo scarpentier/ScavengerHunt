@@ -133,6 +133,15 @@ namespace ScavengerHunt.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to CS Games Puzzle Hero.
+        /// </summary>
+        public static string HomeJumbotronTitle {
+            get {
+                return ResourceManager.GetString("HomeJumbotronTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Join.
         /// </summary>
         public static string Join {

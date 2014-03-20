@@ -225,4 +225,7 @@
   <data name="JudgeFeedback" xml:space="preserve">
     <value>Judge Feedback</value>
   </data>
+  <data name="HomeJumbotronTitle" xml:space="preserve">
+    <value>CS Games Puzzle Hero</value>
+  </data>
 </root>
