@@ -30,6 +30,21 @@ namespace ScavengerHunt.Web.Models
                                             Key = "AllowStuntRetry",
                                             Value = "true",
                                             Description = "Allows teams to retry a stunt already done to increase points if they are unhappy with the judging"
+                                        },
+                                        new Setting() {
+                                            Key = "EnableUserRegistration",
+                                            Value = "true",
+                                            Description = ""
+                                        },
+                                        new Setting() {
+                                            Key = "EnableTeamRegistration",
+                                            Value = "true",
+                                            Description = ""
+                                        },
+                                        new Setting() {
+                                            Key = "EnabledTeamJoining",
+                                            Value = "true",
+                                            Description = ""
                                         }
                                     };
 

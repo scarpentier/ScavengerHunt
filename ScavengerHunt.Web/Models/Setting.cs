@@ -20,6 +20,9 @@ namespace ScavengerHunt.Web.Models
         public bool ShowKeyword { get; private set; }
         public bool AllowStuntRetry { get; private set; }
         public bool ShowTitle { get; private set; }
+        public bool EnableUserRegistration { get; private set; }
+        public bool EnableTeamRegistration { get; private set; }
+        public bool EnableTeamJoining { get; private set; }
 
         public static StrongSettings GetSettings(List<Setting> settings)
         {
@@ -27,7 +30,10 @@ namespace ScavengerHunt.Web.Models
                          {
                              ShowKeyword = bool.Parse(settings.Find(x => x.Key == "ShowKeyword").Value),
                              ShowTitle = bool.Parse(settings.Find(x => x.Key == "ShowTitle").Value),
-                             AllowStuntRetry = bool.Parse(settings.Find(x => x.Key == "AllowStuntRetry").Value)
+                             AllowStuntRetry = bool.Parse(settings.Find(x => x.Key == "AllowStuntRetry").Value),
+                             EnableUserRegistration = bool.Parse(settings.Find(x => x.Key == "EnableUserRegistration").Value),
+                             EnableTeamRegistration = bool.Parse(settings.Find(x => x.Key == "EnableTeamRegistration").Value),
+                             EnableTeamJoining = bool.Parse(settings.Find(x => x.Key == "EnabledTeamJoining").Value)
                          };
 
             return ss;

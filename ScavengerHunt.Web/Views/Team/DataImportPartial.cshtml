@@ -1,0 +1,14 @@
+﻿@model object
+
+@using (Html.BeginForm("DataImport", "Team"))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form" role="form">
+        <div class="form-group">
+            @Html.TextArea("data", new { @class = "form-control", @style = "height: 300px;" })
+        </div>
+
+        <input type="submit" value="Import" class="btn btn-primary" />
+    </div>
+}

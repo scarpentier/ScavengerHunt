@@ -9,6 +9,8 @@ using System.Web.Mvc;
 
 using Microsoft.AspNet.Identity;
 
+using Newtonsoft.Json;
+
 using ScavengerHunt.Web.Models;
 
 using WebGrease.Css.Extensions;
@@ -98,6 +100,12 @@ namespace ScavengerHunt.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include="Id,Name")] Team team)
         {
+            if (!Settings.EnableTeamRegistration && !User.IsInRole("Admin"))
+            {
+                ModelState.AddModelError("Name", "Team creation is disabled");
+                return View("Start");
+            }
+            
             if (ModelState.IsValid)
             {              
                 // Make sure the team is not already there
@@ -153,6 +161,12 @@ namespace ScavengerHunt.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Join([Bind(Include = "Token")] string token)
         {
+            if (!Settings.EnableTeamJoining && !User.IsInRole("Admin"))
+            {
+                ModelState.AddModelError("Token", "Team joining is disabled");
+                return View("Start");
+            }
+
             // Get User
             string currentUserId = User.Identity.GetUserId();
             var user = db.Users.Find(currentUserId);
@@ -248,6 +262,68 @@ namespace ScavengerHunt.Web.Controllers
 
             db.Teams.Remove(team);
             db.SaveChanges();
+            return RedirectToAction("IndexAdmin");
+        }
+
+        [HttpPost, ActionName("DeleteAll")]
+        [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
+        public ActionResult DeleteAll()
+        {
+            db.Teams.RemoveRange(db.Teams);
+            db.SaveChanges();
+            return View("Data");
+        }
+
+        [Authorize(Roles = "Admin")]
+        public ActionResult Data()
+        {
+            return View();
+        }
+
+        public ActionResult DataExportPartial()
+        {
+            return PartialView();
+        }
+
+        [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
+        [HttpPost]
+        public ActionResult DataExport()
+        {
+            var teams = db.Teams.ToList();
+
+            ViewBag.ExportData = JsonConvert.SerializeObject(teams);
+
+            return View("Data");
+        }
+
+        public ActionResult DataImportPartial()
+        {
+            return PartialView();
+        }
+
+        [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
+        [HttpPost]
+        public ActionResult DataImport(string data)
+        {
+            var teams = JsonConvert.DeserializeObject<List<Team>>(data);
+
+            db.Teams.AddRange(teams);
+            db.SaveChanges();
+
+            // Create TeamStunts for the teams
+            foreach (var team in teams)
+            {
+                foreach (var stunt in db.Stunts)
+                {
+                    var ts = new TeamStunt() { Stunt = stunt, Team = team };
+                    db.TeamStunts.Add(ts);
+                }
+            }
+            db.SaveChanges();
+
             return RedirectToAction("IndexAdmin");
         }
 

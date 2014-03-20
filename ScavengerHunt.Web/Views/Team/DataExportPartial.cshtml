@@ -1,0 +1,12 @@
+﻿@using (Html.BeginForm("DataExport", "Team"))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form" role="form">
+        <div class="form-group">
+            <textarea name="data" class="form-control" style="height:300px;">@ViewBag.ExportData</textarea>
+        </div>
+
+        <input type="submit" value="Export" class="btn btn-primary" />
+    </div>
+}
