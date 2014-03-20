@@ -9,7 +9,7 @@
 <p>
     @Html.ActionLink("Create New", "Create") | @Html.ActionLink("Data Management", "Data")
 </p>
-<table class="table">
+<table class="table table-hover">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Keyword)
@@ -32,35 +32,36 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            <kbd>@Html.DisplayFor(modelItem => item.Keyword)</kbd>
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)<br/>
-            <span class="text-muted" style="font-size: small">
-                @Html.Markdown(item.Description)
-            </span>
-        </td>
-        <td>
-            @Html.CheckBoxFor(modelItem => item.Published, new { @disabled = "disabled" })
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MaxScore)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Type)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.JudgeNotes, "Tooltip", new { Icon = "glyphicon-file" })
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <kbd>@Html.DisplayFor(modelItem => item.Keyword)</kbd>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)<br />
+                <span class="text-muted" style="font-size: small">
+                    @Html.Markdown(item.Description)
+                </span>
+            </td>
+            <td>
+                @Html.CheckBoxFor(modelItem => item.Published, new { @disabled = "disabled" })
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaxScore)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JudgeNotes, "Tooltip", new { Icon = "glyphicon-file" })
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
 
 </table>
 

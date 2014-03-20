@@ -34,17 +34,27 @@ namespace ScavengerHunt.Web.Models
                                         new Setting() {
                                             Key = "EnableUserRegistration",
                                             Value = "true",
-                                            Description = ""
+                                            Description = "Allows user registration"
                                         },
                                         new Setting() {
                                             Key = "EnableTeamRegistration",
                                             Value = "true",
-                                            Description = ""
+                                            Description = "Allows team registration"
                                         },
                                         new Setting() {
                                             Key = "EnabledTeamJoining",
                                             Value = "true",
-                                            Description = ""
+                                            Description = "Allows team joining"
+                                        },
+                                        new Setting() {
+                                            Key = "GuestStuntsVisible",
+                                            Value = "true",
+                                            Description = "Allows guests to see stunts"
+                                        },
+                                        new Setting() {
+                                            Key = "GuestTeamsVisible",
+                                            Value = "true",
+                                            Description = "Allows guests to see teams"
                                         }
                                     };
 

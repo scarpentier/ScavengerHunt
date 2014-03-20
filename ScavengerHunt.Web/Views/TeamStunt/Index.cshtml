@@ -1,6 +1,5 @@
 ﻿@using ScavengerHunt.Web.Models
-@using ScavengerHunt.Web.Resources
-@model IEnumerable<ScavengerHunt.Web.Models.TeamStunt>
+@model IEnumerable<TeamStunt>
 
 @{
     ViewBag.Title = "Index";
@@ -8,7 +7,7 @@
 
 <h2>@Resources.Stunts</h2>
 
-<table class="table">
+<table class="table table-hover">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Stunt.Title)
@@ -44,7 +43,7 @@
                 @Html.DisplayFor(modelItem => item.Status)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.TeamNotes, "Tooltip", new { Icon = "glyphicon-file"})
+                @Html.DisplayFor(modelItem => item.TeamNotes, "Tooltip", new { Icon = "glyphicon-file" })
             </td>
             <td>
                 @Html.ActionLink(Resources.Edit, "Edit", new { id = item.Id })
@@ -57,7 +56,7 @@
 {
     <h2>@Resources.Judged</h2>
 
-    <table class="table">
+    <table class="table table-hover">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Stunt.Title)
@@ -93,8 +92,8 @@
                     @Html.DisplayFor(modelItem => item.Status)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.TeamNotes, "Tooltip", new { Text = "Team" })<br/>
-                    @Html.DisplayFor(modelItem => item.JudgeFeedback, "Tooltip", new { Text = "Judge"})
+                    @Html.DisplayFor(modelItem => item.TeamNotes, "Tooltip", new { Text = "Team" })<br />
+                    @Html.DisplayFor(modelItem => item.JudgeFeedback, "Tooltip", new { Text = "Judge" })
                 </td>
                 <td>
                     @Html.ActionLink(Resources.Edit, "Edit", new { id = item.Id })

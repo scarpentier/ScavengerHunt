@@ -216,7 +216,7 @@ namespace ScavengerHunt.Web.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
-        public ActionResult Edit([Bind(Include="Id,Name,BonusPoints")] Team team)
+        public ActionResult Edit([Bind(Include="Id,Name,Token,Tagline,Url,BonusPoints")] Team team)
         {
             if (ModelState.IsValid)
             {
@@ -224,6 +224,9 @@ namespace ScavengerHunt.Web.Controllers
 
                 t.Name = team.Name;
                 t.BonusPoints = team.BonusPoints;
+                t.Token = team.Token;
+                t.Tagline = team.Tagline;
+                t.Url = team.Url;
                 
                 db.Entry(t).State = EntityState.Modified;
                 db.SaveChanges();

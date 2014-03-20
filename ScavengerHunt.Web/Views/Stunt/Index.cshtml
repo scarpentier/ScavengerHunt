@@ -7,42 +7,45 @@
 
 <h2>@ViewBag.Title</h2>
 
-<div class="bg-warning">
+<div class="alert alert-warning">
     <h4>@Resources.NotPartOfATeam</h4>
-    @Resources.NotPartOfATeamDescription
-    <a style="margin-left: 20px;" class="btn btn-primary" href="/Team/Start">@Resources.CreateOrJoinTeam &raquo;</a>
+    <p>@Resources.NotPartOfATeamDescription</p>
+    <p><a class="btn btn-primary" href="/Team/Start">@Resources.CreateOrJoinTeam &raquo;</a></p>
 </div>
 <br>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MaxScore)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Type)
-        </th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
+@if (ViewBag.settings.GuestSuntsVisible || User.Identity.IsAuthenticated)
+{
+    <table class="table">
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item, "StuntTitle")
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MaxScore)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Type)
-            </td>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MaxScore)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Type)
+            </th>
         </tr>
-    }
 
-</table>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item, "StuntTitle")
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaxScore)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Type)
+                </td>
+            </tr>
+        }
 
+    </table>
+}
+    
 @section scripts
 {
     <script type="text/javascript">

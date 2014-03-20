@@ -30,15 +30,21 @@
     </div>
 </div>
 
-<hr/>
+@if (ViewBag.settings.GuestTeamsVisible || User.Identity.IsAuthenticated)
+{
+    <hr/>
 
-<div class="row">
-    <div class="col-md-8">
-        <h2>@Resources.CurrentRankings</h2>
-        @Html.Action("IndexPartial", "Team")
+    <div class="row">
+        <div class="col-md-8">
+            <h2>@Resources.CurrentRankings</h2>
+            @Html.Action("IndexPartial", "Team")
+        </div>
+        @if (ViewBag.settings.GuestStuntsVisible || User.Identity.IsAuthenticated)
+        {
+            <div class="col-md-4">
+                <h2>@Resources.StuntActivity</h2>
+                @Html.Action("ActivityPartial", "TeamStunt")
+            </div>
+        }
     </div>
-    <div class="col-md-4">
-        <h2>@Resources.StuntActivity</h2>
-        @Html.Action("ActivityPartial", "TeamStunt")
-    </div>
-</div>
+}

@@ -27,6 +27,30 @@
         </div>
         
         <div class="form-group">
+            @Html.LabelFor(model => model.Token, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Token, new { @class = "form-control", @style = "width: 350px;" })
+                @Html.ValidationMessageFor(model => model.Token)
+            </div>
+        </div>
+        
+        <div class="form-group">
+            @Html.LabelFor(model => model.Tagline, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Tagline, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Tagline)
+            </div>
+        </div>
+        
+        <div class="form-group">
+            @Html.LabelFor(model => model.Url, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Url, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Url)
+            </div>
+        </div>
+        
+        <div class="form-group">
             @Html.LabelFor(model => model.BonusPoints, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.BonusPoints)

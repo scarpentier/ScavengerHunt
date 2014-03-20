@@ -333,6 +333,7 @@
     <Content Include="Views\Team\Data.cshtml" />
     <Content Include="Views\Team\DataExportPartial.cshtml" />
     <Content Include="Views\Team\DataImportPartial.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\TeamName.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
