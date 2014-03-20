@@ -6,45 +6,28 @@
 
 <div class="jumbotron">
     <h1>@Resources.HomeJumbotronTitle</h1>
-    <p class="lead">@Resources.HomeJumbotronLead</p>
-    <p><a href="https://github.com/scarpentier/ScavengerHunt" class="btn btn-primary btn-large">@Resources.SourceCode &raquo;</a></p>
+    <p>
+        <a href="https://github.com/scarpentier/ScavengerHunt" class="btn btn-primary btn-large">@Resources.SourceCode &raquo;</a>
+        <a href="Team/Start" class="btn btn-primary btn-large">Join your team! &raquo;</a>
+    </p>
 </div>
 
 <div class="row">
-    <div class="col-md-4">
-        <h2>@Resources.JoinExistingTeam</h2>
-        <p>@Resources.JoinExistingTeamExplanation</p>
-        <p><a class="btn btn-default" href="/Team/Start">@Resources.Join &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>@Resources.RegisterNewTeam</h2>
+    <div class="col-md-6">
+        <h2>Français</h2>
         <p>
-            @Resources.RegisterNewTeamExplanation
+            @Html.Markdown(@"
+Les comptes et équipes sont déjà crées pour vous. Utilisez vos accès CS Games pour vous identifier.
+
+Si vous le désirez, vous pouvez créer votre propre compte et joindre votre équipe. Le code d'équipe est `string.Format({0}{1}, user, pass)`
+")
         </p>
-        <p><a class="btn btn-default" href="/Team/Start">@Resources.Create &raquo;</a></p>
     </div>
-    <div class="col-md-4">
-        <h2>@Resources.StartJourney</h2>
-        <p>@Resources.StartJourneyExplanation</p>
-        <p><a class="btn btn-default" href="/TeamStunt/">@Resources.Start &raquo;</a></p>
+    <div class="col-md-6">
+        <h2>English</h2>
+        <p>@Html.Markdown(@"Accounts and teams are already created for you. Just use your CS Games credentials to log in.
+
+If you wish so, you can also create your own account and join your university's team. Team tokens are `string.Format({0}{1}, user, pass)`
+")</p>
     </div>
 </div>
-
-@if (ViewBag.settings.GuestTeamsVisible || User.Identity.IsAuthenticated)
-{
-    <hr/>
-
-    <div class="row">
-        <div class="col-md-8">
-            <h2>@Resources.CurrentRankings</h2>
-            @Html.Action("IndexPartial", "Team")
-        </div>
-        @if (ViewBag.settings.GuestStuntsVisible || User.Identity.IsAuthenticated)
-        {
-            <div class="col-md-4">
-                <h2>@Resources.StuntActivity</h2>
-                @Html.Action("ActivityPartial", "TeamStunt")
-            </div>
-        }
-    </div>
-}
