@@ -7,6 +7,8 @@
 
 <h2>Judgement Queue</h2>
 
+<p>@Html.ActionLink("Flag Submissions", "Flags")</p>
+
 <table class="table table-hover">
     <tr>
         <th>
@@ -27,10 +29,11 @@
 @foreach (var item in Model.Where(x=>x.Status == TeamStuntStatusEnum.Pending).OrderBy(x=>x.DateUpdated)) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Team, "TeamName")
+            @Html.DisplayFor(modelItem => item.Team.Name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Stunt, "StuntTitle")
+            <kbd>@Html.DisplayFor(modelItem => item.Stunt.Keyword)</kbd>
+            @Html.DisplayFor(modelItem => item.Stunt, "StuntTitle", new { ForceCollapse = true })
         </td>
         <td>
             @Html.DisplayFor(modelItem => item, "Score")
@@ -74,10 +77,11 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Team, "TeamName")
+                    @Html.DisplayFor(modelItem => item.Team.Name)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Stunt, "StuntTitle")
+                    <kbd>@Html.DisplayFor(modelItem => item.Stunt.Keyword)</kbd>
+                    @Html.DisplayFor(modelItem => item.Stunt, "StuntTitle", new { ForceCollapse = true })
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item, "Score")

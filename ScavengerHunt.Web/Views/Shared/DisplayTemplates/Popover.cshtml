@@ -4,10 +4,10 @@
 {
     if (ViewBag.Text != null)
     {
-        <a href="#" data-toggle="popover" data-title="@ViewBag.Title" data-content="@Model">@ViewBag.Text</a>
+        <a href="#" data-toggle="popover" data-title="@ViewBag.Description" data-content="@Model">@ViewBag.Text</a>
     }
     if (ViewBag.Icon != null)
     {
-        <a href="#" data-toggle="popover" data-title="@ViewBag.Title" data-content="@Model"><span class="glyphicon @ViewBag.Icon"></span></a>
+        <a href="#" data-toggle="popover" data-title="@ViewBag.Description" data-content="@Model"><span class="glyphicon @ViewBag.Icon"></span></a>
     }
 }

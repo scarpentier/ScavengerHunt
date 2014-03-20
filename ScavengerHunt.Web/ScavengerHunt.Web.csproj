@@ -339,6 +339,7 @@
     <Content Include="Views\Settings\Delete.cshtml" />
     <Content Include="Views\Settings\Edit.cshtml" />
     <Content Include="Views\Settings\Index.cshtml" />
+    <Content Include="Views\Judge\Flags.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

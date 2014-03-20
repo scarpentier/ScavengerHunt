@@ -19,6 +19,13 @@ namespace ScavengerHunt.Web.Controllers
             return View(db.TeamStunts.ToList().Globalize(Language));
         }
 
+        public ActionResult Flags()
+        {
+            return View(db.TeamStunts.Where(x => x.Stunt.Type == StuntTypeEnum.Flag &&
+                (!string.IsNullOrEmpty(x.Submission) || !string.IsNullOrEmpty(x.JudgeNotes)))
+                .ToList().Globalize(Language));
+        }
+
 
         // GET: /Judge/Edit/5
         public ActionResult Edit(int? id)
