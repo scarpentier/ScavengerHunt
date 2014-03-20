@@ -3,11 +3,6 @@
 
 @if (!Model.Collapsible)
 {
-
-    if (ViewBag.settings.ShowKeyword)
-    {
-        <kbd>@Html.DisplayFor(modelItem => Model.Keyword)</kbd>
-    }
     if (ViewBag.settings.ShowTitle)
     {
         @Html.DisplayFor(modelItem => Model.Title)
@@ -20,10 +15,6 @@ else
     var panelId = string.Format("desc-panel-{0}", Model.Id);
     
     <a data-toggle="collapse" data-parent="#accordion" href="#@panelId">
-        @if (ViewBag.settings.ShowKeyword)
-        {
-            <kbd>@Html.DisplayFor(modelItem => Model.Keyword)</kbd>
-        }
         @if (ViewBag.settings.ShowTitle)
         {
             @Html.DisplayFor(modelItem => Model.Title)

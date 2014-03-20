@@ -1,5 +1,4 @@
-﻿@using ScavengerHunt.Web.Models
-@model IEnumerable<ScavengerHunt.Web.Models.TeamStunt>
+﻿@model IEnumerable<ScavengerHunt.Web.Models.TeamStunt>
     
 @foreach (var stunt in Model.Where(x => x.Done).OrderByDescending(x => x.DateUpdated).Take(5))
 {

@@ -54,7 +54,7 @@ namespace ScavengerHunt.Web.Models
         Flag,
         Text,
         RichText,
-        Photo,
+        Picture,
         Video,
         Live,
         Url,

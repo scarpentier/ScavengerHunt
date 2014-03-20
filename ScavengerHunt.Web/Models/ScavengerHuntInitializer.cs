@@ -55,6 +55,16 @@ namespace ScavengerHunt.Web.Models
                                             Key = "GuestTeamsVisible",
                                             Value = "true",
                                             Description = "Allows guests to see teams"
+                                        },
+                                        new Setting() {
+                                            Key = "ScavengerHuntTitle",
+                                            Value = "Serious Scavenger Hunt",
+                                            Description = "Title of your scavenger hunt"
+                                        },
+                                        new Setting() {
+                                            Key = "ScavengerHuntTagline",
+                                            Value = "Serious Scavenger Hunt is a free, open source web applicaiton for building, running and managing great scavenger hunts.",
+                                            Description = "Tagline of your scavenger hunt"
                                         }
                                     };
 
@@ -105,7 +115,7 @@ namespace ScavengerHunt.Web.Models
                                                                                                                 new StuntTranslation() { Language = "fr", Title = "Ducktape", Description = "Ducktapez quelqu'un à sa chaise" },
                                                                                                                 new StuntTranslation() { Language = "en", Title = "Ducktape", Description = "Ducktape someone to its chair" }
                                                                                                             }},
-                                 new Stunt() { Keyword = "LQJR", MaxScore = 10, Type = StuntTypeEnum.Photo, Translations = new Collection<StuntTranslation>()
+                                 new Stunt() { Keyword = "LQJR", MaxScore = 10, Type = StuntTypeEnum.Picture, Translations = new Collection<StuntTranslation>()
                                                                                                              {
                                                                                                                  new StuntTranslation() { Language = "fr", Title = "LQJR n'est pas mort", Description = "Envoyez une photo de Veers" },
                                                                                                                  new StuntTranslation() { Language = "en", Title = "LQJR is not dead", Description = "Send us a picture of you with Veers" }
@@ -115,7 +125,7 @@ namespace ScavengerHunt.Web.Models
                                                                                                                new StuntTranslation() { Language = "fr", Title = "Aimer le jambon", Description = "Mettez une image de votre équipe sur jambon.ca affichant fièrement le jambon." },
                                                                                                                new StuntTranslation() { Language = "en", Title = "Love ham", Description = "Send a picture of your team on jambon.ca"}
                                                                                                            }},
-                                 new Stunt() { Keyword = "Xzcute", MaxScore = 5, Type = StuntTypeEnum.Photo, Translations = new Collection<StuntTranslation>()
+                                 new Stunt() { Keyword = "Xzcute", MaxScore = 5, Type = StuntTypeEnum.Picture, Translations = new Collection<StuntTranslation>()
                                                                                                             {
                                                                                                                 new StuntTranslation() { Language = "fr", Title = "Risquer sa vie", Description = "Photo avec le légendaire Xzcute" },
                                                                                                                 new StuntTranslation() { Language = "en", Title = "Risk your life", Description = "Picture with legendary Xzcute" }

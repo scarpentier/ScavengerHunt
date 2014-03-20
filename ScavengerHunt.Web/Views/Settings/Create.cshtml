@@ -18,7 +18,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Key, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Key)
+                @Html.TextBoxFor(model => model.Key, new { @class = "form-control", @style = "max-width: 300px" })
                 @Html.ValidationMessageFor(model => model.Key)
             </div>
         </div>
@@ -26,7 +26,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Value, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Value)
+                @Html.TextBoxFor(model => model.Value, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Value)
             </div>
         </div>
@@ -34,14 +34,14 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Description, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Description)
+                @Html.TextAreaFor(model => model.Description, new { @class = "form-control", @style = "height: 100px"} )
                 @Html.ValidationMessageFor(model => model.Description)
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn btn-success" />
             </div>
         </div>
     </div>

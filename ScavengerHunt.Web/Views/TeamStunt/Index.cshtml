@@ -9,6 +9,13 @@
 
 <table class="table table-hover">
     <tr>
+        @if (ViewBag.settings.ShowKeyword)
+        {
+            <th>
+                @Html.DisplayNameFor(model => model.Stunt.Keyword)
+            </th>
+        }
+
         <th>
             @Html.DisplayNameFor(model => model.Stunt.Title)
         </th>
@@ -30,6 +37,12 @@
     @foreach (var item in Model.Where(x => x.Status != TeamStuntStatusEnum.Done))
     {
         <tr>
+            @if (ViewBag.settings.ShowKeyword)
+            {
+                <td>
+                    <kbd>@Html.DisplayFor(modelITem => item.Stunt.Keyword)</kbd>
+                </td>
+            }
             <td>
                 @Html.DisplayFor(modelItem => item.Stunt, "StuntTitle")
             </td>

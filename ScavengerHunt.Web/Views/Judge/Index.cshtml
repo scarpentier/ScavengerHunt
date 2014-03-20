@@ -27,7 +27,7 @@
 @foreach (var item in Model.Where(x=>x.Status == TeamStuntStatusEnum.Pending).OrderBy(x=>x.DateUpdated)) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Team.Name)
+            @Html.DisplayFor(modelItem => item.Team, "TeamName")
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Stunt, "StuntTitle")
@@ -74,7 +74,7 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Team.Name)
+                    @Html.DisplayFor(modelItem => item.Team, "TeamName")
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Stunt, "StuntTitle")
