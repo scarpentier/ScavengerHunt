@@ -51,6 +51,14 @@
         </div>
         
         <div class="form-group">
+            @Html.LabelFor(model => model.Collapsible, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.CheckBoxFor(model => model.Collapsible)
+                @Html.ValidationMessageFor(model => model.Collapsible)
+            </div>
+        </div>
+        
+        <div class="form-group">
             @Html.LabelFor(model => model.JudgeNotes, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.TextAreaFor(model => model.JudgeNotes, new { @class = "form-control", @style = "height: 200px" })

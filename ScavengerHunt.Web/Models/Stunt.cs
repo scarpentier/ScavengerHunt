@@ -24,6 +24,8 @@ namespace ScavengerHunt.Web.Models
         [Display(ResourceType = typeof(Resources.Resources), Name = "JudgeNotes")]
         public string JudgeNotes { get; set; }
 
+        public bool Collapsible { get; set; }
+
         public virtual ICollection<StuntTranslation> Translations { get; set; }
 
         [JsonIgnore]
@@ -38,6 +40,7 @@ namespace ScavengerHunt.Web.Models
         public Stunt()
         {
             this.Published = true;
+            this.Collapsible = false;
         }
 
         // TODO: Support pour attacher des fichiers aux stunts

@@ -47,6 +47,14 @@
                 @Html.ValidationMessageFor(model => model.Published)
             </div>
         </div>
+        
+        <div class="form-group">
+            @Html.LabelFor(model => model.Collapsible, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.CheckBoxFor(model => model.Collapsible)
+                @Html.ValidationMessageFor(model => model.Collapsible)
+            </div>
+        </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.JudgeNotes, new { @class = "control-label col-md-2" })
@@ -55,7 +63,7 @@
                 <span class="text-muted"><span class="glyphicon glyphicon-info-sign"></span> Supports <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">Markdown</a>. Please use sparingly.</span>
                 @Html.ValidationMessageFor(model => model.JudgeNotes)
             </div>
-        </div>        
+        </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
