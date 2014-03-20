@@ -82,6 +82,12 @@ namespace ScavengerHunt.Web.Controllers
         {
             if (!User.Identity.IsAuthenticated) return RedirectToAction("Login", "Account");
 
+            // Redirect to stunts if user is already part of a team
+            string currentUserId = User.Identity.GetUserId();
+            var currentUser = db.Users.Find(currentUserId);
+            if (currentUser.Team != null && !User.IsInRole("Admin")) 
+                return RedirectToAction("Index", "TeamStunt");
+
             return View();
         }
 
