@@ -2,10 +2,15 @@
 @using ScavengerHunt.Web.Resources
 @{
     ViewBag.Title = "Home Page";
+    var wc = new WebClient();
+    string newsEn = wc.DownloadString("https://gist.githubusercontent.com/scarpentier/ef61e3368670535e3f03/raw/news-en.md");
+    string newsFr = wc.DownloadString("https://gist.githubusercontent.com/scarpentier/394c7730cdf7fddaf47e/raw/news-fr.md");
+    
 }
 
 <div class="jumbotron">
     <h1>@Resources.HomeJumbotronTitle</h1>
+    <p class="lead">All the news, support, social and trolling will be done on freenode ##csgames. <a href="https://webchat.freenode.net/">See you there!</a></p>
     <p>
         <a href="https://github.com/scarpentier/ScavengerHunt" class="btn btn-primary btn-large">@Resources.SourceCode &raquo;</a>
         <a href="Team/Start" class="btn btn-primary btn-large">Join your team! &raquo;</a>
@@ -22,6 +27,11 @@ Les comptes et équipes sont déjà crées pour vous. Utilisez vos accès CS Gam
 Si vous le désirez, vous pouvez créer votre propre compte et joindre votre équipe. Le code d'équipe est `string.Format({0}{1}, user, pass)`
 ")
         </p>
+        
+        <h3>
+            Nouvelles
+        </h3>
+        @Html.Markdown(newsFr)
     </div>
     <div class="col-md-6">
         <h2>English</h2>
@@ -29,5 +39,9 @@ Si vous le désirez, vous pouvez créer votre propre compte et joindre votre éq
 
 If you wish so, you can also create your own account and join your university's team. Team tokens are `string.Format({0}{1}, user, pass)`
 ")</p>
+        <h3>
+            News
+        </h3>
+        @Html.Markdown(newsEn)
     </div>
 </div>
