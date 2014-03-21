@@ -7,7 +7,7 @@
 <h2>@ViewBag.Title</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create") | @Html.ActionLink("Flag Submissions", "Flags", "Judge") | @Html.ActionLink("Data Management", "Data")
+    @Html.ActionLink("Create New", "Create") | @Html.ActionLink("Flag Submissions", "Flags", "Judge") | @Html.ActionLink("Data Management", "Data") | Published stunts : @string.Format("{0} / {1}", Model.Count(x => x.Published), Model.Count())
 </p>
 <table class="table table-hover">
     <tr>
