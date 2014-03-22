@@ -36,9 +36,7 @@
 
     @foreach (var item in Model.Where(x => x.Status != TeamStuntStatusEnum.Done))
 {
-    var panelId = string.Format("desc-panel-{0}", item.Id);
-
-    <tr data-toggle="collapse" data-target="#@panelId">
+    <tr>
         @if (ViewBag.settings.ShowKeyword)
         {
             <td>
@@ -46,7 +44,7 @@
             </td>
         }
         <td>
-            @Html.DisplayFor(modelItem => item.Stunt, "StuntTitle", new { CollapsePanelId = panelId })
+            @Html.DisplayFor(modelItem => item.Stunt, "StuntTitle", new { ForceCollapse = true })
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Stunt.Type)
@@ -58,7 +56,8 @@
             @Html.DisplayFor(modelItem => item.Status)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.TeamNotes, "Tooltip", new { Icon = "glyphicon-file" })
+            @Html.DisplayFor(modelItem => item.TeamNotes, "Tooltip", new { Text = "Team" })<br />
+            @Html.DisplayFor(modelItem => item.JudgeFeedback, "Tooltip", new { Text = "Judge" })
         </td>
         <td>
             @Html.ActionLink(Resources.Edit, "Edit", new { id = item.Id })
@@ -99,8 +98,7 @@
 
         @foreach (var item in Model.Where(x => x.Done))
         {
-            var panelId = string.Format("desc-panel-{0}", item.Id);
-            <tr data-toggle="collapse" data-target="#@panelId">
+            <tr>
                 @if (ViewBag.settings.ShowKeyword)
                 {
                     <td>
@@ -108,7 +106,7 @@
                     </td>
                 }
                 <td>
-                    @Html.DisplayFor(modelItem => item.Stunt, "StuntTitle", new { CollapsePanelId = panelId })
+                    @Html.DisplayFor(modelItem => item.Stunt, "StuntTitle", new { ForceCollapse = true })
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Stunt.Type)

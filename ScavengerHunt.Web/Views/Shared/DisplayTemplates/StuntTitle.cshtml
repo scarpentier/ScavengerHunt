@@ -1,18 +1,14 @@
 ﻿@model ScavengerHunt.Web.Models.Stunt
 
-@{
-    var panelId = string.Format("desc-panel-{0}", Model.Id);
-}
-
 @if (Model.Collapsible && ViewBag.CollapsePanelId != null)
 {
-    <span class="glyphicon glyphicon-chevron-down"></span>
+    var panelId = string.Format("desc-panel-{0}", Model.Id);
+    <span class="glyphicon glyphicon-chevron-down" data-toggle="collapse" data-target="#@panelId"></span>
     if (ViewBag.settings.ShowTitle)
     {
         @Html.DisplayFor(modelItem => Model.Title)
-        
     }
-    <div id="@ViewBag.CollapsePanelId" class="panel-collapse collapse">
+    <div id="@panelId" class="panel-collapse pcollapse">
         <div class="panel-body">
             @Html.Markdown(Model.Description)
         </div>

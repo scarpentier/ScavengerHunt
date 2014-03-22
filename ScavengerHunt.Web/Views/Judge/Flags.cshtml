@@ -34,8 +34,7 @@
 
     @foreach (var item in Model.OrderByDescending(x => x.DateUpdated))
 {
-    var panelId = string.Format("desc-panel-{0}", item.Id);
-    <tr data-toggle="collapse" data-target="#@panelId">
+    <tr>
         <th>
             <span class="glyphicon glyphicon-chevron-down"></span>
         </th>
@@ -44,7 +43,7 @@
         </td>
         <td>
             <kbd>@Html.DisplayFor(modelItem => item.Stunt.Keyword)</kbd>
-            @Html.DisplayFor(modelItem => item.Stunt, "StuntTitle", new { CollapsePanelId = panelId })
+            @Html.DisplayFor(modelItem => item.Stunt, "StuntTitle", new { ForceCollapse = true })
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Submission)
