@@ -46,10 +46,10 @@
             @Html.DisplayFor(modelItem => item.Stunt, "StuntTitle", new { ForceCollapse = true })
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Submission)
+            @Html.DisplayFor(modelItem => item.Submission, "Popover", new { Icon = "glyphicon-flag", DataPlacement = "top" })
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Stunt.JudgeNotes)
+            @Html.DisplayFor(modelItem => item.Stunt.JudgeNotes, "Popover", new { Icon = "glyphicon-flag", DataPlacement = "bottom" })
         </td>
         <td>
             @if (item.Score == item.Stunt.MaxScore)
