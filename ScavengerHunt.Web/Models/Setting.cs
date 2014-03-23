@@ -28,6 +28,7 @@ namespace ScavengerHunt.Web.Models
         public string ScavengerHuntTitle { get; private set; }
         public string ScavengerHuntTagline { get; private set; }
         public bool HideRankings { get; private set; }
+        public bool DisableSubmissions { get; private set; }
 
         public static StrongSettings GetSettings(List<Setting> settings)
         {
@@ -43,7 +44,8 @@ namespace ScavengerHunt.Web.Models
                              GuestTeamsVisible = bool.Parse(settings.Find(x => x.Key == "GuestTeamsVisible").Value ?? bool.TrueString),
                              ScavengerHuntTitle = settings.Find(x => x.Key == "ScavengerHuntTitle").Value,
                              ScavengerHuntTagline = settings.Find(x => x.Key == "ScavengerHuntTagline").Value,
-                             HideRankings = bool.Parse(settings.Find(x => x.Key == "HideRankings").Value ?? bool.FalseString)
+                             HideRankings = bool.Parse(settings.Find(x => x.Key == "HideRankings").Value ?? bool.FalseString),
+                             DisableSubmissions = bool.Parse(settings.Find(x => x.Key == "DisableSubmissions").Value ?? bool.FalseString)
                          };
 
             return ss;

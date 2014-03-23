@@ -86,6 +86,12 @@ namespace ScavengerHunt.Web.Controllers
                 teamStunt.Status = teamstunt.Status;
                 teamStunt.DateUpdated = DateTime.Now;
 
+                if (Settings.DisableSubmissions)
+                {
+                    ModelState.AddModelError("Submission", "Submissions are disabled.");
+                    return View(teamStunt.Globalize(Language));
+                }
+
                 // Special logic if it's a flag
                 if (teamStunt.Stunt.Type == StuntTypeEnum.Flag && !string.IsNullOrEmpty(teamStunt.Stunt.JudgeNotes) && !string.IsNullOrEmpty(teamStunt.Submission))
                 {
