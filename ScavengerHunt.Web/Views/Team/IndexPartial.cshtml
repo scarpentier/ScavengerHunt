@@ -2,43 +2,32 @@
 
 @if (ViewBag.settings.GuestTeamsVisible || User.Identity.IsAuthenticated)
 {
-    if (!ViewBag.settings.HideRankings || User.IsInRole("Admin") || User.IsInRole("Judge"))
-    {
+    <table class="table table-striped">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Score)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StuntCount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Members)
+            </th>
+        </tr>
 
-        <table class="table table-striped">
+        @foreach (var item in Model.OrderByDescending(x => x.Score))
+        {
             <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Name)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Score)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.StuntCount)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Members)
-                </th>
+                <td>
+                    @Html.DisplayFor(modelItem => item, "TeamName")
+                </td>
+                <td>@Html.DisplayFor(modelItem => item.Url)</td>
+                <td>?</td>
+                <td>?</td>
             </tr>
-
-            @foreach (var item in Model.OrderByDescending(x => x.Score))
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item, "TeamName")
-                    </td>
-                    <td>@Html.DisplayFor(modelItem => item.Score)</td>
-                    <td>@Html.DisplayFor(modelItem => item.StuntCount)</td>
-                    <td>@Html.DisplayFor(modelItem => item.Members.Count)</td>
-                </tr>
-            }
-        </table>
-    }
-    else
-    {
-        <div class="alert alert-warning">
-            <h4>Scoreboard disabled</h4>
-            Scores will be made public tonight... we think it's more exciting that way! :3
-        </div>
-    }
+        }
+    </table>
 }

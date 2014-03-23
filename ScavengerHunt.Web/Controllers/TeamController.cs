@@ -45,7 +45,25 @@ namespace ScavengerHunt.Web.Controllers
 
         public ActionResult IndexPartial()
         {
-            return PartialView(db.Teams.ToList().OrderByDescending(x => x.Score));
+            if (Settings.HideRankings && !User.IsInRole("Admin"))
+            {
+                var randomTeams = "Dragon Sector,Plaid Parliament of Pwning,More Smoked Leet Chicken,StratumAuhuur,Eindbazen,penthackon,tomcr00se,int3pids,dcua,Samurai,Rdot.org,H4x0rPsch0rr,SIGINT,The ReiserFS APpreciation Society,ufologists,0x8F,!SpamAndHex,BalalaikaCr3w,HackingForSoju,w3stormz,HackerDom,The Cat is #1!!,Tasteless,CLGT,EpsilonDelta,[TechnoPandas],ReallyNonamesFor,GoN,BostonKeyParty,Leet More,pwnies,Snatch The Root,hexcellents,Pashok,PiggyBird".Split(',');
+
+                var teams = db.Teams.ToList().OrderByDescending(x => x.Score).ToList();
+                
+                for (var i = 0; i < teams.Count(); i++)
+                {
+                    teams[i].Name = randomTeams[i];
+                    teams[i].Tagline = string.Empty;
+                    teams[i].Url = (teams[i].Score + new Random().Next(-4, 4)).ToString();
+                }
+
+                return PartialView(teams);
+            }
+            else
+            {
+                return PartialView(db.Teams.ToList().OrderByDescending(x => x.Score));
+            }
         }
 
         public ActionResult ShowToken(int? id)
