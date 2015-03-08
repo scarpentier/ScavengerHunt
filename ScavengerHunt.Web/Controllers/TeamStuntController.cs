@@ -81,6 +81,7 @@ namespace ScavengerHunt.Web.Controllers
                 if (!User.IsInRole("Admin"))
                 {
                     ModelState.AddModelError("Submission", "The scavenger hunt is now closed. Sorry");
+                    return View(teamStunt.Globalize(Language));
                 }
 
                 // Get previous stunt object
