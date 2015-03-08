@@ -78,14 +78,14 @@ namespace ScavengerHunt.Web.Controllers
         {
             if (ModelState.IsValid)
             {
+                // Get previous stunt object
+                var teamStunt = db.TeamStunts.Find(teamstunt.Id);
+
                 if (!User.IsInRole("Admin"))
                 {
                     ModelState.AddModelError("Submission", "The scavenger hunt is now closed. Sorry");
                     return View(teamStunt.Globalize(Language));
                 }
-
-                // Get previous stunt object
-                var teamStunt = db.TeamStunts.Find(teamstunt.Id);
 
                 teamStunt.TeamNotes = teamstunt.TeamNotes;
                 teamStunt.Submission = teamstunt.Submission;
