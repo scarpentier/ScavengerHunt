@@ -21,13 +21,13 @@
         </tr>
         <tr>
             <td colspan="2">
-                <table class="table table-hover">
+                <table class="table table-hover" width="100%">
                     @foreach (var teamStunt in Model.Where(x => x.Stunt.Id == stunt.Stunt.Id && x.Score > 0).OrderByDescending(x => x.Score))
                     {
                         <tr>
                             <td>@Html.DisplayFor(modelItem => teamStunt.Team, "TeamName")</td>
                             <td>@Html.DisplayFor(modelItem => teamStunt.Status)</td>
-                            <td>@Html.DisplayFor(modelItem => teamStunt.Submission)</td>
+                            <td style="width:200px; word-wrap:break-word; word-break: break-all">@Html.DisplayFor(modelItem => teamStunt.Submission, "TextUrl")</td>
                             <td width="60">@Html.DisplayFor(modelItem => teamStunt, "Score")</td>
                             <td width="90">
                                 @Html.DisplayFor(modelItem => teamStunt.TeamNotes, "Tooltip", new { Text = "Team" })

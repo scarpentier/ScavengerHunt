@@ -1,0 +1,10 @@
+﻿@using System.Text.RegularExpressions
+﻿@model string
+
+@{
+        string regex = @"((www\.|(http|https|ftp|file)+\:\/\/)[&#95;.a-z0-9-]+\.[a-z0-9\/&#95;:@=.+?,##%&~-]*[^.|\'|\# |!|\(|?|,| |>|<|;|\)])";
+        Regex r = new Regex(regex, RegexOptions.IgnoreCase);
+        var output = r.Replace(Model, "<a href=\"$1\">$1</a>").Replace("href=\"www", "href=\"http://www");
+}
+
+@Html.Raw(output)

@@ -341,6 +341,7 @@
     <Content Include="Views\Settings\Index.cshtml" />
     <Content Include="Views\Judge\Flags.cshtml" />
     <Content Include="Views\TeamStunt\Summary.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\TextUrl.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
