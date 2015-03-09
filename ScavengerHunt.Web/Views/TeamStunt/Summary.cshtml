@@ -27,7 +27,7 @@
                         <tr>
                             <td>@Html.DisplayFor(modelItem => teamStunt.Team, "TeamName")</td>
                             <td>@Html.DisplayFor(modelItem => teamStunt.Status)</td>
-                            <td style="width:200px; word-wrap:break-word; word-break: break-all">@Html.DisplayFor(modelItem => teamStunt.Submission, "TextUrl")</td>
+                            <td style="word-wrap:break-word; word-break: break-all">@Html.DisplayFor(modelItem => teamStunt.Submission, "TextUrl")</td>
                             <td width="60">@Html.DisplayFor(modelItem => teamStunt, "Score")</td>
                             <td width="90">
                                 @Html.DisplayFor(modelItem => teamStunt.TeamNotes, "Tooltip", new { Text = "Team" })
