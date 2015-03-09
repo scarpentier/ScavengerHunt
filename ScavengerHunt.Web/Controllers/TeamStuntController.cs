@@ -116,6 +116,19 @@ namespace ScavengerHunt.Web.Controllers
             return View(teamstunt.Globalize(Language));
         }
 
+        public ActionResult Summary()
+        {
+            // Filter and sort stunts
+            var stunts =
+                db.TeamStunts.Where(x => x.Stunt.Published)
+                    .OrderByDescending(x => x.Status == TeamStuntStatusEnum.Pending)
+                    .ThenByDescending(x => x.Status == TeamStuntStatusEnum.WorkInProgress)
+                    .ThenByDescending(x => x.Status == TeamStuntStatusEnum.NotStarted)
+                    .ThenByDescending(x => x.Status == TeamStuntStatusEnum.Abandon);
+
+            return View(stunts.ToList().Globalize(Language));
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

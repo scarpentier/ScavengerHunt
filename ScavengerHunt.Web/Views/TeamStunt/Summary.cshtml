@@ -1,0 +1,48 @@
+﻿@using Microsoft.Ajax.Utilities
+@using ScavengerHunt.Web.Models
+@model IEnumerable<TeamStunt>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>@Resources.Stunts</h2>
+
+<table class="table table-hover">
+    @foreach (var stunt in Model.DistinctBy(x => x.Stunt.Id).Where(x => x.Stunt.Published).OrderByDescending(x => x.Stunt.MaxScore))
+    {
+        <tr>
+            <td>
+                <kbd>@Html.DisplayFor(modelItem => stunt.Stunt.Keyword)</kbd>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => stunt.Stunt, "StuntTitle")
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                @foreach (var teamStunt in Model.Where(x => x.Stunt.Id == stunt.Stunt.Id && x.Score > 0).OrderByDescending(x => x.Score))
+                {
+                    <table class="table table-hover">
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => teamStunt.Team, "TeamName")</td>
+                            <td>@Html.DisplayFor(modelItem => teamStunt.Status)</td>
+                            <td>@Html.DisplayFor(modelItem => teamStunt.Submission)</td>
+                            <td>@Html.DisplayFor(modelItem => teamStunt, "Score")</td>
+                            <td>@Html.DisplayFor(modelItem => teamStunt.TeamNotes, "Tooltip", new { Text = "Team" })<br /></td>
+                            <td>@Html.DisplayFor(modelItem => teamStunt.JudgeFeedback, "Tooltip", new { Text = "Judge" })</td>
+                        </tr>
+                    </table>
+                }
+            </td>
+        </tr>
+    }
+</table>
+
+@section scripts
+{
+    <script type="text/javascript">       
+        $("[data-toggle=tooltip").tooltip();
+        $("[data-toggle=popover").popover();
+    </script>
+}
