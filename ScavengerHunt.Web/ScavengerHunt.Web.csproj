@@ -340,6 +340,7 @@
     <Content Include="Views\Settings\Edit.cshtml" />
     <Content Include="Views\Settings\Index.cshtml" />
     <Content Include="Views\Judge\Flags.cshtml" />
+    <Content Include="Views\TeamStunt\Summary.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
