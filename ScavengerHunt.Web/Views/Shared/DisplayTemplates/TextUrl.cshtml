@@ -1,14 +1,12 @@
 ﻿@using System.Text.RegularExpressions
 ﻿@model string
-
 @{
     var output = Model;
     if (!string.IsNullOrWhiteSpace(Model))
     {
-        string regex = @"((www\.|(http|https|ftp|file)+\:\/\/)[&#95;.a-z0-9-]+\.[a-z0-9\/&#95;:@=.+?,##%&~-]*[^.|\'|\# |!|\(|?|,| |>|<|;|\)])";
-        Regex r = new Regex(regex, RegexOptions.IgnoreCase);
-        output = r.Replace(Model, "<a href=\"$1\">$1</a>").Replace("href=\"www", "href=\"http://www");
+        const string regex = @"((https?|ftp)://[^\s/$.?#].[^\s]*)";
+        Regex r = new Regex(regex);
+        output = r.Replace(Model, "<a href=\"$1\">$1</a>");
     }
 }
-
 @Html.Raw(output)
