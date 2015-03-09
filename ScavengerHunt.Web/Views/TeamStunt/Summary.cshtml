@@ -21,20 +21,22 @@
         </tr>
         <tr>
             <td colspan="2">
-                @foreach (var teamStunt in Model.Where(x => x.Stunt.Id == stunt.Stunt.Id && x.Score > 0).OrderByDescending(x => x.Score))
-                {
-                    <table class="table table-hover">
+                <table class="table table-hover">
+                    @foreach (var teamStunt in Model.Where(x => x.Stunt.Id == stunt.Stunt.Id && x.Score > 0).OrderByDescending(x => x.Score))
+                    {
                         <tr>
                             <td>@Html.DisplayFor(modelItem => teamStunt.Team, "TeamName")</td>
                             <td>@Html.DisplayFor(modelItem => teamStunt.Status)</td>
                             <td>@Html.DisplayFor(modelItem => teamStunt.Submission)</td>
-                            <td>@Html.DisplayFor(modelItem => teamStunt, "Score")</td>
-                            <td>@Html.DisplayFor(modelItem => teamStunt.TeamNotes, "Tooltip", new { Text = "Team" })<br /></td>
-                            <td>@Html.DisplayFor(modelItem => teamStunt.JudgeFeedback, "Tooltip", new { Text = "Judge" })</td>
+                            <td width="60">@Html.DisplayFor(modelItem => teamStunt, "Score")</td>
+                            <td width="90">@Html.DisplayFor(modelItem => teamStunt.TeamNotes, "Tooltip", new { Text = "Team" })
+                                @Html.DisplayFor(modelItem => teamStunt.JudgeFeedback, "Tooltip", new { Text = "Feedback" })
+                                @Html.DisplayFor(modelItem => teamStunt.JudgeNotes, "Tooltip", new { Text = "Notes" })
+                            </td>
                         </tr>
-                    </table>
-                }
-            </td>
+
+                    }
+                </table></td>
         </tr>
     }
 </table>
