@@ -47,21 +47,7 @@ namespace ScavengerHunt.Web.Controllers
         {
             return PartialView(db.Teams.ToList().OrderByDescending(x => x.Score));
         }
-
-        public ActionResult ShowToken(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Team team = db.Teams.Find(id);
-            if (team == null)
-            {
-                return HttpNotFound();
-            }
-            return this.PartialView(team);
-        }
-
+        
         // GET: /Team/Details/5
         [Authorize(Roles = "Admin")]
         public ActionResult Details(int? id)
