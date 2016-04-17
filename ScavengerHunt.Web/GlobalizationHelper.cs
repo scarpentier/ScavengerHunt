@@ -16,7 +16,7 @@ namespace ScavengerHunt.Web
             // Are there any translation available?
             if (!stunt.Translations.Any()) return stunt;
 
-            var translation = stunt.Translations.SingleOrDefault(x => language.StartsWith(x.Language));
+            var translation = stunt.Translations.FirstOrDefault(x => language.StartsWith(x.Language));
 
             // Fallback to English
             if (translation == null) translation = stunt.Translations.FirstOrDefault(x => x.Language == "en");
