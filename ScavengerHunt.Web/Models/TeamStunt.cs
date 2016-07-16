@@ -85,6 +85,9 @@ namespace ScavengerHunt.Web.Models
         /// Abandoned; Will not be done the team; 
         /// </summary>
         [Display(Name = "Abandonned")]
-        Abandon
+        Abandon,
+
+        [Display(Name = "Sent back by judges")]
+        Incomplete
     }
 }

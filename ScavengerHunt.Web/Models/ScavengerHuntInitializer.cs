@@ -36,6 +36,18 @@ namespace ScavengerHunt.Web.Models
                                             Value = "true",
                                             Description = "Allows user registration"
                                         },
+                                        new Setting()
+                                        {
+                                            Key = "DisplayCurrentRankings",
+                                            Value = "true",
+                                            Description =  "Display or Disable Current Rankings and Summary on Home Page"
+                                        },
+                                        new Setting()
+                                        { 
+                                            Key = "DisplayStunts",
+                                            Value = "true",
+                                            Description = "Dispaly or Disable Stunts for Teams"
+                                        },
                                         new Setting() {
                                             Key = "EnableTeamRegistration",
                                             Value = "true",
@@ -65,7 +77,12 @@ namespace ScavengerHunt.Web.Models
                                             Key = "ScavengerHuntTagline",
                                             Value = "Serious Scavenger Hunt is a free, open source web applicaiton for building, running and managing great scavenger hunts.",
                                             Description = "Tagline of your scavenger hunt"
-                                        }
+                                        },
+                                        new Setting() {
+                                             Key = "GuestSummaryVisible",
+                                             Value = "false",
+                                             Description = "Makes the TeamStunts Summary visible to guests: useful to display all the stunts done by all the teams at the end of the event. Accessible though /TeamStunt/Summary"
+                                          }
                                     };
 
             context.Settings.AddRange(configuration);

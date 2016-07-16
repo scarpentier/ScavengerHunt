@@ -117,10 +117,130 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="BackToList" xml:space="preserve">
+    <value>Retour à la liste</value>
+  </data>
+  <data name="BonusPoints" xml:space="preserve">
+    <value>Points Bonis</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Créer</value>
+  </data>
+  <data name="CreateOrJoinTeam" xml:space="preserve">
+    <value>Créer ou joindre une équipe!</value>
+  </data>
+  <data name="CurrentRankings" xml:space="preserve">
+    <value>Classements</value>
+  </data>
+  <data name="Done" xml:space="preserve">
+    <value>Fini</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="HomeJumbotronLead" xml:space="preserve">
+    <value>L’AÉÉTS est fier de vous présenter "ING101"! Durant les prochaines 101 heures, vous allez devoir travailler en équipe dans le but d’amasser le plus de points et de remporter le grand prix. Qu'attendez-vous? joignez une équipe et commencez!</value>
+  </data>
+  <data name="Join" xml:space="preserve">
+    <value>Joindre</value>
+  </data>
+  <data name="JoinExistingTeam" xml:space="preserve">
+    <value>Joindre une équipe existante</value>
+  </data>
+  <data name="JoinExistingTeamExplanation" xml:space="preserve">
+    <value>Si ton équipe est déjà créée et tu as le code d'équipe</value>
+  </data>
+  <data name="Judged" xml:space="preserve">
+    <value>Jugé</value>
+  </data>
+  <data name="JudgeFeedback" xml:space="preserve">
+    <value>Feedback des juges</value>
+  </data>
+  <data name="JudgeNotes" xml:space="preserve">
+    <value>Notes des juges</value>
+  </data>
+  <data name="MaximumScore" xml:space="preserve">
+    <value>Score Maximum</value>
+  </data>
+  <data name="Members" xml:space="preserve">
+    <value>Membres</value>
+  </data>
+  <data name="Notes" xml:space="preserve">
+    <value>Notes</value>
+  </data>
+  <data name="NotPartOfATeam" xml:space="preserve">
+    <value>Tu ne fais pas parti d'une équipe!</value>
+  </data>
+  <data name="NotPartOfATeamDescription" xml:space="preserve">
+    <value>Qu'attends-tu? </value>
+  </data>
+  <data name="RegisterNewTeam" xml:space="preserve">
+    <value>Enregistrer une nouvelle équipe</value>
+  </data>
+  <data name="RegisterNewTeamExplanation" xml:space="preserve">
+    <value>Tu dois enregistrer une équipe en premier</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Sauvegarder</value>
+  </data>
   <data name="ScavengerHunt" xml:space="preserve">
-    <value>Chasse au trésor</value>
+    <value>Chasse au Trésor</value>
+  </data>
+  <data name="SourceCode" xml:space="preserve">
+    <value>Code source</value>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>Départ</value>
+  </data>
+  <data name="StartJourney" xml:space="preserve">
+    <value>Commence ton aventure!</value>
+  </data>
+  <data name="StartJourneyExplanation" xml:space="preserve">
+    <value>tu fais déjà parti d'une équipe et tu es prêt à l'aventure!</value>
+  </data>
+  <data name="Stunt" xml:space="preserve">
+    <value>Défis</value>
+  </data>
+  <data name="StuntActivity" xml:space="preserve">
+    <value>Activités des défis</value>
   </data>
   <data name="StuntList" xml:space="preserve">
     <value>Liste des défis</value>
+  </data>
+  <data name="TeamNotes" xml:space="preserve">
+    <value>Remarque d'équipe</value>
+  </data>
+  <data name="TeamStatus" xml:space="preserve">
+    <value>Vos {0} membres ont ramassés un total de {1} points au défi {2} .</value>
+  </data>
+  <data name="Team_notes" xml:space="preserve">
+    <value>Remarque d'équipe</value>
+  </data>
+  <data name="YourBonusPoints" xml:space="preserve">
+    <value>Vous avez aussi {0} points bonis</value>
+  </data>
+  <data name="YourTokenIs" xml:space="preserve">
+    <value>votre code secret est: </value>
+  </data>
+  <data name="Hello" xml:space="preserve">
+    <value>Allo</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Connexion</value>
+  </data>
+  <data name="Logoff" xml:space="preserve">
+    <value>Déconnexion</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Inscription</value>
+  </data>
+  <data name="Stunts" xml:space="preserve">
+    <value>Défis</value>
+  </data>
+  <data name="Teams" xml:space="preserve">
+    <value>Équipes</value>
+  </data>
+  <data name="ChangeLanguage" xml:space="preserve">
+    <value>en</value>
   </data>
 </root>

@@ -3,11 +3,12 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Serious Scavenger Hunt</title>
+    <title>@ViewBag.Title - @Resources.ScavengerHunt</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -18,12 +19,12 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Serious Scavenger Hunt", "Index", "Home", null, new { @class = "navbar-brand" })
+                @Html.ActionLink("LAN ETS","Index", "Home", null, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Teams", "Index", "Team")</li>
-                    <li>@Html.ActionLink("Stunts", "Index", "TeamStunt")</li>
+                    <li>@Html.ActionLink(Resources.Teams, "Index", "Team")</li>
+                    <li>@Html.ActionLink(Resources.Stunts, "Index", "TeamStunt")</li>
                     
                     @if (User.IsInRole("Judge") || User.IsInRole("Admin"))
                     {

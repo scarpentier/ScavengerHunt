@@ -6,70 +6,8 @@
 }
 
 <h2>@Resources.Stunts</h2>
-
-<table class="table table-hover">
-    <tr>
-        @if (ViewBag.settings.ShowKeyword)
-        {
-            <th>
-                @Html.DisplayNameFor(model => model.Stunt.Keyword)
-            </th>
-        }
-
-        <th>
-            @Html.DisplayNameFor(model => model.Stunt.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Stunt.Type)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Score)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Status)
-        </th>
-        <th>
-            @Resources.Notes
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model.Where(x => x.Status != TeamStuntStatusEnum.Done))
+@if (ViewBag.settings.DisplayStunts || User.IsInRole("Admin") || User.IsInRole("Judge"))
 {
-    <tr>
-        @if (ViewBag.settings.ShowKeyword)
-        {
-            <td>
-                <kbd>@Html.DisplayFor(modelItem => item.Stunt.Keyword)</kbd>
-            </td>
-        }
-        <td>
-            @Html.DisplayFor(modelItem => item.Stunt, "StuntTitle")
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Stunt.Type)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item, "Score")
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Status)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TeamNotes, "Tooltip", new { Text = "Team" })<br />
-            @Html.DisplayFor(modelItem => item.JudgeFeedback, "Tooltip", new { Text = "Judge" })
-        </td>
-        <td>
-            @Html.ActionLink(Resources.Edit, "Edit", new { id = item.Id })
-        </td>
-    </tr>
-}
-</table>
-
-@if (Model.Any(x => x.Done))
-{
-    <h2>@Resources.Judged</h2>
-
     <table class="table table-hover">
         <tr>
             @if (ViewBag.settings.ShowKeyword)
@@ -78,6 +16,7 @@
                     @Html.DisplayNameFor(model => model.Stunt.Keyword)
                 </th>
             }
+
             <th>
                 @Html.DisplayNameFor(model => model.Stunt.Title)
             </th>
@@ -91,22 +30,22 @@
                 @Html.DisplayNameFor(model => model.Status)
             </th>
             <th>
-                Notes
+                @Resources.Notes
             </th>
             <th></th>
         </tr>
 
-        @foreach (var item in Model.Where(x => x.Done))
+        @foreach (var item in Model.Where(x => x.Status != TeamStuntStatusEnum.Done))
         {
             <tr>
                 @if (ViewBag.settings.ShowKeyword)
                 {
                     <td>
-                        <kbd>@Html.DisplayFor(modelITem => item.Stunt.Keyword)</kbd>
+                        <kbd>@Html.DisplayFor(modelItem => item.Stunt.Keyword)</kbd>
                     </td>
                 }
                 <td>
-                    @Html.DisplayFor(modelItem => item.Stunt, "StuntTitle", new { ForceCollapse = true })
+                    @Html.DisplayFor(modelItem => item.Stunt, "StuntTitle")
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Stunt.Type)
@@ -126,12 +65,75 @@
                 </td>
             </tr>
         }
-            </table>
+    </table>
+
+    if (Model.Any(x => x.Done))
+    {
+        <h2>@Resources.Judged</h2>
+
+        <table class="table table-hover">
+            <tr>
+                @if (ViewBag.settings.ShowKeyword)
+                {
+                    <th>
+                        @Html.DisplayNameFor(model => model.Stunt.Keyword)
+                    </th>
+                }
+                <th>
+                    @Html.DisplayNameFor(model => model.Stunt.Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Stunt.Type)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Score)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Status)
+                </th>
+                <th>
+                    Notes
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model.Where(x => x.Done))
+            {
+                <tr>
+                    @if (ViewBag.settings.ShowKeyword)
+                    {
+                        <td>
+                            <kbd>@Html.DisplayFor(modelITem => item.Stunt.Keyword)</kbd>
+                        </td>
+                    }
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Stunt, "StuntTitle", new { ForceCollapse = true })
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Stunt.Type)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item, "Score")
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Status)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TeamNotes, "Tooltip", new { Text = "Team" })<br />
+                        @Html.DisplayFor(modelItem => item.JudgeFeedback, "Tooltip", new { Text = "Judge" })
+                    </td>
+                    <td>
+                        @Html.ActionLink(Resources.Edit, "Edit", new { id = item.Id })
+                    </td>
+                </tr>
+            }
+        </table>
+    }
 }
 
 @section scripts
 {
-    <script type="text/javascript">       
+    <script type="text/javascript">
         $("[data-toggle=tooltip").tooltip();
         $("[data-toggle=popover").popover();
     </script>

@@ -118,6 +118,11 @@ namespace ScavengerHunt.Web.Controllers
 
         public ActionResult Summary()
         {
+            if (!Settings.GuestSummaryVisible && !User.IsInRole("Admin"))
+                            {
+                ModelState.AddModelError("Name", "Team Stunts Summary is disabled");
+                                return View("Start");
+                            }
             // Filter and sort stunts
             var stunts =
                 db.TeamStunts.Where(x => x.Stunt.Published)

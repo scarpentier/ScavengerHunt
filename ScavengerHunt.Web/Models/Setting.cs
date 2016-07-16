@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
+using ScavengerHunt.Web;
 
 namespace ScavengerHunt.Web.Models
 {
@@ -25,25 +26,31 @@ namespace ScavengerHunt.Web.Models
         public bool EnableTeamJoining { get; private set; }
         public bool GuestStuntsVisible { get; private set; }
         public bool GuestTeamsVisible { get; private set; }
+        public bool GuestSummaryVisible { get; private set; }
         public string ScavengerHuntTitle { get; private set; }
         public string ScavengerHuntTagline { get; private set; }
+        public bool DisplayCurrentRankings { get; private set; }
+        public bool DisplayStunts { get; private set; }
 
         public static StrongSettings GetSettings(List<Setting> settings)
         {
+            Setting defaultEmptySetting = new Setting();
             var ss = new StrongSettings()
-                         {
-                             ShowKeyword = bool.Parse(settings.Find(x => x.Key == "ShowKeyword").Value ?? bool.TrueString),
-                             ShowTitle = bool.Parse(settings.Find(x => x.Key == "ShowTitle").Value ?? bool.TrueString),
-                             AllowStuntRetry = bool.Parse(settings.Find(x => x.Key == "AllowStuntRetry").Value ?? bool.TrueString),
-                             EnableUserRegistration = bool.Parse(settings.Find(x => x.Key == "EnableUserRegistration").Value ?? bool.TrueString),
-                             EnableTeamRegistration = bool.Parse(settings.Find(x => x.Key == "EnableTeamRegistration").Value ?? bool.TrueString),
-                             EnableTeamJoining = bool.Parse(settings.Find(x => x.Key == "EnabledTeamJoining").Value ?? bool.TrueString),
-                             GuestStuntsVisible = bool.Parse(settings.Find(x => x.Key == "GuestStuntsVisible").Value ?? bool.TrueString),
-                             GuestTeamsVisible = bool.Parse(settings.Find(x => x.Key == "GuestTeamsVisible").Value ?? bool.TrueString),
-                             ScavengerHuntTitle = settings.Find(x => x.Key == "ScavengerHuntTitle").Value,
-                             ScavengerHuntTagline = settings.Find(x => x.Key == "ScavengerHuntTagline").Value
-                         };
-
+            {
+                ShowKeyword = bool.Parse(settings.FindOrDefault(x => x.Key == "ShowKeyword", defaultEmptySetting).Value ?? bool.TrueString),
+                ShowTitle = bool.Parse(settings.FindOrDefault(x => x.Key == "ShowTitle", defaultEmptySetting).Value ?? bool.TrueString),
+                AllowStuntRetry = bool.Parse(settings.FindOrDefault(x => x.Key == "AllowStuntRetry", defaultEmptySetting).Value ?? bool.TrueString),
+                EnableUserRegistration = bool.Parse(settings.FindOrDefault(x => x.Key == "EnableUserRegistration", defaultEmptySetting).Value ?? bool.TrueString),
+                EnableTeamRegistration = bool.Parse(settings.FindOrDefault(x => x.Key == "EnableTeamRegistration", defaultEmptySetting).Value ?? bool.TrueString),
+                EnableTeamJoining = bool.Parse(settings.FindOrDefault(x => x.Key == "EnabledTeamJoining", defaultEmptySetting).Value ?? bool.TrueString),
+                GuestStuntsVisible = bool.Parse(settings.FindOrDefault(x => x.Key == "GuestStuntsVisible", defaultEmptySetting).Value ?? bool.TrueString),
+                GuestTeamsVisible = bool.Parse(settings.FindOrDefault(x => x.Key == "GuestTeamsVisible", defaultEmptySetting).Value ?? bool.TrueString),
+                GuestSummaryVisible = bool.Parse(settings.FindOrDefault(x => x.Key == "GuestSummaryVisible", defaultEmptySetting).Value ?? bool.TrueString),
+                ScavengerHuntTitle = settings.FindOrDefault(x => x.Key == "ScavengerHuntTitle", defaultEmptySetting).Value,
+                ScavengerHuntTagline = settings.FindOrDefault(x => x.Key == "ScavengerHuntTagline", defaultEmptySetting).Value,
+                DisplayCurrentRankings = bool.Parse(settings.FindOrDefault(x => x.Key == "DisplayCurrentRankings", defaultEmptySetting).Value ?? bool.TrueString),
+                DisplayStunts = bool.Parse(settings.FindOrDefault(x => x.Key == "DisplayStunts", defaultEmptySetting).Value ?? bool.TrueString)
+            };
             return ss;
         }
     }
