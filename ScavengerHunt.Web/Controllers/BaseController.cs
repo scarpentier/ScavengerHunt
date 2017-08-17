@@ -24,11 +24,25 @@ namespace ScavengerHunt.Web.Controllers
         {
             base.OnActionExecuting(filterContext);
 
-            Language = Request.UserLanguages == null ? "en" : Request.UserLanguages[0];
+            var cookieKeys = filterContext.RequestContext.HttpContext.Request.Cookies.AllKeys;
+
+            if (cookieKeys.Contains("culture"))
+            {
+                //eat the cookie
+                var theCultureCookie = filterContext.RequestContext.HttpContext.Request.Cookies["culture"];
+                Language = theCultureCookie.Value;
+                
+            }
+            else
+            {
+                Response.Cookies["culture"].Value = "en";
+                Language = filterContext.RequestContext.HttpContext.Request.Cookies["culture"].Value;
+            }
+
             ViewBag.language = Language;
 
-            Thread.CurrentThread.CurrentCulture = new CultureInfo(Language);
-            Thread.CurrentThread.CurrentUICulture = new CultureInfo(Language);
+            Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo(Language);
+            Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo(Language);
 
             Settings = StrongSettings.GetSettings(db.Settings.ToList());
             ViewBag.settings = Settings;
