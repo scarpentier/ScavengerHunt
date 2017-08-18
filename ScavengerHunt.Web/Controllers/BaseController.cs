@@ -36,7 +36,8 @@ namespace ScavengerHunt.Web.Controllers
             else
             {
                 Response.Cookies["culture"].Value = "en";
-                Language = filterContext.RequestContext.HttpContext.Request.Cookies["culture"].Value;
+                //in case cookies are disabled, it will always default to english
+                Language = "en";
             }
 
             ViewBag.language = Language;
