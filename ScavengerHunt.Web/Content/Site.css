@@ -1,7 +1,6 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
-    background-image: url("../content/background.png");
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -47,63 +46,3 @@ table span p {
     color: #191919;
 }
 
-.btn-default {
-  text-shadow: 0 1px 0 #fff;
-  background-image: -webkit-linear-gradient(top, #ee9626 0%, #b94b29 100%);
-  background-image:         linear-gradient(to bottom, #ee9626 0%, #b94b29 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe0e0e0', GradientType=0);
-  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
-  background-repeat: repeat-x;
-  border-color: #dbdbdb;
-    color: #ffffff;
-}
-.btn-default:hover,
-.btn-default:focus {
-  background-color: #b94b29;
-  background-position: 0 -15px;
-    color: #ffffff;
-}
-.btn-default:active,
-.btn-default.active {
-  background-color: #e86a0f;
-  border-color: #e86a0f;
-}
-
-.btn-primary {
-  background-image: -webkit-linear-gradient(top, #ee9626 0%, #b94b29 100%);
-  background-image:         linear-gradient(to bottom, #ee9626 0%, #b94b29 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffffffff', GradientType=0);
-  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
-  background-repeat: repeat-x;
-  border-color:  #ee9626;
-}
-.btn-primary:hover,
-.btn-primary:focus {
-  background-color: #b94b29;
-  background-position: 0 -15px;
-    color: #ffffff;
-}
-.btn-primary:active,
-.btn-primary.active {
-  background-color: #e86a0f;
-  border-color: #e86a0f;
-}
-
-.btn-success {
-  background-image: -webkit-linear-gradient(top, #ee9626 0%, #b94b29 100%);
-  background-image:         linear-gradient(to bottom, #ee9626 0%, #b94b29 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffffffff', GradientType=0);
-  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
-  background-repeat: repeat-x;
-  border-color:  #ee9626;
-}
-.btn-success:hover,
-.btn-success:focus {
-  background-color: #b94b29;
-  background-position: 0 -15px;
-}
-.btn-success:active,
-.btn-success.active {
-  background-color: #e86a0f;
-  border-color: #e86a0f;
-}

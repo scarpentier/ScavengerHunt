@@ -8,7 +8,7 @@
 <h2>@Resources.Stunts</h2>
 @if (ViewBag.settings.DisplayStunts || User.IsInRole("Admin") || User.IsInRole("Judge"))
 {
-    <table class="table table-hover">
+    <table class="table table-hover table-striped">
         <tr>
             @if (ViewBag.settings.ShowKeyword)
             {

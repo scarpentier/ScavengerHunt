@@ -23,25 +23,22 @@ namespace ScavengerHunt.Web.Controllers
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             base.OnActionExecuting(filterContext);
-
-            var cookieKeys = filterContext.RequestContext.HttpContext.Request.Cookies.AllKeys;
-
-            if (cookieKeys.Contains("culture"))
+            
+            if (Request.Cookies["culture"] == null)
             {
-                //eat the cookie
-                var theCultureCookie = filterContext.RequestContext.HttpContext.Request.Cookies["culture"];
-                Language = theCultureCookie.Value;
-                
-            }
-            else
-            {
+                //create cookie if it doesn't exist
                 Response.Cookies["culture"].Value = "en";
-                //in case cookies are disabled, it will always default to english
+            }
+         
+            //eat the cookie
+            Language = Request.Cookies["culture"].Value.ToString();
+
+            if (String.IsNullOrEmpty(Language))
+            {
+                //set to english if cookie was not created
                 Language = "en";
             }
-
             ViewBag.language = Language;
-
             Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo(Language);
             Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo(Language);
 

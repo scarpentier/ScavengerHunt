@@ -5,7 +5,7 @@
 }
 
 <div class="jumbotron">
-    <h1 align="center"> <img src="~/img/Logo2017_ShinyDarkBG.png" width="200" height="200"> @ViewBag.settings.ScavengerHuntTitle.ToString()</h1>
+    <h1 align="center">  @ViewBag.settings.ScavengerHuntTitle.ToString()</h1>
     <p class="lead">@ViewBag.settings.ScavengerHuntTagline.ToString()</p>
     <p><a href="https://github.com/scarpentier/ScavengerHunt" class="btn btn-primary btn-large">@Resources.SourceCode &raquo;</a>
     </p>
@@ -30,7 +30,6 @@
         <p><a class="btn btn-default" href="/TeamStunt/">@Resources.Start &raquo;</a></p>
     </div>
 </div>
-
 @if (ViewBag.settings.GuestTeamsVisible || User.Identity.IsAuthenticated)
 {
     if (ViewBag.settings.DisplayCurrentRankings || User.IsInRole("Admin")) {
