@@ -243,4 +243,16 @@
   <data name="ChangeLanguage" xml:space="preserve">
     <value>fr</value>
   </data>
+  <data name="AlreadyJudged" xml:space="preserve">
+    <value>Already Judged</value>
+  </data>
+  <data name="JudgementQueue" xml:space="preserve">
+    <value>Judgement Queue</value>
+  </data>
+  <data name="TeamName" xml:space="preserve">
+    <value>Team Name</value>
+  </data>
+  <data name="NotStarted" xml:space="preserve">
+    <value>Not Started</value>
+  </data>
 </root>

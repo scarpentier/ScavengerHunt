@@ -19,7 +19,7 @@ namespace ScavengerHunt.Web.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Resources {
@@ -57,6 +57,15 @@ namespace ScavengerHunt.Web.Resources {
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Already Judged.
+        /// </summary>
+        public static string AlreadyJudged {
+            get {
+                return ResourceManager.GetString("AlreadyJudged", resourceCulture);
             }
         }
         
@@ -196,6 +205,15 @@ namespace ScavengerHunt.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Judgement Queue.
+        /// </summary>
+        public static string JudgementQueue {
+            get {
+                return ResourceManager.GetString("JudgementQueue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Judge Notes.
         /// </summary>
         public static string JudgeNotes {
@@ -264,6 +282,15 @@ namespace ScavengerHunt.Web.Resources {
         public static string NotPartOfATeamDescription {
             get {
                 return ResourceManager.GetString("NotPartOfATeamDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not Started.
+        /// </summary>
+        public static string NotStarted {
+            get {
+                return ResourceManager.GetString("NotStarted", resourceCulture);
             }
         }
         
@@ -390,6 +417,15 @@ namespace ScavengerHunt.Web.Resources {
         public static string Team_notes {
             get {
                 return ResourceManager.GetString("Team_notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Team Name.
+        /// </summary>
+        public static string TeamName {
+            get {
+                return ResourceManager.GetString("TeamName", resourceCulture);
             }
         }
         

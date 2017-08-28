@@ -6,7 +6,6 @@
     @Html.AntiForgeryToken()
 
     <ul class="nav navbar-nav navbar-right">
-        <li id="changeCulture"><a href="#" onclick="changeCulture()">@Resources.ChangeLanguage</a></li>
         <li>
             @Html.ActionLink(Resources.Hello + " " + User.Identity.GetUserName() + "!", "Manage", "Account", routeValues: null, htmlAttributes: new { title = "Manage" })
         </li>
@@ -17,7 +16,6 @@
 else
 {
     <ul class="nav navbar-nav navbar-right">
-        <li id="changeCulture"><a href="#" onclick="changeCulture()">@Resources.ChangeLanguage</a></li>
         <li>@Html.ActionLink(Resources.Register, "Register", "Account", routeValues: null, htmlAttributes: new {id = "registerLink"})</li>
         <li>@Html.ActionLink(Resources.Login, "Login", "Account", routeValues: null, htmlAttributes: new {id = "loginLink"})</li>
     </ul>

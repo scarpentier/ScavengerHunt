@@ -60,34 +60,37 @@ namespace ScavengerHunt.Web.Models
         /// <summary>
         /// Not started by the team yet
         /// </summary>
-        [Display(Name = "Not Started")]
+        [Display(Name = "Pas commencé")]
         NotStarted,
 
         /// <summary>
         /// Currently being done by the team
         /// </summary>
-        [Display(Name = "Work In Progress")]
+        [Display(Name = "En Progression")]
         WorkInProgress,
 
         /// <summary>
         /// Pending judgement
         /// </summary>
-        [Display(Name = "Ready for Judgement")]
+        [Display(Name = "Prêt à juger")]
         Pending,
 
         /// <summary>
         /// Judged
         /// </summary>
-        [Display(Name = "Done")]
+        [Display(Name = "Fini")]
         Done,
 
         /// <summary>
         /// Abandoned; Will not be done the team; 
         /// </summary>
-        [Display(Name = "Abandonned")]
+        [Display(Name = "Abandonné")]
         Abandon,
 
-        [Display(Name = "Sent back by judges")]
+        /// <summary>
+        /// Incomplete; sent back by judges; 
+        /// </summary>
+        [Display(Name = "imcomplet")]
         Incomplete
     }
 }

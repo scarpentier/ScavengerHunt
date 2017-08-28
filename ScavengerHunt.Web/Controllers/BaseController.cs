@@ -27,7 +27,7 @@ namespace ScavengerHunt.Web.Controllers
             if (Request.Cookies["culture"] == null)
             {
                 //create cookie if it doesn't exist
-                Response.Cookies["culture"].Value = "en";
+                Response.Cookies["culture"].Value = "fr";
             }
          
             //eat the cookie
@@ -36,7 +36,7 @@ namespace ScavengerHunt.Web.Controllers
             if (String.IsNullOrEmpty(Language))
             {
                 //set to english if cookie was not created
-                Language = "en";
+                Language = "fr";
             }
             ViewBag.language = Language;
             Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo(Language);

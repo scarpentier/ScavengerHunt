@@ -61,23 +61,5 @@
         </footer>
     </div>
     @RenderSection("scripts", required: false)
-    <script type="text/javascript">
-        function changeCulture() {
-           var language = document.cookie;
-            console.log(language);
-
-            if (language.includes("en")) {
-                document.cookie = "culture=fr";
-            }
-            else if (language.includes("fr")) {
-                document.cookie = "culture=en";
-            }
-            else {
-                document.cookie = "culture=en";
-            }
-
-            location.reload();
-         }
-    </script>
 </body>
 </html>
