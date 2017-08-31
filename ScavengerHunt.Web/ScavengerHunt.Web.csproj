@@ -204,9 +204,9 @@
     </Compile>
     <Compile Include="GlobalizationHelper.cs" />
     <Compile Include="MarkdownHelper.cs" />
-    <Compile Include="Migrations\201708310146402_Email.cs" />
-    <Compile Include="Migrations\201708310146402_Email.Designer.cs">
-      <DependentUpon>201708310146402_Email.cs</DependentUpon>
+    <Compile Include="Migrations\201708310154222_Initial.cs" />
+    <Compile Include="Migrations\201708310154222_Initial.Designer.cs">
+      <DependentUpon>201708310154222_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -360,8 +360,8 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201708310146402_Email.resx">
-      <DependentUpon>201708310146402_Email.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201708310154222_Initial.resx">
+      <DependentUpon>201708310154222_Initial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Resources.fr.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

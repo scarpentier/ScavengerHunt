@@ -9,7 +9,7 @@ namespace ScavengerHunt.Web.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(ScavengerHunt.Web.Models.ScavengerHuntContext context)
