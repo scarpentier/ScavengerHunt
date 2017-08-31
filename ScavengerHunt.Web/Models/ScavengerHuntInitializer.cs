@@ -94,10 +94,10 @@ namespace ScavengerHunt.Web.Models
 
             // Create users
             var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
-            var userAdmin = new ApplicationUser() { UserName = "admin" };
+            var userAdmin = new ApplicationUser() { UserName = "admin", Email="admin@admin.ca" };
             UserManager.Create(userAdmin, "admin123");
             UserManager.AddToRole(userAdmin.Id, "Admin");
-            var userJudge = new ApplicationUser() { UserName = "judge" };
+            var userJudge = new ApplicationUser() { UserName = "judge", Email="judge@judge.ca" };
             UserManager.Create(userJudge, "judge123");
             UserManager.AddToRole(userJudge.Id, "Judge");
 
