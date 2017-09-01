@@ -1,13 +1,15 @@
 ﻿@using Microsoft.Ajax.Utilities
 @using ScavengerHunt.Web.Resources
 @{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Page d'accueil";
 }
 
 <div class="jumbotron">
-    <h1>Serious @Resources.ScavengerHunt</h1>
-    <p class="lead">@Resources.HomeJumbotronLead</p>
-    <p><a href="https://github.com/scarpentier/ScavengerHunt" class="btn btn-primary btn-large">@Resources.SourceCode &raquo;</a></p>
+    <center><img src="@Url.Content("~/img/aeets.png")" /></center>
+    <h1 align="center"> @ViewBag.settings.ScavengerHuntTitle.ToString()</h1>
+    <p class="lead">@ViewBag.settings.ScavengerHuntTagline.ToString()</p>
+    <p><a href="https://github.com/scarpentier/ScavengerHunt" class="btn btn-primary btn-large">@Resources.SourceCode &raquo;</a>
+    </p>
 </div>
 
 <div class="row">
@@ -29,9 +31,9 @@
         <p><a class="btn btn-default" href="/TeamStunt/">@Resources.Start &raquo;</a></p>
     </div>
 </div>
-
 @if (ViewBag.settings.GuestTeamsVisible || User.Identity.IsAuthenticated)
 {
+    if (ViewBag.settings.DisplayCurrentRankings || User.IsInRole("Admin")) {
     <hr/>
 
     <div class="row">
@@ -47,4 +49,5 @@
             </div>
         }
     </div>
+    }
 }

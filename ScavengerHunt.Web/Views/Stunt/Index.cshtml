@@ -13,7 +13,7 @@
     <p><a class="btn btn-primary" href="/Team/Start">@Resources.CreateOrJoinTeam &raquo;</a></p>
 </div>
 <br>
-@if (ViewBag.settings.GuestStuntsVisible || User.Identity.IsAuthenticated)
+@if (ViewBag.settings.GuestStuntsVisible || User.Identity.IsAuthenticated )
 {
     <table class="table table-striped">
         <tr>
@@ -29,10 +29,10 @@
         </tr>
 
         @foreach (var item in Model)
-        {
+    {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item, "StuntTitle")
+                     @Html.DisplayFor(modelItem => item, "StuntTitle") 
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.MaxScore)
@@ -45,7 +45,7 @@
 
     </table>
 }
-    
+
 @section scripts
 {
     <script type="text/javascript">

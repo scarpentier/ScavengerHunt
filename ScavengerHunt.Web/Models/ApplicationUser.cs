@@ -10,6 +10,7 @@ namespace ScavengerHunt.Web.Models
     public class ApplicationUser : IdentityUser
     {
         public virtual Team Team { get; set; }
+        public string Email { get; set; }
     }
 
     public class IdentityManager

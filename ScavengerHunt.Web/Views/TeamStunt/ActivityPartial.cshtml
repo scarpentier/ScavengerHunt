@@ -3,8 +3,8 @@
 @foreach (var stunt in Model.Where(x => x.Done).OrderByDescending(x => x.DateUpdated).Take(5))
 {
     <p>
-        <b>@Html.DisplayFor(x => stunt.Team.Name)</b> <span>capped</span>
-        @Html.DisplayFor(x => stunt.Stunt.Title) <span>for</span>
+        <b>@Html.DisplayFor(x => stunt.Team.Name)</b> <span>a réussi "</span>
+        @Html.DisplayFor(x => stunt.Stunt.Title) <span>" pour</span>
         <b>@Html.DisplayFor(x => stunt.Score) <span> points!</span></b>
 </p>
 }

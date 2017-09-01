@@ -37,3 +37,7 @@ input[type="checkbox"].input-validation-error {
 .bg-success, .bg-warning {
     padding: 15px;
 }
+
+table span p {
+    color: #191919;
+}

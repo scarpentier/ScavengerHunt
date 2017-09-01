@@ -5,14 +5,14 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Judgement Queue</h2>
+<h2>@Resources.JudgementQueue</h2>
 
 <p>@Html.ActionLink("Flag Submissions", "Flags")</p>
 
-<table class="table table-hover">
+<table class="table table-hover table-striped">
     <tr>
         <th>
-            Team Name
+            @Resources.TeamName
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Stunt.Title)
@@ -52,9 +52,9 @@
 
 @if (Model.Any(x => x.Done))
 {
-    <h2>Already Judged</h2>
+    <h2>@Resources.AlreadyJudged</h2>
 
-    <table class="table table-hover">
+    <table class="table table-hover table-striped">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Team.Name)

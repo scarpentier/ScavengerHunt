@@ -36,6 +36,18 @@ namespace ScavengerHunt.Web.Models
                                             Value = "true",
                                             Description = "Allows user registration"
                                         },
+                                        new Setting()
+                                        {
+                                            Key = "DisplayCurrentRankings",
+                                            Value = "true",
+                                            Description =  "Display or Disable Current Rankings and Summary on Home Page"
+                                        },
+                                        new Setting()
+                                        { 
+                                            Key = "DisplayStunts",
+                                            Value = "true",
+                                            Description = "Dispaly or Disable Stunts for Teams"
+                                        },
                                         new Setting() {
                                             Key = "EnableTeamRegistration",
                                             Value = "true",
@@ -67,10 +79,10 @@ namespace ScavengerHunt.Web.Models
                                             Description = "Tagline of your scavenger hunt"
                                         },
                                         new Setting() {
-                                            Key = "GuestSummaryVisible",
-                                            Value = "false",
-                                            Description = "Makes the TeamStunts Summary visible to guests: useful to display all the stunts done by all the teams at the end of the event. Accessible though /TeamStunt/Summary"
-                                        }
+                                             Key = "GuestSummaryVisible",
+                                             Value = "false",
+                                             Description = "Makes the TeamStunts Summary visible to guests: useful to display all the stunts done by all the teams at the end of the event. Accessible though /TeamStunt/Summary"
+                                          }
                                     };
 
             context.Settings.AddRange(configuration);
@@ -82,10 +94,10 @@ namespace ScavengerHunt.Web.Models
 
             // Create users
             var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
-            var userAdmin = new ApplicationUser() { UserName = "admin" };
+            var userAdmin = new ApplicationUser() { UserName = "admin", Email="admin@admin.ca" };
             UserManager.Create(userAdmin, "admin123");
             UserManager.AddToRole(userAdmin.Id, "Admin");
-            var userJudge = new ApplicationUser() { UserName = "judge" };
+            var userJudge = new ApplicationUser() { UserName = "judge", Email="judge@judge.ca" };
             UserManager.Create(userJudge, "judge123");
             UserManager.AddToRole(userJudge.Id, "Judge");
 

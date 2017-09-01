@@ -35,6 +35,7 @@ namespace ScavengerHunt.Web.Controllers
             var stunts =
                 db.TeamStunts.Where(x => x.Team.Id == user.Team.Id && x.Stunt.Published)
                     .OrderByDescending(x => x.Status == TeamStuntStatusEnum.Pending)
+                    .ThenByDescending(x => x.Status == TeamStuntStatusEnum.Incomplete)
                     .ThenByDescending(x => x.Status == TeamStuntStatusEnum.WorkInProgress)
                     .ThenByDescending(x => x.Status == TeamStuntStatusEnum.NotStarted)
                     .ThenByDescending(x => x.Status == TeamStuntStatusEnum.Abandon);
@@ -129,6 +130,7 @@ namespace ScavengerHunt.Web.Controllers
             var stunts =
                 db.TeamStunts.Where(x => x.Stunt.Published)
                     .OrderByDescending(x => x.Status == TeamStuntStatusEnum.Pending)
+                    .ThenByDescending(x => x.Status == TeamStuntStatusEnum.Incomplete)
                     .ThenByDescending(x => x.Status == TeamStuntStatusEnum.WorkInProgress)
                     .ThenByDescending(x => x.Status == TeamStuntStatusEnum.NotStarted)
                     .ThenByDescending(x => x.Status == TeamStuntStatusEnum.Abandon);

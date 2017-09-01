@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ScavengerHunt" xml:space="preserve">
-    <value>Scavenger Hunt</value>
+    <value>ScavengerHunt</value>
   </data>
   <data name="StuntList" xml:space="preserve">
     <value>Stunt List</value>
@@ -151,7 +151,7 @@
     <value>Edit</value>
   </data>
   <data name="HomeJumbotronLead" xml:space="preserve">
-    <value>Serious Scavenger Hunt is a free, open source web applicaiton for building, running and managing great scavenger hunts.</value>
+    <value>L’AÉÉTS est fier de vous présenter "ING101"! Pour les 101 prochaines heures, vous allez devoir travailler en équipes dans le but d’amasser le plus de points et de remporter le grand prix. Qu'attendez-vous? Joignez-vous à une équipe!</value>
   </data>
   <data name="Join" xml:space="preserve">
     <value>Join</value>
@@ -224,5 +224,35 @@
   </data>
   <data name="JudgeFeedback" xml:space="preserve">
     <value>Judge Feedback</value>
+  </data>
+  <data name="Hello" xml:space="preserve">
+    <value>Hello</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="Logoff" xml:space="preserve">
+    <value>Logoff</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="Teams" xml:space="preserve">
+    <value>Teams</value>
+  </data>
+  <data name="ChangeLanguage" xml:space="preserve">
+    <value>fr</value>
+  </data>
+  <data name="AlreadyJudged" xml:space="preserve">
+    <value>Already Judged</value>
+  </data>
+  <data name="JudgementQueue" xml:space="preserve">
+    <value>Judgement Queue</value>
+  </data>
+  <data name="TeamName" xml:space="preserve">
+    <value>Team Name</value>
+  </data>
+  <data name="NotStarted" xml:space="preserve">
+    <value>Not Started</value>
   </data>
 </root>

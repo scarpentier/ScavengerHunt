@@ -10,12 +10,12 @@
         if (item.Selected)
         {
             displayName = item.Text ?? item.Value;
-            
+
             // Check for color
             TeamStuntStatusEnum selectedEnum;
             string css = string.Empty;
             Enum.TryParse(item.Value, out selectedEnum);
-            
+
             switch (selectedEnum)
             {
                 case TeamStuntStatusEnum.WorkInProgress:
@@ -33,9 +33,12 @@
                 case TeamStuntStatusEnum.NotStarted:
                     css = "default";
                     break;
+                case TeamStuntStatusEnum.Incomplete:
+                    css = "warning";
+                    break;
             }
     <span class="label label-@css">
             @Html.DisplayTextFor(model => displayName)</span>
         }
-    }
+}
 }
