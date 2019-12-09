@@ -8,7 +8,7 @@
 
 <h2>@Resources.Stunts</h2>
 
-<table class="table table-hover">
+<table class="table table-hover" width="100%">
     @foreach (var stunt in Model.DistinctBy(x => x.Stunt.Id).Where(x => x.Stunt.Published).OrderByDescending(x => x.Stunt.MaxScore))
     {
         <tr>
@@ -27,7 +27,7 @@
                         <tr>
                             <td>@Html.DisplayFor(modelItem => teamStunt.Team, "TeamName")</td>
                             <td>@Html.DisplayFor(modelItem => teamStunt.Status)</td>
-                            <td>@Html.DisplayFor(modelItem => teamStunt.Submission)</td>
+                            <td style="word-wrap:break-word; word-break: break-all">@Html.DisplayFor(modelItem => teamStunt.Submission, "TextUrl")</td>
                             <td width="60">@Html.DisplayFor(modelItem => teamStunt, "Score")</td>
                             <td width="90">@Html.DisplayFor(modelItem => teamStunt.TeamNotes, "Tooltip", new { Text = "Team" })
                                 @Html.DisplayFor(modelItem => teamStunt.JudgeFeedback, "Tooltip", new { Text = "Feedback" })

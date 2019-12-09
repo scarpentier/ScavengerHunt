@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ScavengerHunt" xml:space="preserve">
-    <value>Scavenger Hunt</value>
+    <value>Serious Scavenger Hunt</value>
   </data>
   <data name="StuntList" xml:space="preserve">
     <value>Stunt List</value>

@@ -57,19 +57,15 @@ namespace ScavengerHunt.Web.Models
                                             Description = "Allows guests to see teams"
                                         },
                                         new Setting() {
-                                            Key = "ScavengerHuntTitle",
-                                            Value = "Serious Scavenger Hunt",
-                                            Description = "Title of your scavenger hunt"
-                                        },
-                                        new Setting() {
-                                            Key = "ScavengerHuntTagline",
-                                            Value = "Serious Scavenger Hunt is a free, open source web applicaiton for building, running and managing great scavenger hunts.",
-                                            Description = "Tagline of your scavenger hunt"
-                                        },
-                                        new Setting() {
                                             Key = "GuestSummaryVisible",
                                             Value = "false",
                                             Description = "Makes the TeamStunts Summary visible to guests: useful to display all the stunts done by all the teams at the end of the event. Accessible though /TeamStunt/Summary"
+                                        },
+                                        new Setting()
+                                        {
+                                            Key = "GuideUrl",
+                                            Value = "https://gist.github.com/scarpentier/acaa5c0502ebb7761d27",
+                                            Description = "URL for helpful guide and other instructions"
                                         }
                                     };
 
@@ -120,20 +116,15 @@ namespace ScavengerHunt.Web.Models
                                                                                                                 new StuntTranslation() { Language = "fr", Title = "Ducktape", Description = "Ducktapez quelqu'un à sa chaise" },
                                                                                                                 new StuntTranslation() { Language = "en", Title = "Ducktape", Description = "Ducktape someone to its chair" }
                                                                                                             }},
-                                 new Stunt() { Keyword = "LQJR", MaxScore = 10, Type = StuntTypeEnum.Picture, Translations = new Collection<StuntTranslation>()
-                                                                                                             {
-                                                                                                                 new StuntTranslation() { Language = "fr", Title = "LQJR n'est pas mort", Description = "Envoyez une photo de Veers" },
-                                                                                                                 new StuntTranslation() { Language = "en", Title = "LQJR is not dead", Description = "Send us a picture of you with Veers" }
-                                                                                                             }},
-                                 new Stunt() { Keyword = "Jambon", MaxScore = 10, Type = StuntTypeEnum.Url, Translations = new Collection<StuntTranslation>()
+                                 new Stunt() { Keyword = "Weird", MaxScore = 10, Type = StuntTypeEnum.Url, Translations = new Collection<StuntTranslation>()
                                                                                                            {
-                                                                                                               new StuntTranslation() { Language = "fr", Title = "Aimer le jambon", Description = "Mettez une image de votre équipe sur jambon.ca affichant fièrement le jambon." },
-                                                                                                               new StuntTranslation() { Language = "en", Title = "Love ham", Description = "Send a picture of your team on jambon.ca"}
+                                                                                                               new StuntTranslation() { Language = "fr", Title = "Endroit étrange", Description = "Partagez-nous l'URL de votre site web louche favori." },
+                                                                                                               new StuntTranslation() { Language = "en", Title = "Weird place", Description = "Share us the URL for your favorite wierd web site."}
                                                                                                            }},
-                                 new Stunt() { Keyword = "Xzcute", MaxScore = 5, Type = StuntTypeEnum.Picture, Translations = new Collection<StuntTranslation>()
+                                 new Stunt() { Keyword = "SPACEBAR", MaxScore = 5, Type = StuntTypeEnum.Picture, Translations = new Collection<StuntTranslation>()
                                                                                                             {
-                                                                                                                new StuntTranslation() { Language = "fr", Title = "Risquer sa vie", Description = "Photo avec le légendaire Xzcute" },
-                                                                                                                new StuntTranslation() { Language = "en", Title = "Risk your life", Description = "Picture with legendary Xzcute" }
+                                                                                                                new StuntTranslation() { Language = "fr", Title = "Temple de la renommée", Description = "Prenez une photo avec le légendaire SPACEBAR" },
+                                                                                                                new StuntTranslation() { Language = "en", Title = "Hall of fame", Description = "Take a picture with the legendary SPACEBAR" }
                                                                                                             }},
                                  new Stunt() { Keyword = "Zombies", MaxScore = 10, Type = StuntTypeEnum.Video, Translations = new Collection<StuntTranslation>()
                                                                                                              {

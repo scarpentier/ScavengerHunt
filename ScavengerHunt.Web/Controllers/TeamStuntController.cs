@@ -89,7 +89,7 @@ namespace ScavengerHunt.Web.Controllers
                 // Special logic if it's a flag
                 if (teamStunt.Stunt.Type == StuntTypeEnum.Flag && !string.IsNullOrEmpty(teamStunt.Stunt.JudgeNotes) && !string.IsNullOrEmpty(teamStunt.Submission))
                 {
-                    if (teamstunt.Submission == teamStunt.Stunt.JudgeNotes)
+                    if (teamstunt.Submission.ToLower() == teamStunt.Stunt.JudgeNotes.ToLower())
                     {
                         teamStunt.Score = teamStunt.Stunt.MaxScore;
                         teamStunt.Status = TeamStuntStatusEnum.Done;

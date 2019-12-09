@@ -1,0 +1,12 @@
+﻿@using System.Text.RegularExpressions
+﻿@model string
+@{
+    var output = Model;
+    if (!string.IsNullOrWhiteSpace(Model))
+    {
+        const string regex = @"((https?|ftp)://[^\s/$.?#].[^\s]*)";
+        Regex r = new Regex(regex);
+        output = r.Replace(Model, "<a href=\"$1\">$1</a>");
+    }
+}
+@Html.Raw(output)
