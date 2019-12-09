@@ -37,7 +37,7 @@ namespace ScavengerHunt.Web
             if (facebookAppId != null && facebookAppSecret != null)
                 app.UseFacebookAuthentication(facebookAppId, facebookAppSecret);
 
-            app.UseGoogleAuthentication();
+            //app.UseGoogleAuthentication();
         }
     }
 }
