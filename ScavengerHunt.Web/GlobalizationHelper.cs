@@ -18,8 +18,8 @@ namespace ScavengerHunt.Web
 
             var translation = stunt.Translations.FirstOrDefault(x => language.StartsWith(x.Language));
 
-            // Fallback to English
-            if (translation == null) translation = stunt.Translations.FirstOrDefault(x => x.Language == "en");
+            // Fallback to French
+            if (translation == null) translation = stunt.Translations.FirstOrDefault(x => x.Language == "fr");
 
             // If translation is still null here, it's beacause English is not part of the provided languages
             if (translation == null) return stunt;
