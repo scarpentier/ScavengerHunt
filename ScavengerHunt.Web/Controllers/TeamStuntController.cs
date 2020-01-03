@@ -76,6 +76,11 @@ namespace ScavengerHunt.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include="Id,TeamNotes,Submission,Status")] TeamStunt teamstunt)
         {
+            if (!User.IsInRole("Admin"))
+            {
+                return View("Start");
+            }
+        
             if (ModelState.IsValid)
             {
                 // Get previous stunt object
