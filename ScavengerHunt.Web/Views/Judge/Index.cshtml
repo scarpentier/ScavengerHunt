@@ -26,7 +26,7 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model.Where(x=>x.Status == TeamStuntStatusEnum.Pending && x.Stunt.Type != TeamStuntStatusEnum.Flag).OrderBy(x=>x.DateUpdated)) {
+@foreach (var item in Model.Where(x=>x.Status == TeamStuntStatusEnum.Pending).OrderBy(x=>x.DateUpdated)) {
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.Team.Name)
