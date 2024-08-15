@@ -136,6 +136,8 @@ namespace ScavengerHunt.Web.Models
             stunts.ForEach(s => context.Stunts.Add(s));
 
             context.SaveChanges();
+
+            base.Seed(context);
         }
     }
 }

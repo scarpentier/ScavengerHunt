@@ -4,14 +4,14 @@
 {
     if (ViewBag.Text != null)
     {
-        <a href="#" data-toggle=tooltip title data-original-title="@Model">@ViewBag.Text</a>
+        <a href="#" data-bs-toggle=tooltip data-bs-title="@Model">@ViewBag.Text</a>
     }
     else if (ViewBag.Icon != null)
     {
-        <a href="#" data-toggle=tooltip title data-original-title="@Model"><span class="glyphicon @ViewBag.Icon"></span></a>
+        <a href="#" data-bs-toggle=tooltip data-bs-title="@Model"><span class="@ViewBag.Icon"></span></a>
     }
     else
     {
-        <a href="#" data-toggle=tooltip title data-original-title="@Model">Notes</a>
+        <a href="#" data-bs-toggle=tooltip data-bs-title="@Model">Notes</a>
     }
 }

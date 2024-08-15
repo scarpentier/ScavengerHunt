@@ -23,6 +23,7 @@ namespace ScavengerHunt.Web.Models
         public DbSet<StuntTranslation> StuntTranslations { get; set; }
         public DbSet<Setting> Settings { get; set; }
 
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -55,6 +56,9 @@ namespace ScavengerHunt.Web.Models
             modelBuilder.Entity<IdentityUserLogin>().ToTable("UserLogins");
             modelBuilder.Entity<IdentityUserClaim>().ToTable("UserClaims");
             modelBuilder.Entity<IdentityRole>().ToTable("Roles");
+
+            //var sqliteConnectionInitializer = new ScavengerHuntInitializer();
+            //Database.SetInitializer(sqliteConnectionInitializer);
         }
     }
 }

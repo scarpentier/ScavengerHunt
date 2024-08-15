@@ -10,52 +10,50 @@
     @Scripts.Render("~/bundles/bootstrap")
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink(@Resources.ScavengerHunt, "Index", "Home", null, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Teams", "Index", "Team")</li>
-                    <li>@Html.ActionLink("Stunts", "Index", "TeamStunt")</li>
-                    
+    <nav class="navbar navbar-expand-lg bg-body-tertiary mb-3">
+        <div class="container-lg">
+            @Html.ActionLink(@Resources.ScavengerHunt, "Index", "Home", null, new { @class = "navbar-brand" })
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        @Html.ActionLink("Teams", "Index", "Team", null, new { @class = "nav-link" })
+                    </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("Stunts", "Index", "TeamStunt", null, new { @class = "nav-link" })
+                    </li>
                     @if (User.IsInRole("Judge") || User.IsInRole("Admin"))
                     {
-                        <li>@Html.ActionLink("Judge", "Index", "Judge")</li>
+                        <li class="nav-item">
+                            @Html.ActionLink("Judge", "Index", "Judge", null, new { @class = "nav-link" })
+                        </li>
                     }
                     @if (User.IsInRole("Admin"))
                     {
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Admin
+                            </a>
                             <ul class="dropdown-menu">
-                                <li>@Html.ActionLink("Stunts", "IndexAdmin", "Stunt")</li>
-                                <li>@Html.ActionLink("Teams", "IndexAdmin", "Team")</li>
-                                <li>@Html.ActionLink("Users", "Index", "Account")</li>
-                                <li>@Html.ActionLink("Settings", "Index", "Settings")</li>
+                                <li>@Html.ActionLink("Stunts", "IndexAdmin", "Stunt", null, new { @class = "dropdown-item" })</li>
+                                <li>@Html.ActionLink("Teams", "IndexAdmin", "Team", null, new { @class = "dropdown-item" })</li>
+                                <li>@Html.ActionLink("Users", "Index", "Account", null, new { @class = "dropdown-item" })</li>
+                                <li>@Html.ActionLink("Settings", "Index", "Settings", null, new { @class = "dropdown-item" })</li>
                             </ul>
                         </li>
+
                     }
                 </ul>
-                @Html.Partial("_LoginPartial")
             </div>
+            @Html.Partial("_LoginPartial")
         </div>
-    </div>
+    </nav>
+
     <div class="container body-content">
         @RenderBody()
         <hr />
         <footer>
-            
-            <div style="float: left; padding-right: 20px;">
-                <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>
-            </div>
             <div style="font-size: x-small" class="text-muted">
-                This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/scarpentier/ScavengerHunt" rel="dct:source">https://github.com/scarpentier/ScavengerHunt</a>.
+                Powered by <a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/scarpentier/ScavengerHunt" rel="dct:source">Serious Scavenger Hunt</a>.
             </div>
         </footer>
     </div>

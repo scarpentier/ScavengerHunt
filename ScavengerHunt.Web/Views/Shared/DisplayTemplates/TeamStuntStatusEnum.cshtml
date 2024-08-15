@@ -25,16 +25,16 @@
                     css = "danger";
                     break;
                 case TeamStuntStatusEnum.Done:
-                    css = "info";
-                    break;
-                case TeamStuntStatusEnum.Pending:
                     css = "success";
                     break;
+                case TeamStuntStatusEnum.Pending:
+                    css = "primary";
+                    break;
                 case TeamStuntStatusEnum.NotStarted:
-                    css = "default";
+                    css = "secondary";
                     break;
             }
-    <span class="label label-@css">
+    <span class="badge text-bg-@css">
             @Html.DisplayTextFor(model => displayName)</span>
         }
     }

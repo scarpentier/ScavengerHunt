@@ -18,56 +18,44 @@
         @Html.ValidationSummary(true)
         @Html.HiddenFor(model => model.Id)
         
-        <div class="form-group">
-            @Html.LabelFor(model => model.Keyword, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.TextBoxFor(model => model.Keyword, new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Keyword)
-            </div>
+        <div class="mb-3 col-md-3">
+            @Html.LabelFor(model => model.Keyword, new { @class = "control-label" })
+            @Html.TextBoxFor(model => model.Keyword, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Keyword)
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.MaxScore, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.MaxScore)
-                @Html.ValidationMessageFor(model => model.MaxScore)
-            </div>
+        <div class="mb-3 col-md-2">
+            @Html.LabelFor(model => model.MaxScore, new { @class = "control-label" })
+            @Html.TextBoxFor(model => model.MaxScore, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.MaxScore)
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Type, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Type)
-                @Html.ValidationMessageFor(model => model.Type)
-            </div>
+        <div class="mb-3 col-md-3">
+            @Html.LabelFor(model => model.Type, new { @class = "control-label" })
+            @Html.EditorFor(model => model.Type)
+            @Html.ValidationMessageFor(model => model.Type)
         </div>
         
-        <div class="form-group">
+        <div class="mb-3">
             @Html.LabelFor(model => model.Published, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.CheckBoxFor(model => model.Published)
-                @Html.ValidationMessageFor(model => model.Published)
-            </div>
+            @Html.CheckBoxFor(model => model.Published)
+            @Html.ValidationMessageFor(model => model.Published)
         </div>
         
-        <div class="form-group">
+        <div class="mb-3">
             @Html.LabelFor(model => model.Collapsible, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.CheckBoxFor(model => model.Collapsible)
-                @Html.ValidationMessageFor(model => model.Collapsible)
-            </div>
+            @Html.CheckBoxFor(model => model.Collapsible)
+            @Html.ValidationMessageFor(model => model.Collapsible)
         </div>
         
-        <div class="form-group">
-            @Html.LabelFor(model => model.JudgeNotes, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.TextAreaFor(model => model.JudgeNotes, new { @class = "form-control", @style = "height: 200px" })
-                <span class="text-muted"><span class="glyphicon glyphicon-info-sign"></span> Supports <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">Markdown</a>. Please use sparingly.</span>
-                @Html.ValidationMessageFor(model => model.JudgeNotes)
-            </div>
+        <div class="mb-3">
+            @Html.LabelFor(model => model.JudgeNotes, new { @class = "control-label" })
+            @Html.TextAreaFor(model => model.JudgeNotes, new { @class = "form-control", @style = "height: 200px" })
+            <span class="text-muted"><span class="icon-info"></span>Supports <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">Markdown</a>.</span>
+            @Html.ValidationMessageFor(model => model.JudgeNotes)
         </div>
 
-        <div class="form-group">
+        <div class="mb-3">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Save" class="btn btn-success" />
             </div>

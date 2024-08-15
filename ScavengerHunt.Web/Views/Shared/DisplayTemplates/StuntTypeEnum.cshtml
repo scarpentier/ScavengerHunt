@@ -22,13 +22,13 @@
                     icon = "flag";
                     break;
                 case StuntTypeEnum.File:
-                    icon = "file";
+                    icon = "doc";
                     break;
                 case StuntTypeEnum.Picture:
                     icon = "picture";
                     break;
                 case StuntTypeEnum.Video:
-                    icon = "film";
+                    icon = "video";
                     break;
                 case StuntTypeEnum.RichText:
                 case StuntTypeEnum.Text:
@@ -41,9 +41,7 @@
                     icon = "user";
                     break;
             }
-            <a href="#" data-toggle=tooltip title data-original-title="@displayName">
-                <span class="glyphicon glyphicon-@icon"></span>
-            </a>
+            <a href="#" data-bs-toggle=tooltip data-bs-title="@displayName"><span class="icon-@icon"></span></a>
         }
     }
 }

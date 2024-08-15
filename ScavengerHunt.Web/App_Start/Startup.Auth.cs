@@ -20,24 +20,6 @@ namespace ScavengerHunt.Web
             });
             // Use a cookie to temporarily store information about a user logging in with a third party login provider
             app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
-
-            // 3rd party providers
-            var microsoftAppId = ConfigurationManager.AppSettings["MicrosoftAppId"];
-            var microsoftAppSecret = ConfigurationManager.AppSettings["MicrosoftAppSecret"];
-            if (microsoftAppId != null && microsoftAppSecret != null)
-                app.UseMicrosoftAccountAuthentication(microsoftAppId, microsoftAppSecret);
-
-            var twitterAppId = ConfigurationManager.AppSettings["TwitterAppId"];
-            var twitterAppSecret = ConfigurationManager.AppSettings["TwitterAppSecret"];
-            if (twitterAppId != null && twitterAppSecret != null)
-                app.UseTwitterAuthentication(twitterAppId, twitterAppSecret);
-
-            var facebookAppId = ConfigurationManager.AppSettings["FacebookAppId"];
-            var facebookAppSecret = ConfigurationManager.AppSettings["FacebookAppSecret"];
-            if (facebookAppId != null && facebookAppSecret != null)
-                app.UseFacebookAuthentication(facebookAppId, facebookAppSecret);
-
-            app.UseGoogleAuthentication();
         }
     }
 }

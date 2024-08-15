@@ -17,7 +17,7 @@
          <div class="form" role="form">
              @Html.ValidationSummary(true)
 
-             <div class="form-group">
+             <div class="mb-3">
                  @Html.LabelFor(model => model.Token)
                  @Html.TextBoxFor(model => model.Token, new { @class = "form-control", @style = "max-width: 320px;" })
                  @Html.ValidationMessageFor(model => model.Token)

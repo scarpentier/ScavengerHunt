@@ -9,10 +9,10 @@
     
     if (ViewBag.Text != null)
     {
-        <a href="#" data-toggle="popover" data-title="@ViewBag.Description" data-content="@Model" data-placement="@ViewBag.DataPlacement">@ViewBag.Text</a>
+        <a href="#" data-bs-toggle="popover" data-bs-title="@ViewBag.Description" data-bs-content="@Model" data-bs-placement="@ViewBag.DataPlacement">@ViewBag.Text</a>
     }
     if (ViewBag.Icon != null)
     {
-        <a href="#" data-toggle="popover" data-title="@ViewBag.Description" data-content="@Model" data-placement="@ViewBag.DataPlacement"><span class="glyphicon @ViewBag.Icon"></span></a>
+        <a href="#" data-bs-toggle="popover" data-bs-title="@ViewBag.Description" data-bs-content="@Model" data-bs-placement="@ViewBag.DataPlacement"><span class="@ViewBag.Icon"></span></a>
     }
 }

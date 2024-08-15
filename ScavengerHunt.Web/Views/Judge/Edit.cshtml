@@ -63,61 +63,47 @@
         @Html.ValidationSummary(true)
         @Html.HiddenFor(model => model.Id)
 
-        <div class="form-group">
+        <div class="mb-3">
             @Html.LabelFor(model => model.DateUpdated, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DisplayFor(model => model.DateUpdated)
-            </div>
+            @Html.DisplayFor(model => model.DateUpdated)
         </div>
 
-        <div class="form-group">
+        <div class="mb-3">
             @Html.LabelFor(model => model.Submission, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DisplayFor(model => model.Submission)
-            </div>
+            @Html.DisplayFor(model => model.Submission)
         </div>
 
-        <div class="form-group">
+        <div class="mb-3">
             @Html.LabelFor(model => model.TeamNotes, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DisplayFor(model => model.TeamNotes)
-            </div>
+            @Html.DisplayFor(model => model.TeamNotes)
         </div>
 
-        <div class="form-group">
+        <div class="mb-3">
             @Html.LabelFor(model => model.Score, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Score)
-                @Html.ValidationMessageFor(model => model.Score)
-                <input type="button" class="btn" value="Max" onclick="setMaxScore()" />
-            </div>
+            @Html.EditorFor(model => model.Score)
+            @Html.ValidationMessageFor(model => model.Score)
+            <input type="button" class="btn-secondary" value="Max" onclick="setMaxScore()" />
         </div>
         
-        <div class="form-group">
+        <div class="mb-3">
             @Html.LabelFor(model => model.JudgeNotes, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.TextAreaFor(model => model.JudgeNotes, new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.JudgeNotes)
-            </div>
+            @Html.TextAreaFor(model => model.JudgeNotes, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.JudgeNotes)
         </div>
 
-        <div class="form-group">
+        <div class="mb-3">
             @Html.LabelFor(model => model.JudgeFeedback, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.TextAreaFor(model => model.JudgeFeedback, new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.JudgeFeedback)
-            </div>
+            @Html.TextAreaFor(model => model.JudgeFeedback, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.JudgeFeedback)
         </div>
 
-        <div class="form-group">
+        <div class="mb-3">
             @Html.LabelFor(model => model.Status, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Status)
-                @Html.ValidationMessageFor(model => model.Status)
-            </div>
+            @Html.EditorFor(model => model.Status)
+            @Html.ValidationMessageFor(model => model.Status)
         </div>
 
-        <div class="form-group">
+        <div class="mb-3">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Save" class="btn btn-success" />
             </div>
@@ -132,7 +118,8 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 <script type="text/javascript">
-    $("[data-toggle=tooltip").tooltip();
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
 
     var setMaxScore = function() {
         $("#Score").val(@Model.Stunt.MaxScore);

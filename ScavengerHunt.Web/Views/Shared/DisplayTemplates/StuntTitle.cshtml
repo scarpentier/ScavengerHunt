@@ -3,7 +3,7 @@
 @if (Model.Collapsible || ViewBag.ForceCollapse == true)
 {
     var panelId = string.Format("desc-panel-{0}{1}", Model.Id, Guid.NewGuid().ToString().Substring(0,6));
-    <span class="glyphicon glyphicon-chevron-down" data-toggle="collapse" data-target="#@panelId"></span>
+    <span class="icon-angle-down" data-bs-toggle="collapse" data-bs-target="#@panelId"></span>
     if (ViewBag.settings.ShowTitle)
     {
         @Html.DisplayFor(modelItem => Model.Title)

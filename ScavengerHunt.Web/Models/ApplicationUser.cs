@@ -40,11 +40,11 @@ namespace ScavengerHunt.Web.Models
         }
 
 
-        public bool AddUserToRole(string userId, string roleName)
+        public bool AddUserToRole(string userId, string roleId)
         {
             var um = new UserManager<ApplicationUser>(
                 new UserStore<ApplicationUser>(new ScavengerHuntContext()));
-            var idResult = um.AddToRole(userId, roleName);
+            var idResult = um.AddToRole(userId, roleId);
             return idResult.Succeeded;
         }
 
@@ -58,7 +58,7 @@ namespace ScavengerHunt.Web.Models
             currentRoles.AddRange(user.Roles);
             foreach (var role in currentRoles)
             {
-                um.RemoveFromRole(userId, role.Role.Name);
+                um.RemoveFromRole(userId, role.RoleId);
             }
         }
     }

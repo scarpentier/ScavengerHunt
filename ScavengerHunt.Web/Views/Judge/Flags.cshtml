@@ -36,7 +36,7 @@
 {
     <tr>
         <th>
-            <span class="glyphicon glyphicon-chevron-down"></span>
+            <span class="icon-angle-down"></span>
         </th>
         <td>
             @Html.DisplayFor(modelItem => item.Team.Name)
@@ -46,19 +46,19 @@
             @Html.DisplayFor(modelItem => item.Stunt, "StuntTitle", new { ForceCollapse = true })
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Submission, "Popover", new { Icon = "glyphicon-flag", DataPlacement = "top" })
+            @Html.DisplayFor(modelItem => item.Submission, "Popover", new { Icon = "icon-flag", DataPlacement = "top" })
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Stunt.JudgeNotes, "Popover", new { Icon = "glyphicon-flag", DataPlacement = "bottom" })
+            @Html.DisplayFor(modelItem => item.Stunt.JudgeNotes, "Popover", new { Icon = "icon-flag", DataPlacement = "bottom" })
         </td>
         <td>
             @if (item.Score == item.Stunt.MaxScore)
             {
-                <span class="glyphicon glyphicon-ok" style="color: darkgreen;"></span>
+                <span class="icon-ok" style="color: darkgreen;"></span>
             }
             else
             {
-                <span class="glyphicon glyphicon-remove" style="color: darkred;"></span>
+                <span class="icon-cancel" style="color: darkred;"></span>
             }
         </td>
         <td>
@@ -74,7 +74,7 @@
 @section scripts
 {
     <script type="text/javascript">
-        $("[data-toggle=tooltip").tooltip();
-        $("[data-toggle=popover").popover();
+        const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+        const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
     </script>
 }

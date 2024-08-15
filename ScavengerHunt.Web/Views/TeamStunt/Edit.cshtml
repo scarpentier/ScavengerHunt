@@ -14,57 +14,50 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4></h4>
         <hr />
         @Html.ValidationSummary(true)
         @Html.HiddenFor(model => model.Id)
 
-        <div class="form-group">
+        <div class="mb-3">
             @Html.LabelFor(model => model.Status, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Status, new { @style = "max-width: 320px;" })
-                @Html.ValidationMessageFor(model => model.Status)
-            </div>
+            @Html.EditorFor(model => model.Status, new { @style = "max-width: 320px;" })
+            @Html.ValidationMessageFor(model => model.Status)
         </div>
 
-        <div class="form-group">
+        <div class="mb-3">
             @Html.LabelFor(model => model.TeamNotes, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.TextAreaFor(model => model.TeamNotes, new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.TeamNotes)
-            </div>
+            @Html.TextAreaFor(model => model.TeamNotes, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.TeamNotes)
         </div>
 
-        <div class="form-group">
+        <div class="mb-3">
             @Html.LabelFor(model => model.Submission, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.TextBoxFor(model => model.Submission, new { @class = "form-control" })
-                <div class="text-muted">
-                    <span class="glyphicon glyphicon-info-sign"></span> The judges are expecting a @Html.DisplayFor(model => model.Stunt.Type)
-                    @switch (Model.Stunt.Type)
-                    {
-                        case StuntTypeEnum.Picture:
-                            <span>May we recommend <a href="https://imgur.com/">imgur</a>?</span>
-                            break;
-                        case StuntTypeEnum.Video:
-                            <span>May we recommend <a href="https://youtube.com/">Youtube</a>?</span>
-                            break;
-                        case StuntTypeEnum.Live:
-                            <span>Go see them!</span>
-                            break;
-                        case StuntTypeEnum.File:
-                            <span>May we recommend <a href="https://www.dropbox.com/">Dropbox</a>?</span>
-                            break;
-                        case StuntTypeEnum.Flag:
-                            <span>It will be automatically corrected upon submission.</span>
-                            break;
-                    }
-                </div>
-                @Html.ValidationMessageFor(model => model.Submission)
+            @Html.TextBoxFor(model => model.Submission, new { @class = "form-control" })
+            <div class="text-muted">
+                <span class="icon-info"></span>The judges are expecting a @Html.DisplayFor(model => model.Stunt.Type)
+                @switch (Model.Stunt.Type)
+                {
+                    case StuntTypeEnum.Picture:
+                        <span>May we recommend <a href="https://imgur.com/">imgur</a>?</span>
+                        break;
+                    case StuntTypeEnum.Video:
+                        <span>May we recommend <a href="https://youtube.com/">Youtube</a>?</span>
+                        break;
+                    case StuntTypeEnum.Live:
+                        <span>Go see them!</span>
+                        break;
+                    case StuntTypeEnum.File:
+                        <span>May we recommend <a href="https://www.dropbox.com/">Dropbox</a>?</span>
+                        break;
+                    case StuntTypeEnum.Flag:
+                        <span>It will be automatically corrected upon submission.</span>
+                        break;
+                }
             </div>
+            @Html.ValidationMessageFor(model => model.Submission)
         </div>
 
-        <div class="form-group">
+        <div class="mb-3">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="@Resources.Save" class="btn btn-success" />
             </div>
@@ -79,7 +72,8 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 <script type="text/javascript">
-    $("[data-toggle=tooltip").tooltip();
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
 </script>
 
 }
