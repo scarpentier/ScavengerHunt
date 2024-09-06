@@ -361,6 +361,7 @@
     <Content Include="Views\Judge\Flags.cshtml" />
     <Content Include="Views\TeamStunt\Summary.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\TextUrl.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\TeamStuntTitle.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

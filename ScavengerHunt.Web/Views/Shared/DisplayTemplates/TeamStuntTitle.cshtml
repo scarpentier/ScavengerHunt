@@ -1,16 +1,16 @@
-﻿@model ScavengerHunt.Web.Models.Stunt
+﻿@model ScavengerHunt.Web.Models.TeamStunt
 
-@if (Model.Collapsible || ViewBag.ForceCollapse == true)
+@if (Model.Stunt.Collapsible || ViewBag.ForceCollapse == true)
 {
     var panelId = string.Format("desc-panel-{0}{1}", Model.Id, Guid.NewGuid().ToString().Substring(0, 6));
     <span class="icon-angle-down" data-bs-toggle="collapse" data-bs-target="#@panelId"></span>
     if (ViewBag.settings.ShowTitle)
     {
-        @Html.ActionLink(Model.Title, "Edit", new { id = Model.Id })
+        @Html.ActionLink(Model.Stunt.Title, "Edit", new { id = Model.Id })
     }
     <div id="@panelId" class="panel-collapse collapse">
         <div class="panel-body">
-            @Html.Markdown(Model.Description)
+            @Html.Markdown(Model.Stunt.Description)
         </div>
     </div>
 }
@@ -18,8 +18,8 @@ else
 {
     if (ViewBag.settings.ShowTitle)
     {
-        @Html.ActionLink(Model.Title, "Edit", new { id = Model.Id })
+        @Html.ActionLink(Model.Stunt.Title, "Edit", new { id = Model.Id })
     }
     <br />
-    <span class="text-muted" style="font-size: smaller">@Html.Markdown(Model.Description)</span>
+    <span class="text-muted" style="font-size: smaller">@Html.Markdown(Model.Stunt.Description)</span>
 }
