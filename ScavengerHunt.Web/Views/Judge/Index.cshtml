@@ -23,7 +23,6 @@
         <th>
             @Resources.Notes
         </th>
-        <th></th>
     </tr>
 
 @foreach (var item in Model.Where(x=>x.Status == TeamStuntStatusEnum.Pending).OrderBy(x=>x.DateUpdated)) {
@@ -33,7 +32,7 @@
         </td>
         <td>
             <kbd>@Html.DisplayFor(modelItem => item.Stunt.Keyword)</kbd>
-            @Html.DisplayFor(modelItem => item.Stunt, "StuntTitle", new { ForceCollapse = true })
+            @Html.DisplayFor(modelItem => item, "TeamStuntTitle", new { ForceCollapse = true })
         </td>
         <td>
             @Html.DisplayFor(modelItem => item, "Score")
@@ -42,9 +41,6 @@
             @Html.DisplayFor(modelItem => item.TeamNotes, "Tooltip", new { Text = "Team" })
             @Html.DisplayFor(modelItem => item.JudgeFeedback, "Tooltip", new { Text = "Feedback" })
             @Html.DisplayFor(modelItem => item.JudgeNotes, "Tooltip", new { Text = "Notes" })
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id })
         </td>
     </tr>
 }
@@ -70,7 +66,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.Status)
             </th>
-            <th></th>
         </tr>
 
         @foreach (var item in Model.Where(x => x.Done).OrderByDescending(x => x.DateUpdated))
@@ -81,7 +76,7 @@
                 </td>
                 <td>
                     <kbd>@Html.DisplayFor(modelItem => item.Stunt.Keyword)</kbd>
-                    @Html.DisplayFor(modelItem => item.Stunt, "StuntTitle", new { ForceCollapse = true })
+                    @Html.DisplayFor(modelItem => item, "TeamStuntTitle", new { ForceCollapse = true })
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item, "Score")
@@ -93,9 +88,6 @@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Status)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Id })
                 </td>
             </tr>
         }
